@@ -15,7 +15,11 @@ function App() {
     <ThemeProvider theme={DiamondTheme}>
       <CssBaseline />
       <Stack height="100vh" width="100vw" spacing={1}>
-        <Navbar logo="theme" rightSlot={<ColourSchemeButton />}>
+        <Navbar
+          logo="theme"
+          containerWidth={false}
+          rightSlot={<ColourSchemeButton />}
+        >
           <NavLinks key="links">
             <NavLink href="#" key="first">
               A link
