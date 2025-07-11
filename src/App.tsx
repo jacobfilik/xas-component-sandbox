@@ -1,31 +1,31 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import {
+  ThemeProvider,
+  DiamondTheme,
+  Footer,
+  Navbar,
+  NavLinks,
+  NavLink,
+  ColourSchemeButton,
+} from "@diamondlightsource/sci-react-ui";
+import { Box, CssBaseline, Stack } from "@mui/material";
+import TestComponent from "./TestComponent";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
+    <ThemeProvider theme={DiamondTheme}>
+      <CssBaseline />
+      <Stack height="100vh" width="100vw" spacing={1}>
+        <Navbar logo="theme" rightSlot={<ColourSchemeButton />}>
+          <NavLinks key="links">
+            <NavLink href="#" key="first">
+              A link
+            </NavLink>
+          </NavLinks>
+        </Navbar>
+        <TestComponent />
+        <Footer copyright="Diamond Light Source" />
+      </Stack>
+    </ThemeProvider>
   );
 }
 
