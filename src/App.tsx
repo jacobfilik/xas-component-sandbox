@@ -7,7 +7,7 @@ import {
   NavLink,
   ColourSchemeButton,
 } from "@diamondlightsource/sci-react-ui";
-import { Box, CssBaseline, Stack } from "@mui/material";
+import { CssBaseline, Stack } from "@mui/material";
 import TestComponent from "./TestComponent";
 
 function App() {
