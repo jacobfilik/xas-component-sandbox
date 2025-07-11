@@ -14,7 +14,7 @@ const renderers = [
 ];
 
 export default function TestComponent() {
-  const [data, setData] = useState({
+  const [model, setModel] = useState({
     scanName: "My Scan",
     scanNumber: 12345,
     sampleName: "My Sample",
@@ -65,19 +65,17 @@ export default function TestComponent() {
           <Paper sx={{ padding: "20px", margin: "50px" }} elevation={20}>
             <JsonForms
               schema={schema}
-              data={data}
+              data={model}
               renderers={renderers}
               uischema={uischema}
               cells={materialCells}
-              onChange={({ data }) => {
-                setData({ ...data });
-              }}
+              onChange={({ data }) => setModel(data)}
             />
           </Paper>
           <TextField
             rows={12}
             multiline
-            value={JSON.stringify(data, null, 2)}
+            value={JSON.stringify(model, null, 2)}
           ></TextField>
         </Stack>
       </Container>
