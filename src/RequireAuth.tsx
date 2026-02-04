@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { UserContext } from "./UserContext";
-import { Navigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
 export default function RequireAuth(props: { children: React.ReactNode }) {

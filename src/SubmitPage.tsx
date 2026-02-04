@@ -1,4 +1,3 @@
-import { jsonFormsReducerConfig } from "@jsonforms/core";
 import { Button, Stack, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
