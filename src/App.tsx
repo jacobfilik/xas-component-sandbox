@@ -2,33 +2,52 @@ import {
   ThemeProvider,
   DiamondTheme,
   Footer,
-  Navbar,
-  NavLinks,
-  NavLink,
-  ColourSchemeButton,
 } from "@diamondlightsource/sci-react-ui";
 import { CssBaseline, Stack } from "@mui/material";
 import TestComponent from "./TestComponent";
+import { Route, Routes } from "react-router-dom";
+import PlanPage from "./PlanPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SubmitPage from "./SubmitPage";
+import HomePage from "./HomePage";
+import { UserProvider } from "./UserContext";
+import Header from "./Header";
+import RequireAuth from "./RequireAuth";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <ThemeProvider theme={DiamondTheme}>
       <CssBaseline />
-      <Stack height="100vh" width="100vw" spacing={1}>
-        <Navbar
-          logo="theme"
-          containerWidth={false}
-          rightSlot={<ColourSchemeButton />}
-        >
-          <NavLinks key="links">
-            <NavLink href="#" key="first">
-              A link
-            </NavLink>
-          </NavLinks>
-        </Navbar>
-        <TestComponent />
-        <Footer copyright="Diamond Light Source" />
-      </Stack>
+      <QueryClientProvider client={queryClient}>
+        <UserProvider>
+          <Stack height="100vh" width="100vw" spacing={1} overflow={"hidden"}>
+            <Header />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route
+                path="/plans"
+                element={
+                  <RequireAuth>
+                    <PlanPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/submit"
+                element={
+                  <RequireAuth>
+                    <SubmitPage />
+                  </RequireAuth>
+                }
+              />
+              <Route path="/test" element={<TestComponent />} />
+            </Routes>
+            <Footer copyright="Diamond Light Source" />
+          </Stack>
+        </UserProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
