@@ -10,13 +10,13 @@ const user = "oauth2/userinfo";
 
 export const getPlans = async () => {
   const { data } = await axios.get<PlansResponse, AxiosResponse<PlansResponse>>(
-    blueapi + plans + "/"
+    blueapi + plans
   );
   return data;
 };
 
 export const postPlan = async (input: object) => {
-  const response = await axios.post(blueapi + tasks + "/", input);
+  const response = await axios.post(blueapi + tasks, input);
 
   if (response.status != 200) {
     throw new Error("Failed to submit task");
