@@ -21,7 +21,7 @@ function DeviceSelector(props: {
         getOptionLabel={(d) => d.name}
         // defaultValue={props.multiple ? [props.devices[0]] : props.devices[0]}
         filterSelectedOptions
-        onChange={(e, v) => props.setDevice(v)}
+        onChange={(_e, v) => props.setDevice(v)}
         renderInput={(params) => (
           <TextField
             {...params}
