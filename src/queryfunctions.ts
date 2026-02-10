@@ -21,7 +21,7 @@ export const getPlans = async () => {
 export const postPlan = async (input: object) => {
   const response = await axios.post(blueapi + tasks, input);
 
-  if (response.status != 200) {
+  if (response.status != 201) {
     throw new Error("Failed to submit task");
   }
 
