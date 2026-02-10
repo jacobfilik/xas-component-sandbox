@@ -224,7 +224,7 @@ export const handlers = [
     console.log(requestObject);
     const response: TaskResponse = { task_id: "mock_task_id" };
 
-    return HttpResponse.json(response);
+    return HttpResponse.json(response, { status: 201 });
   }),
 
   http.get("/blueapi/devices", () => {
