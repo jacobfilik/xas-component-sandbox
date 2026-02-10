@@ -42,11 +42,20 @@ export default function Header() {
         <NavLink to="/plans" key="plans" linkComponent={Link}>
           Plans
         </NavLink>
+        <NavLink to="/devices" key="devices" linkComponent={Link}>
+          Devices
+        </NavLink>
+        <NavLink to="/tasks" key="tasks" linkComponent={Link}>
+          Tasks
+        </NavLink>
         <NavLink to="/submit" key="submit" linkComponent={Link}>
           Submit
         </NavLink>
         <NavLink to="/test" key="test" linkComponent={Link}>
           Test
+        </NavLink>
+        <NavLink to="/customplan" key="customplan" linkComponent={Link}>
+          Custom Plan
         </NavLink>
       </NavLinks>
     </Navbar>

@@ -13,6 +13,9 @@ import HomePage from "./HomePage";
 import { UserProvider } from "./UserContext";
 import Header from "./Header";
 import RequireAuth from "./RequireAuth";
+import DevicePage from "./DevicePage";
+import TaskPage from "./TaskPage";
+import CustomPlanPage from "./CustomPlanPage";
 
 const queryClient = new QueryClient();
 
@@ -35,10 +38,34 @@ function App() {
                 }
               />
               <Route
+                path="/devices"
+                element={
+                  <RequireAuth>
+                    <DevicePage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/tasks"
+                element={
+                  <RequireAuth>
+                    <TaskPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
                 path="/submit"
                 element={
                   <RequireAuth>
                     <SubmitPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/customplan"
+                element={
+                  <RequireAuth>
+                    <CustomPlanPage />
                   </RequireAuth>
                 }
               />
