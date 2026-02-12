@@ -17,7 +17,14 @@ export default function DevicePage() {
     );
   } else {
     return (
-      <Stack height="100%" padding={"50px"} spacing={"10px"} overflow={"auto"}>
+      <Stack
+        height="100%"
+        padding={"50px"}
+        spacing={"10px"}
+        overflow={"auto"}
+        flex={1}
+      >
+        <Typography variant="h4">Devices</Typography>
         {query.data.devices.map((d, i) => (
           <DeviceComponent key={i} device={d} />
         ))}

@@ -16,6 +16,7 @@ import RequireAuth from "./RequireAuth";
 import DevicePage from "./DevicePage";
 import TaskPage from "./TaskPage";
 import CustomPlanPage from "./CustomPlanPage";
+import BlueapiResources from "./BlueapiResources";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,14 @@ function App() {
                 element={
                   <RequireAuth>
                     <SubmitPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/blueapiresources"
+                element={
+                  <RequireAuth>
+                    <BlueapiResources />
                   </RequireAuth>
                 }
               />

@@ -4,10 +4,22 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import type { Device } from "./models";
-import { Box, Button, Paper, Typography } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
+import CountPlanPanel from "./CountPlanPanel";
+import StepScanPanel from "./StepScanPanel";
+import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
+import SubmittedTaskPanel from "./SubmittedTaskPanel";
+import SubmittedJson from "./SubmittedJson";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function DeviceSelector(props: {
+export function DeviceSelector(props: {
   devices: Device[];
   multiple: boolean;
   setDevice: (d: Device | Device[] | null) => void;
@@ -34,12 +46,6 @@ function DeviceSelector(props: {
   );
 }
 
-interface CountPlan {
-  detectors: string[];
-  num: number;
-  delay: number;
-}
-
 export default function CustomPlanPage() {
   const query = useQuery({
     queryKey: ["blueapi", "devices"],
@@ -48,7 +54,9 @@ export default function CustomPlanPage() {
 
   const putMutation = useMutation({
     mutationFn: putTask,
-    onSuccess: () => {},
+    onSuccess: (data) => {
+      setSubmittedTaskId(data.task_id);
+    },
     onError: () => {},
   });
 
@@ -60,13 +68,13 @@ export default function CustomPlanPage() {
     onError: () => {},
   });
 
-  const [countPlan, setCountPlan] = useState<CountPlan>({
-    detectors: [],
-    num: 1,
-    delay: 0,
-  });
+  const [session, setSession] = useState<string>("cm44254-1");
+  const [submittedTaskId, setSubmittedTaskId] = useState<string | null>(null);
+  const [submittedJson, setSubmittedJson] = useState<string>("{}");
 
-  const [session, setSession] = useState<string>("");
+  const notifyOfPlan = (plan: object) => {
+    setSubmittedJson(JSON.stringify(plan, null, 2));
+  };
 
   if (!query.data) {
     return (
@@ -76,187 +84,66 @@ export default function CustomPlanPage() {
     );
   } else {
     return (
-      <Stack
-        height="100%"
-        padding={"50px"}
-        spacing={"10px"}
-        overflow={"auto"}
-        width={"40%"}
-      >
-        <TextField
-          variant="outlined"
-          label="Visit"
-          value={session}
-          onChange={(e) => {
-            setSession(e.target.value);
-          }}
-          slotProps={{ inputLabel: { shrink: true } }}
-        ></TextField>
-        <Paper elevation={5}>
-          <Stack
-            height="100%"
-            padding={"10px"}
-            spacing={"20px"}
-            overflow={"auto"}
-          >
-            <Typography>Count</Typography>
-            <DeviceSelector
-              devices={query.data.devices}
-              multiple={true}
-              setDevice={(devs) => {
-                console.log(devs);
-                let deviceNames: string[] = [];
-                if (devs != null) {
-                  if (Array.isArray(devs)) {
-                    deviceNames = devs.map((d) => {
-                      return d.name;
-                    });
-                  } else {
-                    deviceNames = [devs.name];
-                  }
-                }
-
-                console.log(deviceNames);
-
-                const tmp = {
-                  ...countPlan,
-                  detectors: deviceNames,
-                };
-                setCountPlan(tmp);
-              }}
-            />
-            <Stack direction="row" spacing={"10px"}>
-              <TextField
-                variant="outlined"
-                label="Number of Readings"
-                type="number"
-                value={countPlan.num}
-                onChange={(e) => {
-                  const tmp = { ...countPlan, num: parseFloat(e.target.value) };
-                  setCountPlan(tmp);
-                }}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-              <TextField
-                variant="outlined"
-                label="Delay between points"
-                type="number"
-                value={countPlan.delay}
-                onChange={(e) => {
-                  const tmp = {
-                    ...countPlan,
-                    delay: parseFloat(e.target.value),
-                  };
-                  setCountPlan(tmp);
-                }}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-            </Stack>
-            <Button
-              variant="contained"
-              onClick={() => {
-                const toPost = {
-                  name: "count",
-                  params: countPlan,
-                  instrument_session: session,
-                };
-
-                mutation.mutate(toPost);
-              }}
+      <Stack direction={"row"} spacing={"20px"} height="100%" width="100%">
+        <Stack
+          height="100%"
+          padding={"50px"}
+          spacing={"10px"}
+          overflow={"auto"}
+          flex={1}
+        >
+          <TextField
+            variant="outlined"
+            label="Visit"
+            value={session}
+            onChange={(e) => {
+              setSession(e.target.value);
+            }}
+            slotProps={{ inputLabel: { shrink: true } }}
+          ></TextField>
+          <CountPlanPanel
+            devices={query.data.devices}
+            session={session}
+            mutation={mutation}
+            notifyOfPlan={notifyOfPlan}
+          />
+          <StepScanPanel
+            devices={query.data.devices}
+            session={session}
+            mutation={mutation}
+            notifyOfPlan={notifyOfPlan}
+          />
+          <TurboSlitPlanPanel
+            session={session}
+            mutation={mutation}
+            notifyOfPlan={notifyOfPlan}
+          />
+        </Stack>
+        <Stack
+          height="100%"
+          padding={"50px"}
+          spacing={"20px"}
+          overflow={"auto"}
+          flex={1}
+        >
+          {submittedTaskId ? (
+            <SubmittedTaskPanel taskID={submittedTaskId} />
+          ) : (
+            <Box>No Submitted Task</Box>
+          )}
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
             >
-              Submit
-            </Button>
-          </Stack>
-        </Paper>
-        <Paper elevation={5}>
-          <Stack
-            height="100%"
-            padding={"10px"}
-            spacing={"20px"}
-            overflow={"auto"}
-          >
-            <Typography>Step Scan</Typography>
-            <DeviceSelector
-              devices={query.data.devices}
-              multiple={true}
-              setDevice={() => {}}
-            />
-            <DeviceSelector
-              devices={query.data.devices}
-              multiple={false}
-              setDevice={() => {}}
-            />
-            <Stack direction="row" spacing={"10px"}>
-              <TextField
-                variant="outlined"
-                label="Start"
-                type="number"
-                defaultValue={1}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-              <TextField
-                variant="outlined"
-                label="Stop"
-                type="number"
-                defaultValue={0}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-              <TextField
-                variant="outlined"
-                label="Step"
-                type="number"
-                defaultValue={0}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-            </Stack>
-            <Button disabled variant="contained">
-              Submit
-            </Button>
-          </Stack>
-        </Paper>
-        <Paper elevation={5}>
-          <Stack
-            height="100%"
-            padding={"10px"}
-            spacing={"20px"}
-            overflow={"auto"}
-          >
-            <Typography>Turbo Slit Flyscan</Typography>
-            <Stack direction="row" spacing={"10px"}>
-              <TextField
-                variant="outlined"
-                label="Start"
-                type="number"
-                defaultValue={0}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-              <TextField
-                variant="outlined"
-                label="Stop"
-                type="number"
-                defaultValue={1}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-              <TextField
-                variant="outlined"
-                label="Number"
-                type="number"
-                defaultValue={1}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-              <TextField
-                variant="outlined"
-                label="Duration"
-                type="number"
-                defaultValue={1}
-                slotProps={{ inputLabel: { shrink: true } }}
-              ></TextField>
-            </Stack>
-            <Button disabled variant="contained">
-              Submit
-            </Button>
-          </Stack>
-        </Paper>
+              <Typography component="span">Submitted Plan JSON</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <SubmittedJson planJson={submittedJson}></SubmittedJson>
+            </AccordionDetails>
+          </Accordion>
+        </Stack>
       </Stack>
     );
   }

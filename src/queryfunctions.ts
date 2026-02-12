@@ -1,5 +1,10 @@
 import type { AxiosResponse } from "axios";
-import type { DeviceResponse, PlansResponse, TaskListResponse } from "./models";
+import type {
+  DeviceResponse,
+  PlansResponse,
+  TaskListItem,
+  TaskListResponse,
+} from "./models";
 import axios from "axios";
 
 const blueapi = "/blueapi";
@@ -61,6 +66,18 @@ export const putTask = async (input: object) => {
 
   if (response.status != 200) {
     throw new Error("Failed to activate task");
+  }
+
+  return response.data;
+};
+
+export const getTask = async (taskId: string) => {
+  const response = await axios.get<TaskListItem, AxiosResponse<TaskListItem>>(
+    blueapi + tasks + "/" + taskId
+  );
+
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve task");
   }
 
   return response.data;
