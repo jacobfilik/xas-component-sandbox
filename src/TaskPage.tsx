@@ -17,7 +17,8 @@ export default function TaskPage() {
     );
   } else {
     return (
-      <Stack height="100%" padding={"50px"} spacing={"10px"} overflow={"auto"}>
+      <Stack height="100%" padding={"50px"} spacing={"10px"} overflow={"auto"} flex={1}>
+        <Typography variant="h4">Tasks</Typography>
         {query.data.tasks.map((t, i) => (
           <TaskComponent key={i} taskItem={t} />
         ))}

@@ -1,14 +1,17 @@
-import { Box, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import SwiftIcon from "./SwiftIcon";
 
 export default function HomePage() {
   return (
-    <Box
+    <Stack
       height={"100%"}
       width={"100%"}
-      alignContent={"center"}
-      padding={"100px"}
+      // alignContent={"center"}
+      justifyContent={"center"}
+      alignItems={"center"}
     >
-      <Typography variant="h1"> Well hello there ;)</Typography>
-    </Box>
+      <SwiftIcon fontSize="large" sx={{ height: "500px", width: "500px" }} />
+      <Typography variant="h1"> K14 SWIFT</Typography>
+    </Stack>
   );
 }

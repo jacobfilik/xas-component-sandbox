@@ -1,22 +1,24 @@
 import { Button, Stack, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { postPlan } from "./queryfunctions";
+import { postPlan, putTask } from "./queryfunctions";
 
 export default function SubmitPage() {
   const [planString, setPlanString] = useState<string>("{}");
   const [planObject, setPlanObject] = useState<object | null>({});
 
+  const putMutation = useMutation({
+    mutationFn: putTask,
+    onSuccess: () => {},
+    onError: () => {},
+  });
+
   const mutation = useMutation({
     mutationFn: postPlan,
-    onSuccess: () => {
-      // Invalidate and refetch
-      //   callback();
+    onSuccess: (data) => {
+      putMutation.mutate(data);
     },
-    onError: () => {
-      //   setState("error");
-      //   setDisabled(false);
-    },
+    onError: () => {},
   });
 
   const onChange = (input: string) => {

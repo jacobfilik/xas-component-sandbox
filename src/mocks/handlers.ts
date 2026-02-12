@@ -215,6 +215,10 @@ export const handlers = [
     return HttpResponse.json(mockTasks);
   }),
 
+  http.get("/blueapi/tasks/:id", () => {
+    return HttpResponse.json(mockTasks.tasks[0]);
+  }),
+
   http.post("/blueapi/tasks", async ({ request }) => {
     // Read the intercepted request body as JSON.
     const requestObject = await request.json();

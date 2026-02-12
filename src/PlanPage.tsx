@@ -17,7 +17,14 @@ export default function PlanPage() {
     );
   } else {
     return (
-      <Stack height="100%" padding={"50px"} spacing={"10px"} overflow={"auto"}>
+      <Stack
+        height="100%"
+        padding={"50px"}
+        spacing={"10px"}
+        overflow={"auto"}
+        flex={1}
+      >
+        <Typography variant="h4">Plans</Typography>
         {query.data.plans.map((p, i) => (
           <PlanComponent key={i} plan={p} />
         ))}
