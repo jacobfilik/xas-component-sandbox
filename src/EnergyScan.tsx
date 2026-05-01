@@ -6,9 +6,6 @@ interface EnergyScanPlan {
   element: string,
   edge: string,
   time_per_sweep:number,
-  panda: string,
-  motor: string,
-  metadata:string,
   variable_exafs_time:boolean,
 }
 
@@ -22,9 +19,6 @@ export default function EnergyScanPlanPanel(props: {
     element:"Ar",
     edge:"K",
     time_per_sweep:8,
-    panda: "",
-    motor: "",
-    metadata:"",
     variable_exafs_time:false,
   });
   return (

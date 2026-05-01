@@ -8,13 +8,10 @@ interface PandaUniformScanPlan {
   stepsize: number,
   number_of_sweeps:number,
   time_per_sweep: number,
-  motor: string,
-  panda: string,
   num_trajectory_points: number,
   add_sweep_triggers: boolean,
   ramp_time: number,
   turnaround_time: number,
-  metadata:string,
 }
 
 export default function PandaUniformScanPanel(props: {
@@ -29,13 +26,10 @@ export default function PandaUniformScanPanel(props: {
     stepsize: 1,
     number_of_sweeps: 4,
     time_per_sweep: 5,
-    motor: "",
-    panda: "",
     num_trajectory_points: 10,
     add_sweep_triggers: false,
     ramp_time: 1,
     turnaround_time: 1,
-    metadata:"",
   });
   return (
     <Paper elevation={5}>
