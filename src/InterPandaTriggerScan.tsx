@@ -1,9 +1,16 @@
 import type { UseMutationResult } from "@tanstack/react-query";
-import { Button, Paper, Stack, TextField, Typography, Checkbox, FormControlLabel } from "@mui/material";
+import { Button, Paper, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
+type TriggerTuple = [
+  number[],              // trigger_output_ports
+  number,                // trigger_pulse_width
+  number,                // trigger_output_delay
+  number,                // trigger_output_num_repeats
+  number,                 // trigger_type
+];
 
-interface PandaUniformScanPlan {
+interface InterPandaTriggerPlan {
   start:number,
   stop: number,
   stepsize: number,
@@ -21,13 +28,13 @@ interface PandaUniformScanPlan {
   metadata: string,
 }
 
-export default function PandaUniformScanPanel(props: {
+export default function InterPandaTriggerPlanPanel(props: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   mutation: UseMutationResult<any, Error, object, unknown>;
   session: string;
   notifyOfPlan: (plan: object) => void;
 }) {
-  const [PandaUniformScanPlan, setUniformScanPlan] = useState<PandaUniformScanPlan>({
+  const [InterPandaTriggerPlan, setInterPandaTriggerPlan] = useState<InterPandaTriggerPlan>({
     start:0,
     stop: 10,
     stepsize: 1,
@@ -47,9 +54,9 @@ export default function PandaUniformScanPanel(props: {
   return (
     <Paper elevation={5}>
       <Stack height="100%" padding={"10px"} spacing={"20px"} overflow={"auto"}>
-        <Typography>Panda Uniform Postion Scan</Typography>
+        <Typography>Inter Panda Triggering Scan</Typography>
         <Stack direction="column" spacing={"10px"}>
-          {Object.entries(PandaUniformScanPlan).map(([key, value]) => (
+          {Object.entries(InterPandaTriggerPlan).map(([key, value]) => (
             <TextField
               key={key}
               variant="outlined"
@@ -57,8 +64,8 @@ export default function PandaUniformScanPanel(props: {
               type={typeof value === "number" ? "number" : "text"}
               value={value}
               onChange={(e) => {
-                setUniformScanPlan({
-                  ...PandaUniformScanPlan,
+                setInterPandaTriggerPlan({
+                  ...InterPandaTriggerPlan,
                   [key]:
                     typeof value === "number"
                       ? parseFloat(e.target.value)
@@ -68,20 +75,6 @@ export default function PandaUniformScanPanel(props: {
               slotProps={{ inputLabel: { shrink: true } }}
             />
           ))}
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={PandaUniformScanPlan.add_sweep_triggers}
-                onChange={(e) =>
-                  setUniformScanPlan({
-                    ...PandaUniformScanPlan,
-                    add_sweep_triggers: e.target.checked,
-                  })
-                }
-              />
-            }
-            label="Enable triggers"
-          />
         </Stack>
         <Button
           variant="contained"
@@ -92,40 +85,35 @@ export default function PandaUniformScanPanel(props: {
               trigger_output_delay,
               trigger_output_num_repeats,
               trigger_type,
-              add_sweep_triggers,
               metadata,
               ...rest
-            } = PandaUniformScanPlan;
+            } = InterPandaTriggerPlan;
 
-            const params: any = {
+            const triggers: TriggerTuple[] = [
+              [
+                trigger_output_ports,
+                trigger_pulse_width,
+                trigger_output_delay,
+                trigger_output_num_repeats,
+                trigger_type,
+              ],
+            ];
+
+            const toPost = {
+              name: "seq_table_uniform_scan",
+              params: {
                 ...rest,
+                triggers,
                 metadata: {
                   user_comments: metadata,
                 },
-              };
-
-              if (add_sweep_triggers) {
-                params.triggers = [
-                  [
-                    trigger_output_ports,
-                    trigger_pulse_width,
-                    trigger_output_delay,
-                    trigger_output_num_repeats,
-                    trigger_type,
-                  ],
-                ];
-              }
-
-            const toPost = {
-                name: "seq_table_uniform_scan",
-                params,
-                instrument_session: props.session,
-              };
+              },
+              instrument_session: props.session,
+            };
 
             props.notifyOfPlan(toPost);
             props.mutation.mutate(toPost);
           }}
-
         >
           Submit
         </Button>

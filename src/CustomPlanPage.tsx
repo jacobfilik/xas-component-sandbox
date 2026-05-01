@@ -16,6 +16,7 @@ import CountPlanPanel from "./CountPlanPanel";
 import StepScanPanel from "./StepScanPanel";
 import PandaUniformScanPanel from "./PandaUniformScan"
 import EnergyScanPlanPanel from "./EnergyScan"
+import InterPandaTriggerPlanPanel from "./InterPandaTriggerScan"
 import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
 import SubmittedJson from "./SubmittedJson";
@@ -132,7 +133,7 @@ export default function CustomPlanPage() {
 
         <Accordion defaultExpanded={false}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Panda Uniform Scan</Typography>
+            <Typography>Uniform Position Scan</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <PandaUniformScanPanel
@@ -145,7 +146,7 @@ export default function CustomPlanPage() {
 
         <Accordion defaultExpanded={false}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Energy Scan</Typography>
+            <Typography>Energy Grid Scan</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <EnergyScanPlanPanel
@@ -158,7 +159,20 @@ export default function CustomPlanPage() {
 
         <Accordion defaultExpanded={false}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Turbo Slit</Typography>
+            <Typography>Inter Panda Triggering Scan</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <InterPandaTriggerPlanPanel
+              session={session}
+              mutation={mutation}
+              notifyOfPlan={notifyOfPlan}
+            />
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion defaultExpanded={false}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Trajectory Fly Scan</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <TurboSlitPlanPanel
