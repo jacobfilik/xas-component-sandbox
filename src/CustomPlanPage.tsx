@@ -14,6 +14,8 @@ import {
 import { useState } from "react";
 import CountPlanPanel from "./CountPlanPanel";
 import StepScanPanel from "./StepScanPanel";
+import PandaUniformScanPanel from "./PandaUniformScan"
+import EnergyScanPlanPanel from "./EnergyScan"
 import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
 import SubmittedJson from "./SubmittedJson";
@@ -101,14 +103,24 @@ export default function CustomPlanPage() {
             }}
             slotProps={{ inputLabel: { shrink: true } }}
           ></TextField>
-          <CountPlanPanel
+            <CountPlanPanel
+              devices={query.data.devices}
+              session={session}
+              mutation={mutation}
+              notifyOfPlan={notifyOfPlan}
+            />
+          <StepScanPanel
             devices={query.data.devices}
             session={session}
             mutation={mutation}
             notifyOfPlan={notifyOfPlan}
           />
-          <StepScanPanel
-            devices={query.data.devices}
+          <PandaUniformScanPanel
+            session={session}
+            mutation={mutation}
+            notifyOfPlan={notifyOfPlan}
+          />
+          <EnergyScanPlanPanel
             session={session}
             mutation={mutation}
             notifyOfPlan={notifyOfPlan}
