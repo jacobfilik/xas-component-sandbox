@@ -87,7 +87,7 @@ export default function TurboSlitPlanPanel(props: {
           variant="contained"
           onClick={() => {
             const toPost = {
-              name: "seq_table",
+              name: "trajectory_fly_scan",
               params: seqTablePlan,
               instrument_session: props.session,
             };

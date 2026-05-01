@@ -7,6 +7,7 @@ interface EnergyScanPlan {
   edge: string,
   time_per_sweep:number,
   variable_exafs_time:boolean,
+  metadata: string,
 }
 
 export default function EnergyScanPlanPanel(props: {
@@ -20,6 +21,7 @@ export default function EnergyScanPlanPanel(props: {
     edge:"K",
     time_per_sweep:8,
     variable_exafs_time:false,
+    metadata:"",
   });
   return (
     <Paper elevation={5}>
@@ -51,7 +53,12 @@ export default function EnergyScanPlanPanel(props: {
           onClick={() => {
             const toPost = {
               name: "seq_table_energy_scan",
-              params: EnergyScanPlan,
+              params: {
+                    ...EnergyScanPlan,
+                    metadata: {
+                      user_comments: EnergyScanPlan.metadata
+                    },
+                  },
               instrument_session: props.session,
             };
 
