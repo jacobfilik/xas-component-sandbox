@@ -2,6 +2,16 @@ import type { UseMutationResult } from "@tanstack/react-query";
 import { Button, Paper, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
+
+type TriggerTuple = [
+  number[], // trigger_output_ports
+  number,   // trigger_pulse_width
+  number,   // trigger_output_delay
+  number,   // trigger_output_num_repeats
+  number,   // trigger_type
+  number    // trigger_repeat
+];
+
 interface InterPandaTriggerPlan {
   start:number,
   stop: number,
@@ -45,6 +55,7 @@ export default function InterPandaTriggerPlanPanel(props: {
     trigger_repeat:1,
     metadata:"",
   });
+  const [triggers, setTriggers] = useState<TriggerTuple[]>([]);
   return (
     <Paper elevation={5}>
       <Stack height="100%" padding={"10px"} spacing={"20px"} overflow={"auto"}>
@@ -69,17 +80,53 @@ export default function InterPandaTriggerPlanPanel(props: {
               slotProps={{ inputLabel: { shrink: true } }}
             />
           ))}
+          <Button
+            variant="outlined"
+            onClick={() => {
+              const {
+                trigger_output_ports,
+                trigger_pulse_width,
+                trigger_output_delay,
+                trigger_output_num_repeats,
+                trigger_type,
+                trigger_repeat,
+              } = InterPandaTriggerPlan;
+
+              setTriggers(prev => [
+                ...prev,
+                [
+                  trigger_output_ports,
+                  trigger_pulse_width,
+                  trigger_output_delay,
+                  trigger_output_num_repeats,
+                  trigger_type,
+                  trigger_repeat,
+                ],
+              ]);
+            }}
+          >
+            Add Trigger
+          </Button>
+
+          {triggers.length > 0 && (
+            <Paper variant="outlined" sx={{ p: 2 }}>
+              <Typography variant="subtitle1">Triggers</Typography>
+
+              <Stack spacing={1}>
+                {triggers.map((trigger, index) => (
+                  <Typography key={index} variant="body2">
+                    Trigger {index + 1}:{" "}
+                    {JSON.stringify(trigger)}
+                  </Typography>
+                ))}
+              </Stack>
+            </Paper>
+          )}
         </Stack>
         <Button
           variant="contained"
           onClick={() => {
             const {
-              trigger_output_ports,
-              trigger_pulse_width,
-              trigger_output_delay,
-              trigger_output_num_repeats,
-              trigger_type,
-              trigger_repeat,
               metadata,
               ...rest
             } = InterPandaTriggerPlan;
@@ -91,14 +138,7 @@ export default function InterPandaTriggerPlanPanel(props: {
                 },
               };
 
-            params.triggers = [
-                  trigger_output_ports,
-                  trigger_pulse_width,
-                  trigger_output_delay,
-                  trigger_output_num_repeats,
-                  trigger_type,
-                  trigger_repeat,
-              ];
+            params.triggers = triggers;
 
             const toPost = {
               name: "seq_table_two_panda_scan",
