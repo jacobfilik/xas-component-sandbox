@@ -127,6 +127,12 @@ export default function InterPandaTriggerPlanPanel(props: {
           variant="contained"
           onClick={() => {
             const {
+              trigger_output_ports,
+              trigger_pulse_width,
+              trigger_output_delay,
+              trigger_output_num_repeats,
+              trigger_type,
+              trigger_repeat,
               metadata,
               ...rest
             } = InterPandaTriggerPlan;
