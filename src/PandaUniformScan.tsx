@@ -129,6 +129,12 @@ export default function PandaUniformScanPanel(props: {
           variant="contained"
           onClick={() => {
             const {
+              trigger_output_ports,
+              trigger_pulse_width,
+              trigger_output_delay,
+              trigger_output_num_repeats,
+              trigger_type,
+              trigger_repeat,
               enable_triggers,
               metadata,
               ...rest
