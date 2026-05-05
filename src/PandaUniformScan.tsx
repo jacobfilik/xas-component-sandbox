@@ -18,6 +18,8 @@ interface PandaUniformScanPlan {
   trigger_output_delay: number,
   trigger_output_num_repeats: number,
   trigger_type: number,
+  trigger_repeat: number,
+  enable_triggers:boolean,
   metadata: string,
 }
 
@@ -42,6 +44,8 @@ export default function PandaUniformScanPanel(props: {
     trigger_output_delay: 0,
     trigger_output_num_repeats: 1,
     trigger_type: 0,
+    trigger_repeat: 1,
+    enable_triggers: false,
     metadata:"",
   });
   return (
@@ -71,11 +75,11 @@ export default function PandaUniformScanPanel(props: {
           <FormControlLabel
             control={
               <Checkbox
-                checked={PandaUniformScanPlan.add_sweep_triggers}
+                checked={PandaUniformScanPlan.enable_triggers}
                 onChange={(e) =>
                   setUniformScanPlan({
                     ...PandaUniformScanPlan,
-                    add_sweep_triggers: e.target.checked,
+                    enable_triggers: e.target.checked,
                   })
                 }
               />
@@ -92,7 +96,8 @@ export default function PandaUniformScanPanel(props: {
               trigger_output_delay,
               trigger_output_num_repeats,
               trigger_type,
-              add_sweep_triggers,
+              trigger_repeat,
+              enable_triggers,
               metadata,
               ...rest
             } = PandaUniformScanPlan;
@@ -104,15 +109,14 @@ export default function PandaUniformScanPanel(props: {
                 },
               };
 
-              if (add_sweep_triggers) {
+              if (enable_triggers) {
                 params.triggers = [
-                  [
                     trigger_output_ports,
                     trigger_pulse_width,
                     trigger_output_delay,
                     trigger_output_num_repeats,
                     trigger_type,
-                  ],
+                    trigger_repeat,
                 ];
               }
 

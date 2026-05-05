@@ -2,14 +2,6 @@ import type { UseMutationResult } from "@tanstack/react-query";
 import { Button, Paper, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
-type TriggerTuple = [
-  number[],              // trigger_output_ports
-  number,                // trigger_pulse_width
-  number,                // trigger_output_delay
-  number,                // trigger_output_num_repeats
-  number,                 // trigger_type
-];
-
 interface InterPandaTriggerPlan {
   start:number,
   stop: number,
@@ -25,6 +17,7 @@ interface InterPandaTriggerPlan {
   trigger_output_delay: number,
   trigger_output_num_repeats: number,
   trigger_type: number,
+  trigger_repeat:number,
   metadata: string,
 }
 
@@ -49,6 +42,7 @@ export default function InterPandaTriggerPlanPanel(props: {
     trigger_output_delay: 0,
     trigger_output_num_repeats: 1,
     trigger_type: 0,
+    trigger_repeat:1,
     metadata:"",
   });
   return (
@@ -85,29 +79,30 @@ export default function InterPandaTriggerPlanPanel(props: {
               trigger_output_delay,
               trigger_output_num_repeats,
               trigger_type,
+              trigger_repeat,
               metadata,
               ...rest
             } = InterPandaTriggerPlan;
 
-            const triggers: TriggerTuple[] = [
-              [
-                trigger_output_ports,
-                trigger_pulse_width,
-                trigger_output_delay,
-                trigger_output_num_repeats,
-                trigger_type,
-              ],
-            ];
-
-            const toPost = {
-              name: "seq_table_uniform_scan",
-              params: {
+            const params: any = {
                 ...rest,
-                triggers,
                 metadata: {
                   user_comments: metadata,
                 },
-              },
+              };
+
+            params.triggers = [
+                  trigger_output_ports,
+                  trigger_pulse_width,
+                  trigger_output_delay,
+                  trigger_output_num_repeats,
+                  trigger_type,
+                  trigger_repeat,
+              ];
+
+            const toPost = {
+              name: "seq_table_two_panda_scan",
+              params,
               instrument_session: props.session,
             };
 
