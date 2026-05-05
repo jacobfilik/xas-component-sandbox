@@ -72,20 +72,6 @@ export default function PandaUniformScanPanel(props: {
               slotProps={{ inputLabel: { shrink: true } }}
             />
           ))}
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={PandaUniformScanPlan.enable_triggers}
-                onChange={(e) =>
-                  setUniformScanPlan({
-                    ...PandaUniformScanPlan,
-                    enable_triggers: e.target.checked,
-                  })
-                }
-              />
-            }
-            label="Enable triggers"
-          />
         </Stack>
         <Button
           variant="contained"
