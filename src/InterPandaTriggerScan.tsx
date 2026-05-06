@@ -22,14 +22,34 @@ interface InterPandaTriggerPlan {
   add_sweep_triggers: boolean,
   ramp_time: number,
   turnaround_time: number,
+  metadata: string,
   trigger_output_ports: number[], 
   trigger_pulse_width: number,
   trigger_output_delay: number,
   trigger_output_num_repeats: number,
   trigger_type: number,
   trigger_repeat:number,
-  metadata: string,
 }
+
+const parameterInfo: Record<string, string> = {
+  start: "Start position of the scan",
+  stop: "End position of the scan",
+  stepsize: "Scan step size",
+  number_of_sweeps: "Number of sweeps",
+  time_per_sweep: "Total duration of one sweep (seconds)",
+  num_trajectory_points: "Number of points in the trajectory",
+  add_sweep_triggers: " Add triggers at the end of the sweep (boolean)",
+  ramp_time: "Ramp up time (seconds)",
+  turnaround_time: "Turnaround time (seconds)",
+  metadata: "Optional metadata",
+  trigger_output_ports: "Output ports used for triggers in second Panda (comma-separated eg - 1,2,3)",
+  trigger_pulse_width: "Width of the trigger pulse in second Panda (seconds)",
+  trigger_output_delay: "Delay before trigger fires in second Panda (seconds)",
+  trigger_output_num_repeats: "How many times the trigger repeats in second Panda",
+  trigger_type: "Trigger mode identifier in second Panda (0 -> START, 1-> END)",
+  trigger_repeat: "Repeat the trigger sequence configured above in second Panda",
+};
+
 
 export default function InterPandaTriggerPlanPanel(props: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -47,13 +67,13 @@ export default function InterPandaTriggerPlanPanel(props: {
     add_sweep_triggers: false,
     ramp_time: 1,
     turnaround_time: 1,
-    trigger_output_ports:[1], 
+    metadata:"",
+    trigger_output_ports:[1,2], 
     trigger_pulse_width: 0.0001,
     trigger_output_delay: 0,
     trigger_output_num_repeats: 1,
     trigger_type: 0,
     trigger_repeat:1,
-    metadata:"",
   });
   const [triggers, setTriggers] = useState<TriggerTuple[]>([]);
   return (
@@ -62,23 +82,31 @@ export default function InterPandaTriggerPlanPanel(props: {
         <Typography>Inter Panda Triggering Scan</Typography>
         <Stack direction="column" spacing={"10px"}>
           {Object.entries(InterPandaTriggerPlan).map(([key, value]) => (
-            <TextField
-              key={key}
-              variant="outlined"
-              label={key}
-              type={typeof value === "number" ? "number" : "text"}
-              value={value}
-              onChange={(e) => {
-                setInterPandaTriggerPlan({
-                  ...InterPandaTriggerPlan,
-                  [key]:
-                    typeof value === "number"
-                      ? parseFloat(e.target.value)
-                      : e.target.value,
-                });
-              }}
-              slotProps={{ inputLabel: { shrink: true } }}
-            />
+            <Stack key={key} spacing={0.5}>
+              <Typography variant="body2" color="text.secondary">
+                {parameterInfo[key] ?? "No description available"}
+              </Typography>
+              <TextField
+                key={key}
+                variant="outlined"
+                type={typeof value === "number" ? "number" : "text"}
+                value={value}
+                onChange={(e) => {
+                  setInterPandaTriggerPlan({
+                    ...InterPandaTriggerPlan,
+                    [key]:Array.isArray(value)
+                    ? e.target.value
+                        .split(",")
+                        .map(v => Number(v.trim()))
+                        .filter(v => !Number.isNaN(v))
+                    : typeof value === "number"
+                        ? parseFloat(e.target.value)
+                        : e.target.value,
+                  });
+                }}
+                slotProps={{ inputLabel: { shrink: true } }}
+              />
+            </Stack>
           ))}
           <Button
             variant="outlined"
@@ -127,13 +155,13 @@ export default function InterPandaTriggerPlanPanel(props: {
           variant="contained"
           onClick={() => {
             const {
+              metadata,
               trigger_output_ports,
               trigger_pulse_width,
               trigger_output_delay,
               trigger_output_num_repeats,
               trigger_type,
               trigger_repeat,
-              metadata,
               ...rest
             } = InterPandaTriggerPlan;
 
