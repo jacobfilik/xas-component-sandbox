@@ -150,22 +150,15 @@ export default function PandaUniformScanPanel(props: {
             );
           })}
 
-          {[
-            "add_sweep_triggers",
-          ].map((key) => {
-            const value = (plan as any)[key]; // ✅ get value from plan
-            return (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={plan.add_sweep_triggers}
-                    onChange={(e) => handleChange("add_sweep_triggers", e.target.checked)}
-                  />
-                }
-                label="Enable Sweep Triggers"
-              />
-              );
-            })}
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={plan.add_sweep_triggers}
+              onChange={(e) => handleChange("add_sweep_triggers", e.target.checked)}
+            />
+          }
+          label="Enable Sweep Triggers"
+        />
 
         {/* Trigger Accordion */}
         <Accordion>
