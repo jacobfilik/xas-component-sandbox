@@ -18,6 +18,7 @@ import PandaUniformScanPanel from "./PandaUniformScan"
 import EnergyScanPlanPanel from "./EnergyScan"
 import InterPandaTriggerPlanPanel from "./InterPandaTriggerScan"
 import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
+import RefreshPandaPanel from "./RefreshPanda"
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
 import SubmittedJson from "./SubmittedJson";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -102,6 +103,18 @@ export default function CustomPlanPage() {
           onChange={(e) => setSession(e.target.value)}
           slotProps={{ inputLabel: { shrink: true } }}
         />
+        <Accordion defaultExpanded={false}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Refresh Panda</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <RefreshPandaPanel
+              session={session}
+              mutation={mutation}
+              notifyOfPlan={notifyOfPlan}
+            />
+          </AccordionDetails>
+        </Accordion>
 
         <Accordion defaultExpanded={false}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
