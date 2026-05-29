@@ -1,0 +1,94 @@
+{
+  "data": {
+    "id": "03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
+    "attributes": {
+      "ancestors": [],
+      "structure_family": "container",
+      "specs": [
+        {
+          "name": "BlueskyRun",
+          "version": "3.0"
+        }
+      ],
+      "metadata": {
+        "stop": {
+          "uid": "6a5df4d1-ca60-4f06-9f4a-e7173940ec63",
+          "time": 1779959876.8022454,
+          "reason": "",
+          "run_start": "03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
+          "num_events": {
+            "primary": 19
+          },
+          "exit_status": "success"
+        },
+        "start": {
+          "uid": "03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
+          "time": 1779959871.5116882,
+          "user": "user",
+          "scan_id": 2217,
+          "versions": {
+            "ophyd": "1.11.1",
+            "bluesky": "1.15.0",
+            "event_model": "1.23.1",
+            "ophyd_async": "0.17a5.dev8+g2627df356"
+          },
+          "plan_args": {
+            "edge": "K",
+            "grid": [
+              [3005.9, 0.5],
+              [3010.9, 0.5],
+              [3015.9, 0.5]
+            ],
+            "spec": "Fly(spec=ConstantDuration(...))",
+            "angle": [
+              41.1262,
+              41.0432,
+              40.9605
+            ],
+            "motor": "<ophyd_async.epics.motor.Motor object>",
+            "panda": "<ophyd_async.fastcs.panda._detector.HDFPanda object>",
+            "element": "Ar",
+            "metadata": {
+              "extra_comment:": "This is an intersting scan"
+            },
+            "detectors": ["panda1"],
+            "ramp_time": null,
+            "scan_name": "seq_table_energy_scan",
+            "readable_pvs": null,
+            "prescale_as_us": "1",
+            "time_per_sweep": "12.0",
+            "turnaround_time": null,
+            "number_of_sweeps": "2",
+            "variable_exafs_time": "False"
+          },
+          "plan_name": "seq_table_energy_scan",
+          "plan_type": "generator",
+          "scan_file": "2217",
+          "instrument": "p51",
+          "instrument_session": "cm44254-1",
+          "data_session_directory": "/data/2026/cm44254-1",
+          "detector_file_template": "{instrument}-{scan_id}-{device_name}"
+        }
+      },
+      "structure": {
+        "contents": null,
+        "count": 1
+      },
+      "access_blob": {
+        "tags": ["27569259"]
+      },
+      "sorting": [
+        {
+          "key": "",
+          "direction": 1
+        }
+      ],
+      "data_sources": null
+    }
+  },
+  "links": {
+    "self": "https://tiled.diamond.ac.uk/api/v1/metadata/03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
+    "search": "https://tiled.diamond.ac.uk/api/v1/search/03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
+    "full": "https://tiled.diamond.ac.uk/api/v1/container/full/03a19b9f-9d9f0f97..."
+  }
+}

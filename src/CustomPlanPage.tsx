@@ -20,6 +20,7 @@ import InterPandaTriggerPlanPanel from "./InterPandaTriggerScan"
 import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
 import RefreshPandaPanel from "./RefreshPanda"
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
+import ListenBlueapiPanel from "./ListenBlueapi";
 import SubmittedJson from "./SubmittedJson";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -75,6 +76,7 @@ export default function CustomPlanPage() {
   const [session, setSession] = useState<string>("cm44254-1");
   const [submittedTaskId, setSubmittedTaskId] = useState<string | null>(null);
   const [submittedJson, setSubmittedJson] = useState<string>("{}");
+  const [authToken, setAuthToken] = useState<string>("");
 
   const notifyOfPlan = (plan: object) => {
     setSubmittedJson(JSON.stringify(plan, null, 2));
@@ -101,6 +103,13 @@ export default function CustomPlanPage() {
           label="Visit"
           value={session}
           onChange={(e) => setSession(e.target.value)}
+          slotProps={{ inputLabel: { shrink: true } }}
+        />
+        <TextField
+          variant="outlined"
+          label="auth token"
+          value={authToken}
+          onChange={(e) => setAuthToken(e.target.value)}
           slotProps={{ inputLabel: { shrink: true } }}
         />
         <Accordion defaultExpanded={false}>
@@ -220,7 +229,21 @@ export default function CustomPlanPage() {
           </AccordionDetails>
         </Accordion>
       </Stack>
+      <Stack
+        height="100%"
+        padding="50px"
+        spacing="20px"
+        overflow="auto"
+        flex={1}
+      >
+        {submittedTaskId ? (
+          <ListenBlueapiPanel taskID={submittedTaskId} authToken={authToken} />
+        ) : (
+          <Box>No Submitted Task</Box>
+        )}
+      </Stack>
     </Stack>
+    
         );
       }
     }
