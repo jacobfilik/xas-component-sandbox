@@ -77,6 +77,7 @@ export default function CustomPlanPage() {
   const [submittedTaskId, setSubmittedTaskId] = useState<string | null>(null);
   const [submittedJson, setSubmittedJson] = useState<string>("{}");
   const [authToken, setAuthToken] = useState<string>("");
+  const [tiledId, setTiledId] = useState<string>("");
 
   const notifyOfPlan = (plan: object) => {
     setSubmittedJson(JSON.stringify(plan, null, 2));
@@ -107,7 +108,14 @@ export default function CustomPlanPage() {
         />
         <TextField
           variant="outlined"
-          label="auth token"
+          label="tiled task ID"
+          value={tiledId}
+          onChange={(e) => setTiledId(e.target.value)}
+          slotProps={{ inputLabel: { shrink: true } }}
+        />
+        <TextField
+          variant="outlined"
+          label="tiled auth token"
           value={authToken}
           onChange={(e) => setAuthToken(e.target.value)}
           slotProps={{ inputLabel: { shrink: true } }}
@@ -237,7 +245,7 @@ export default function CustomPlanPage() {
         flex={1}
       >
         {submittedTaskId ? (
-          <ListenBlueapiPanel taskID={submittedTaskId} authToken={authToken} />
+          <ListenBlueapiPanel taskID={tiledId} authToken={authToken} />
         ) : (
           <Box>No Submitted Task</Box>
         )}
