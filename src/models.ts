@@ -70,3 +70,62 @@ export interface TaskListItem {
 export interface TaskListResponse {
   tasks: TaskListItem[];
 }
+
+export interface BlueapiResponse {
+  data: {
+    id: string;
+    attributes: {
+      ancestors: unknown[];
+      structure_family: string;
+      specs: {
+        name: string;
+        version: string;
+      }[];
+      metadata: {
+        start: StartMetadata;
+        stop: StopMetadata;
+      };
+    };
+  };
+}
+
+export interface StartMetadata {
+  uid: string;
+  time: number;
+  user: string;
+  scan_id: number;
+  versions: {
+    ophyd: string;
+    bluesky: string;
+    event_model: string;
+    ophyd_async: string;
+  };
+  plan_args: {
+    edge?: string;
+    element?: string;
+    angle?:unknown[];
+    detectors?: string[];
+    number_of_sweeps?: number| string;
+    time_per_sweep?: number | string;
+    [key: string]: any; // allow extra plan args
+  };
+  plan_name: string;
+  plan_type: string;
+  scan_file: string;
+  instrument: string;
+  instrument_session: string;
+  data_session_directory: string;
+  detector_file_template: string;
+}
+
+export interface StopMetadata {
+  uid: string;
+  time: number;
+  reason: string;
+  run_start: string;
+  num_events: {
+    primary: number;
+    [key: string]: number;
+  };
+  exit_status: string;
+}

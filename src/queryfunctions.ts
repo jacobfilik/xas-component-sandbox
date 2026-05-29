@@ -4,6 +4,7 @@ import type {
   PlansResponse,
   TaskListItem,
   TaskListResponse,
+  BlueapiResponse,
 } from "./models";
 import axios from "axios";
 
@@ -30,6 +31,21 @@ export const postPlan = async (input: object) => {
     throw new Error("Failed to submit task");
   }
 
+  return response.data;
+};
+
+export const getMetadata = async (taskId: string, authToken: string): Promise<BlueapiResponse> => {
+  const response = await axios.get<BlueapiResponse>(
+    `https://tiled.diamond.ac.uk/api/v1/metadata//${taskId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    }
+  );
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve task");
+  }
   return response.data;
 };
 

@@ -1,5 +1,6 @@
 import { delay, http, HttpResponse } from "msw";
-import type { DeviceResponse, TaskListResponse, TaskResponse } from "../models";
+import type { DeviceResponse, TaskListResponse, TaskResponse, BlueapiResponse  } from "../models";
+import testdata from "../test_data.json"
 
 const mockPlans = {
   plans: [
@@ -198,6 +199,8 @@ const mockTasks: TaskListResponse = {
   ],
 };
 
+const mockBlueapiResponse: BlueapiResponse = testdata;
+
 export const handlers = [
   http.get("/user", () => {
     return HttpResponse.json({
@@ -213,6 +216,10 @@ export const handlers = [
 
   http.get("/blueapi/tasks", () => {
     return HttpResponse.json(mockTasks);
+  }),
+
+  http.get("https://tiled.diamond.ac.uk/api/v1/metadata//03a19b9f-9b25-4e83-a38e-9d9f0f97de54", () => {
+    return HttpResponse.json(mockBlueapiResponse);
   }),
 
   http.get("/blueapi/tasks/:id", () => {
