@@ -20,7 +20,7 @@ import InterPandaTriggerPlanPanel from "./InterPandaTriggerScan"
 import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
 import RefreshPandaPanel from "./RefreshPanda"
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
-import ListenBlueapiPanel from "./ListenBlueapi";
+import ListenTiledPanel from "./ListenTiled";
 import SubmittedJson from "./SubmittedJson";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -76,7 +76,6 @@ export default function CustomPlanPage() {
   const [session, setSession] = useState<string>("cm44254-1");
   const [submittedTaskId, setSubmittedTaskId] = useState<string | null>(null);
   const [submittedJson, setSubmittedJson] = useState<string>("{}");
-  const [authToken, setAuthToken] = useState<string>("");
   const [tiledId, setTiledId] = useState<string>("");
 
   const notifyOfPlan = (plan: object) => {
@@ -111,13 +110,6 @@ export default function CustomPlanPage() {
           label="tiled task ID"
           value={tiledId}
           onChange={(e) => setTiledId(e.target.value)}
-          slotProps={{ inputLabel: { shrink: true } }}
-        />
-        <TextField
-          variant="outlined"
-          label="tiled auth token"
-          value={authToken}
-          onChange={(e) => setAuthToken(e.target.value)}
           slotProps={{ inputLabel: { shrink: true } }}
         />
         <Accordion defaultExpanded={false}>
@@ -245,7 +237,7 @@ export default function CustomPlanPage() {
         flex={1}
       >
         {submittedTaskId ? (
-          <ListenBlueapiPanel taskID={tiledId} authToken={authToken} />
+          <ListenTiledPanel taskID={tiledId} />
         ) : (
           <Box>No Submitted Task</Box>
         )}

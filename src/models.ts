@@ -71,61 +71,76 @@ export interface TaskListResponse {
   tasks: TaskListItem[];
 }
 
-export interface BlueapiResponse {
-  data: {
-    id: string;
-    attributes: {
-      ancestors: unknown[];
-      structure_family: string;
-      specs: {
-        name: string;
-        version: string;
-      }[];
-      metadata: {
-        start: StartMetadata;
-        stop: StopMetadata;
-      };
-    };
+export interface TiledResponse {
+  data: TiledData;
+  error: any;
+  links: any;
+  meta: any;
+}
+
+export interface TiledData {
+  id: string;
+  attributes: Attributes;
+  links: Record<string, string>;
+  meta: any;
+}
+
+export interface Attributes {
+  ancestors: string[];
+  structure_family?: any;
+  specs: Spec[];
+  metadata: Metadata;
+  structure: {
+    contents: any;
+    count: number;
+  };
+  access_blob: {
+    tags: string[];
+  };
+  sorting: {
+    key: string;
+    direction: number;
+  }[];
+  data_sources: any;
+}
+
+export interface Spec {
+  name: string;
+  version: string | null;
+}
+
+export interface Metadata {
+  uid: string;
+  time: number;
+  hints: Record<string, { fields: string[] }>;
+  data_keys: Record<string, DataKey>;
+  configuration: Record<string, Configuration>;
+}
+
+export interface DataKey {
+  dtype: any;
+  shape?: number[] | string;
+  units?: string;
+  limits?: Limits;
+  source: string;
+  precision?: number;
+  dtype_numpy: string;
+  object_name?: string;
+}
+
+export interface Limits {
+  control: {
+    low: number;
+    high: number;
+  };
+  display: {
+    low: number;
+    high: number;
   };
 }
 
-export interface StartMetadata {
-  uid: string;
-  time: number;
-  user: string;
-  scan_id: number;
-  versions: {
-    ophyd: string;
-    bluesky: string;
-    event_model: string;
-    ophyd_async: string;
-  };
-  plan_args: {
-    edge?: string;
-    element?: string;
-    angle?:unknown[];
-    detectors?: string[];
-    number_of_sweeps?: number| string;
-    time_per_sweep?: number | string;
-    [key: string]: any; // allow extra plan args
-  };
-  plan_name: string;
-  plan_type: string;
-  scan_file: string;
-  instrument: string;
-  instrument_session: string;
-  data_session_directory: string;
-  detector_file_template: string;
-}
-
-export interface StopMetadata {
-  uid: string;
-  time: number;
-  reason: string;
-  run_start: string;
-  num_events: {
-    primary: number;
-    [key: string]: number;
-  };
-  exit_status: string;
+export interface Configuration {
+  data: Record<string, number | string>;
+  data_keys: Record<string, DataKey>;
+  timestamps: Record<string, number>;
 }
