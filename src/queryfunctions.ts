@@ -4,7 +4,7 @@ import type {
   PlansResponse,
   TaskListItem,
   TaskListResponse,
-  BlueapiResponse,
+  TiledResponse,
 } from "./models";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ const tasks = "/tasks";
 const devices = "/devices";
 const worker = "/worker";
 const task = "/task";
-
+const tiled = "/tiled";
 const user = "oauth2/userinfo";
 
 export const getPlans = async () => {
@@ -34,17 +34,12 @@ export const postPlan = async (input: object) => {
   return response.data;
 };
 
-export const getMetadata = async (taskId: string, authToken: string): Promise<BlueapiResponse> => {
-  const response = await axios.get<BlueapiResponse>(
-    `https://tiled.diamond.ac.uk/api/v1/metadata//${taskId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    }
+export const getMetadata = async (taskId: string): Promise<TiledResponse> => {
+  const response = await axios.get<TiledResponse>(
+    tiled + "/metadata/" + taskId + "/primary",
   );
   if (response.status != 200) {
-    throw new Error("Failed to retrieve task");
+    throw new Error("Failed to retrieve metadata");
   }
   return response.data;
 };
