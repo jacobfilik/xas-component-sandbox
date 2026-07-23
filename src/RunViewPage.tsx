@@ -15,7 +15,7 @@ export default function RunViewPage() {
         onChange={(e) => setVisit(e.target.value)}
         slotProps={{ inputLabel: { shrink: true } }}
       />
-      <RunViewForVisit visit="visit_id"></RunViewForVisit>
+      <RunViewForVisit visit={visit}></RunViewForVisit>
     </Stack>
   );
 }
