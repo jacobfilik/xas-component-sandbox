@@ -5,6 +5,7 @@ import type {
   TaskListItem,
   TaskListResponse,
   TiledResponse,
+  TiledSearchResponse,
 } from "./models";
 import axios from "axios";
 
@@ -36,7 +37,7 @@ export const postPlan = async (input: object) => {
 
 export const getMetadata = async (taskId: string): Promise<TiledResponse> => {
   const response = await axios.get<TiledResponse>(
-    tiled + "/metadata/" + taskId + "/primary",
+    tiled + "/metadata/" + taskId + "/primary"
   );
   if (response.status != 200) {
     throw new Error("Failed to retrieve metadata");
@@ -91,5 +92,44 @@ export const getTask = async (taskId: string) => {
     throw new Error("Failed to retrieve task");
   }
 
+  return response.data;
+};
+
+export const getRunsInVisit = async (
+  visit: string,
+  offset: number,
+  limit: number,
+  sort_key: string
+): Promise<TiledSearchResponse> => {
+  const response = await axios.get<TiledSearchResponse>(
+    tiled +
+      "/search/?filter[eq][condition][key]=start.instrument_session&filter[eq][condition][value]=%22" +
+      visit +
+      "%22" +
+      "&page[offset]=" +
+      offset +
+      "&page[limit]=" +
+      limit +
+      "&sort=" +
+      sort_key
+  );
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve metadata");
+  }
+  return response.data;
+};
+
+export const getData = async (id: string, name: string) => {
+  const response = await axios.get<number[]>(
+    tiled +
+      "/array/full/" +
+      id +
+      "/primary/internal/" +
+      name +
+      "?format=application/json"
+  );
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve data");
+  }
   return response.data;
 };

@@ -78,6 +78,27 @@ export interface TiledResponse {
   meta: any;
 }
 
+export interface TilePageCount {
+  count: number;
+}
+
+export interface TiledSearchMetadata {
+  start: { plan_name: string; time: number; scan_id: number };
+  stop: unknown;
+}
+
+export interface TiledSearchData {
+  id: string;
+  attributes: { metadata: TiledSearchMetadata };
+}
+
+export interface TiledSearchResponse {
+  data: TiledSearchData[];
+  error: unknown;
+  links: unknown;
+  meta: TilePageCount;
+}
+
 export interface TiledData {
   id: string;
   attributes: Attributes;

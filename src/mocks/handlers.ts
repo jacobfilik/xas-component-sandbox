@@ -1,6 +1,14 @@
 import { delay, http, HttpResponse } from "msw";
-import type { DeviceResponse, TaskListResponse, TaskResponse, TiledResponse  } from "../models";
-import testdata from "../test_data.json"
+import type {
+  DeviceResponse,
+  TaskListResponse,
+  TaskResponse,
+  TiledResponse,
+  TiledSearchResponse,
+} from "../models";
+import testdata from "../test_data.json";
+
+import testsearch from "../test_search_response.json";
 
 const mockPlans = {
   plans: [
@@ -201,6 +209,8 @@ const mockTasks: TaskListResponse = {
 
 const mockTiledResponse: TiledResponse = testdata;
 
+const mockPaginatedResponse: TiledSearchResponse = testsearch;
+
 export const handlers = [
   http.get("/user", () => {
     return HttpResponse.json({
@@ -216,10 +226,6 @@ export const handlers = [
 
   http.get("/blueapi/tasks", () => {
     return HttpResponse.json(mockTasks);
-  }),
-
-  http.get("/tiled/metadata/4f446933-05ea-4833-a7d3-fc7f21c1444d/primary", () => {
-    return HttpResponse.json(mockTiledResponse);
   }),
 
   http.get("/blueapi/tasks/:id", () => {
@@ -256,5 +262,31 @@ export const handlers = [
   http.get("/oauth2/userinfo", () => {
     // return new HttpResponse(null, { status: 401 });
     return HttpResponse.json({ preferredUsername: "test user" });
+  }),
+
+  http.get("/tiled/metadata/:id/primary", () => {
+    return HttpResponse.json(mockTiledResponse);
+  }),
+
+  http.get("tiled/search", ({ request }) => {
+    const url = new URL(request.url);
+
+    const key = url.searchParams.get("filter[eq][condition][key]");
+    const value = url.searchParams.get("filter[eq][condition][vale]");
+
+    console.log(key + " " + value);
+
+    return HttpResponse.json(mockPaginatedResponse);
+  }),
+
+  http.get("tiled/array/full/:id/primary/internal/:name", ({ request }) => {
+    const url = new URL(request.url);
+    console.log(url);
+
+    return HttpResponse.json(
+      Array.from({ length: 100 + Math.floor(Math.random() * 500) }, () =>
+        Math.random()
+      )
+    );
   }),
 ];
