@@ -7,18 +7,6 @@
         "structure_family": "container",
         "specs": [{ "name": "BlueskyRun", "version": "3.0" }],
         "metadata": {
-          "stop": {
-            "uid": "f2faf4d3-172a-4049-8ab1-7ea947a43c86",
-            "time": 1778586788.3590097,
-            "reason": "'id'",
-            "run_start": "36a686af-467c-46d3-b020-f3aaa8cc3233",
-            "num_events": {
-              "primary": 0,
-              "motor_readback": 1,
-              "motor_timestamp": 1
-            },
-            "exit_status": "fail"
-          },
           "start": {
             "uid": "36a686af-467c-46d3-b020-f3aaa8cc3233",
             "time": 1778586785.5736144,

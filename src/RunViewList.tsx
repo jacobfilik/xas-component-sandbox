@@ -5,18 +5,25 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import type { TiledSearchData } from "./models";
+import type { TiledEntryInfo, TiledSearchData } from "./models";
 
 export default function RunViewList(props: {
   data: TiledSearchData[];
-  setId: (id: string) => void;
+  setId: (id: TiledEntryInfo) => void;
 }) {
   return (
-    <Stack spacing={"5px"} flex={1}>
+    <Stack spacing={"5px"} flex={1} overflow="auto">
       {props.data.map((td) => {
         return (
-          <Card key={td.id}>
-            <CardActionArea onClick={() => props.setId(td.id)}>
+          <Card key={td.id} sx={{ overflow: "visible" }}>
+            <CardActionArea
+              onClick={() =>
+                props.setId({
+                  id: td.id,
+                  running: td.attributes.metadata.stop == undefined,
+                })
+              }
+            >
               <CardContent>
                 <Typography>id: {td.id}</Typography>
                 <Typography>
