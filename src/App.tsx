@@ -27,7 +27,7 @@ function App() {
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
         <UserProvider>
-          <Stack height="100vh" width="100vw" spacing={1} overflow={"hidden"}>
+          <Stack height="100vh" width="100vw" spacing={1}>
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />

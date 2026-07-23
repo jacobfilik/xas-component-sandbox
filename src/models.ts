@@ -84,7 +84,12 @@ export interface TilePageCount {
 
 export interface TiledSearchMetadata {
   start: { plan_name: string; time: number; scan_id: number };
-  stop: unknown;
+  stop?: unknown;
+}
+
+export interface TiledEntryInfo {
+  id: string;
+  running: boolean;
 }
 
 export interface TiledSearchData {
