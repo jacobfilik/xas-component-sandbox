@@ -23,7 +23,6 @@ export default function Header() {
       rightSlot={
         <Stack direction="row" alignItems="center">
           <User
-            color="white"
             onLogin={handleLogin}
             onLogout={handleLogout}
             user={
@@ -51,6 +50,9 @@ export default function Header() {
         </NavLink>
         <NavLink to="/submit" key="submit" linkComponent={Link}>
           Submit JSON
+        </NavLink>
+        <NavLink to="/runs" key="rubs" linkComponent={Link}>
+          View Runs
         </NavLink>
       </NavLinks>
     </Navbar>

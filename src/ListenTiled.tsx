@@ -4,7 +4,10 @@ import { getMetadata } from "./queryfunctions";
 import type { TiledResponse } from "./models";
 import TiledResponseComponent from "./TiledResponseComponent";
 
-export default function ListenTiledPanel(props: { taskID: string }) {
+export default function ListenTiledPanel(props: {
+  taskID: string;
+  setDataName: (name: string) => void;
+}) {
   const query = useQuery<TiledResponse, Error>({
     queryKey: ["taskId", props.taskID],
     queryFn: () => getMetadata(props.taskID),
@@ -22,6 +25,10 @@ export default function ListenTiledPanel(props: { taskID: string }) {
   if (!query.data) {
     return <Box>No data available</Box>;
   }
-  return <TiledResponseComponent BlueapiItem={query.data as TiledResponse} />;
-
+  return (
+    <TiledResponseComponent
+      BlueapiItem={query.data as TiledResponse}
+      setDataName={props.setDataName}
+    />
+  );
 }

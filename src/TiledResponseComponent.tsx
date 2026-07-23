@@ -3,10 +3,14 @@ import {
   CardContent,
   Typography,
   Divider,
+  CardActionArea,
 } from "@mui/material";
 import type { TiledResponse } from "./models";
 
-export default function TiledResponseComponent(props: { BlueapiItem?: TiledResponse }) {
+export default function TiledResponseComponent(props: {
+  BlueapiItem?: TiledResponse;
+  setDataName: (name: string) => void;
+}) {
   const data = props.BlueapiItem?.data;
   if (!data) return <div>Loading...</div>;
   if (!data.attributes) return <div>No attributes</div>;
@@ -17,7 +21,6 @@ export default function TiledResponseComponent(props: { BlueapiItem?: TiledRespo
   return (
     <Card sx={{ overflow: "visible", mb: 2, p: 2 }}>
       <CardContent>
-
         {/* Basic Info */}
         <Typography>UID: {metadata.uid}</Typography>
         <Typography>Time: {metadata.time}</Typography>
@@ -28,13 +31,21 @@ export default function TiledResponseComponent(props: { BlueapiItem?: TiledRespo
         <Typography variant="h6">Data Keys</Typography>
         {Object.entries(metadata.data_keys || {}).map(([key, dk]) => (
           <Card key={key} sx={{ mb: 1, p: 1 }}>
-            <Typography><b>{key}</b></Typography>
-            <Typography>Source: {dk.source}</Typography>
-            {dk.units && <Typography>Units: {dk.units}</Typography>}
-
+            <CardActionArea
+              onClick={() => {
+                props.setDataName(key);
+              }}
+            >
+              <CardContent>
+                <Typography>
+                  <b>{key}</b>
+                </Typography>
+                <Typography>Source: {dk.source}</Typography>
+                {dk.units && <Typography>Units: {dk.units}</Typography>}
+              </CardContent>
+            </CardActionArea>
           </Card>
         ))}
-        
       </CardContent>
     </Card>
   );
