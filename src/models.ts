@@ -72,10 +72,10 @@ export interface TaskListResponse {
 }
 
 export interface TiledResponse {
-  data: TiledData;
-  error: any;
-  links: any;
-  meta: any;
+  data: TiledData[];
+  error: unknown;
+  links: unknown;
+  meta: unknown;
 }
 
 export interface TilePageCount {
@@ -143,10 +143,17 @@ export interface Metadata {
   configuration: Record<string, Configuration>;
 }
 
+export interface DataInfo {
+  datasetName: string;
+  datasetContainerName: string;
+  internal: boolean;
+}
+
 export interface DataKey {
   dtype: any;
   shape?: number[] | string;
   units?: string;
+  external?: string;
   limits?: Limits;
   source: string;
   precision?: number;

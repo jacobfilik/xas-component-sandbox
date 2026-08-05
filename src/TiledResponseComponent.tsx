@@ -5,13 +5,14 @@ import {
   Divider,
   CardActionArea,
 } from "@mui/material";
-import type { TiledResponse } from "./models";
+import type { DataInfo, TiledData } from "./models";
 
 export default function TiledResponseComponent(props: {
-  BlueapiItem?: TiledResponse;
-  setDataName: (name: string) => void;
+  BlueapiItem?: TiledData;
+  setDataInfo: (dataInfo: DataInfo) => void;
 }) {
-  const data = props.BlueapiItem?.data;
+  console.log(props.BlueapiItem);
+  const data = props.BlueapiItem;
   if (!data) return <div>Loading...</div>;
   if (!data.attributes) return <div>No attributes</div>;
   if (!data.attributes.metadata) return <div>No metadata</div>;
@@ -22,6 +23,7 @@ export default function TiledResponseComponent(props: {
     <Card sx={{ overflow: "visible", mb: 2, p: 2 }}>
       <CardContent>
         {/* Basic Info */}
+        <Typography>ID: {data.id}</Typography>
         <Typography>UID: {metadata.uid}</Typography>
         <Typography>Time: {metadata.time}</Typography>
 
@@ -33,7 +35,11 @@ export default function TiledResponseComponent(props: {
           <Card key={key} sx={{ mb: 1, p: 1 }}>
             <CardActionArea
               onClick={() => {
-                props.setDataName(key);
+                props.setDataInfo({
+                  datasetName: key,
+                  datasetContainerName: data.id,
+                  internal: dk.external ? false : true,
+                });
               }}
             >
               <CardContent>

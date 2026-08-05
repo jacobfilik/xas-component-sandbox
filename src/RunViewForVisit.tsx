@@ -1,12 +1,12 @@
 import { Box, Card, CardContent, Pagination, Stack } from "@mui/material";
-import type { TiledEntryInfo, TiledSearchResponse } from "./models";
+import type { DataInfo, TiledEntryInfo, TiledSearchResponse } from "./models";
 import { useQuery } from "@tanstack/react-query";
 import { getRunsInVisit } from "./queryfunctions";
 import RunViewList from "./RunViewList";
-import ListenTiledPanel from "./ListenTiled";
 import { DataChart } from "./DataChart";
 import { useState } from "react";
 import DataChartWrapper from "./DataChartWrapper";
+import TiledContainerPanel from "./ListenTiled";
 
 export default function RunViewForVisit(props: {
   visit: string;
@@ -20,7 +20,7 @@ export default function RunViewForVisit(props: {
   });
 
   const [id, setId] = useState<TiledEntryInfo | null>(null);
-  const [dataName, setDataName] = useState<string | null>(null);
+  const [dataInfo, setDataInfo] = useState<DataInfo | null>(null);
 
   console.log(id);
 
@@ -45,7 +45,7 @@ export default function RunViewForVisit(props: {
 
       <Stack flex={1} overflow="auto">
         {id ? (
-          <ListenTiledPanel taskID={id.id} setDataName={setDataName} />
+          <TiledContainerPanel taskID={id.id} setDataInfo={setDataInfo} />
         ) : (
           <Box></Box>
         )}
@@ -53,8 +53,8 @@ export default function RunViewForVisit(props: {
       <Stack height="100%" flex={2}>
         <Card sx={{ height: "100%" }}>
           <CardContent sx={{ height: "100%" }}>
-            {dataName && id ? (
-              <DataChartWrapper dataName={dataName} id={id} />
+            {dataInfo && id ? (
+              <DataChartWrapper dataInfo={dataInfo} id={id} />
             ) : (
               <DataChart data={null} />
             )}
