@@ -237,7 +237,7 @@ export default function CustomPlanPage() {
           flex={1}
         >
           {submittedTaskId ? (
-            <ListenTiledPanel taskID={tiledId} setDataName={() => {}} />
+            <ListenTiledPanel taskID={tiledId} setDataInfo={() => {}} />
           ) : (
             <Box>No Submitted Task</Box>
           )}

@@ -35,10 +35,16 @@ export const postPlan = async (input: object) => {
   return response.data;
 };
 
+export const searchMeta = async (taskId: string): Promise<TiledResponse> => {
+  const response = await axios.get<TiledResponse>(tiled + "/search/" + taskId);
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve metadata");
+  }
+  return response.data;
+};
+
 export const getMetadata = async (taskId: string): Promise<TiledResponse> => {
-  const response = await axios.get<TiledResponse>(
-    tiled + "/metadata/" + taskId + "/primary"
-  );
+  const response = await axios.get<TiledResponse>(tiled + "/search/" + taskId);
   if (response.status != 200) {
     throw new Error("Failed to retrieve metadata");
   }
@@ -119,15 +125,21 @@ export const getRunsInVisit = async (
   return response.data;
 };
 
-export const getData = async (id: string, name: string) => {
-  const response = await axios.get<number[]>(
-    tiled +
-      "/array/full/" +
-      id +
-      "/primary/internal/" +
-      name +
-      "?format=application/json"
-  );
+export const getData = async (
+  id: string,
+  name: string,
+  containerName: string,
+  internal: boolean
+) => {
+  let url = tiled + "/array/full/" + id + "/" + containerName;
+
+  if (internal) {
+    url = url + "/internal";
+  }
+
+  url = url + "/" + name + "?format=application/json";
+
+  const response = await axios.get<number[]>(url);
   if (response.status != 200) {
     throw new Error("Failed to retrieve data");
   }

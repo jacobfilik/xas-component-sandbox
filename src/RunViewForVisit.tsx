@@ -1,26 +1,26 @@
 import { Box, Card, CardContent, Pagination, Stack } from "@mui/material";
-import type { TiledEntryInfo, TiledSearchResponse } from "./models";
+import type { DataInfo, TiledEntryInfo, TiledSearchResponse } from "./models";
 import { useQuery } from "@tanstack/react-query";
 import { getRunsInVisit } from "./queryfunctions";
 import RunViewList from "./RunViewList";
-import ListenTiledPanel from "./ListenTiled";
 import { DataChart } from "./DataChart";
 import { useState } from "react";
 import DataChartWrapper from "./DataChartWrapper";
+import TiledContainerPanel from "./ListenTiled";
 
 export default function RunViewForVisit(props: {
   visit: string;
-  page: number;
-  setPage: (page: number) => void;
+  offset: number;
+  setOffset: (ofset: number) => void;
 }) {
   const query = useQuery<TiledSearchResponse, Error>({
-    queryKey: ["search", props.visit, "-start.time", props.page],
-    queryFn: () => getRunsInVisit(props.visit, props.page, 10, "-start.time"),
+    queryKey: ["search", props.visit, "-start.time", props.offset],
+    queryFn: () => getRunsInVisit(props.visit, props.offset, 10, "-start.time"),
     refetchInterval: 5000,
   });
 
   const [id, setId] = useState<TiledEntryInfo | null>(null);
-  const [dataName, setDataName] = useState<string | null>(null);
+  const [dataInfo, setDataInfo] = useState<DataInfo | null>(null);
 
   console.log(id);
 
@@ -28,7 +28,7 @@ export default function RunViewForVisit(props: {
     return <Stack>No data</Stack>;
   }
   const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    props.setPage(value - 1);
+    props.setOffset((value - 1) * 10);
   };
 
   return (
@@ -37,7 +37,7 @@ export default function RunViewForVisit(props: {
         <RunViewList data={query.data.data} setId={setId}></RunViewList>
         <Pagination
           onChange={handleChange}
-          page={props.page + 1}
+          page={props.offset / 10 + 1}
           count={Math.ceil(query.data.meta.count / 10)}
           variant="outlined"
         />
@@ -45,7 +45,7 @@ export default function RunViewForVisit(props: {
 
       <Stack flex={1} overflow="auto">
         {id ? (
-          <ListenTiledPanel taskID={id.id} setDataName={setDataName} />
+          <TiledContainerPanel taskID={id.id} setDataInfo={setDataInfo} />
         ) : (
           <Box></Box>
         )}
@@ -53,8 +53,8 @@ export default function RunViewForVisit(props: {
       <Stack height="100%" flex={2}>
         <Card sx={{ height: "100%" }}>
           <CardContent sx={{ height: "100%" }}>
-            {dataName && id ? (
-              <DataChartWrapper dataName={dataName} id={id} />
+            {dataInfo && id ? (
+              <DataChartWrapper dataInfo={dataInfo} id={id} />
             ) : (
               <DataChart data={null} />
             )}

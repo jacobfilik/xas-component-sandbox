@@ -272,7 +272,8 @@ export const handlers = [
     return HttpResponse.json({ preferredUsername: "test user" });
   }),
 
-  http.get("/tiled/metadata/:id/primary", () => {
+  http.get("/tiled/search/:id", () => {
+    console.log("ID SEARCH");
     return HttpResponse.json(mockTiledResponse);
   }),
 
