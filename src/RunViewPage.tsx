@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function RunViewPage() {
   const [visit, setVisit] = useState("cm44254-1");
-  const [page, setPage] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   return (
     <Stack height={"100%"} width={"100%"} spacing="10px" overflow="hidden">
@@ -14,15 +14,15 @@ export default function RunViewPage() {
         label="Visit"
         value={visit}
         onChange={(e) => {
-          setPage(0);
+          setOffset(0);
           setVisit(e.target.value);
         }}
         slotProps={{ inputLabel: { shrink: true } }}
       />
       <RunViewForVisit
         visit={visit}
-        page={page}
-        setPage={setPage}
+        offset={offset}
+        setOffset={setOffset}
       ></RunViewForVisit>
     </Stack>
   );

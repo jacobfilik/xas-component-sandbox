@@ -10,12 +10,12 @@ import TiledContainerPanel from "./ListenTiled";
 
 export default function RunViewForVisit(props: {
   visit: string;
-  page: number;
-  setPage: (page: number) => void;
+  offset: number;
+  setOffset: (ofset: number) => void;
 }) {
   const query = useQuery<TiledSearchResponse, Error>({
-    queryKey: ["search", props.visit, "-start.time", props.page],
-    queryFn: () => getRunsInVisit(props.visit, props.page, 10, "-start.time"),
+    queryKey: ["search", props.visit, "-start.time", props.offset],
+    queryFn: () => getRunsInVisit(props.visit, props.offset, 10, "-start.time"),
     refetchInterval: 5000,
   });
 
@@ -28,7 +28,7 @@ export default function RunViewForVisit(props: {
     return <Stack>No data</Stack>;
   }
   const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    props.setPage(value - 1);
+    props.setOffset((value - 1) * 10);
   };
 
   return (
@@ -37,7 +37,7 @@ export default function RunViewForVisit(props: {
         <RunViewList data={query.data.data} setId={setId}></RunViewList>
         <Pagination
           onChange={handleChange}
-          page={props.page + 1}
+          page={props.offset / 10 + 1}
           count={Math.ceil(query.data.meta.count / 10)}
           variant="outlined"
         />
