@@ -1,94 +1,345 @@
 {
-  "data": {
-    "id": "03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
-    "attributes": {
-      "ancestors": [],
-      "structure_family": "container",
-      "specs": [
-        {
-          "name": "BlueskyRun",
-          "version": "3.0"
-        }
-      ],
-      "metadata": {
-        "stop": {
-          "uid": "6a5df4d1-ca60-4f06-9f4a-e7173940ec63",
-          "time": 1779959876.8022454,
-          "reason": "",
-          "run_start": "03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
-          "num_events": {
-            "primary": 19
+  "data": [
+    {
+      "id": "primary",
+      "attributes": {
+        "ancestors": ["98ca8a4e-a197-4e5a-b225-5a482d72b86b"],
+        "structure_family": "container",
+        "specs": [
+          {
+            "name": "BlueskyEventStream",
+            "version": "3.0"
           },
-          "exit_status": "success"
-        },
-        "start": {
-          "uid": "03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
-          "time": 1779959871.5116882,
-          "user": "user",
-          "scan_id": 2217,
-          "versions": {
-            "ophyd": "1.11.1",
-            "bluesky": "1.15.0",
-            "event_model": "1.23.1",
-            "ophyd_async": "0.17a5.dev8+g2627df356"
-          },
-          "plan_args": {
-            "edge": "K",
-            "grid": [
-              [3005.9, 0.5],
-              [3010.9, 0.5],
-              [3015.9, 0.5]
-            ],
-            "spec": "Fly(spec=ConstantDuration(...))",
-            "angle": [
-              41.1262,
-              41.0432,
-              40.9605
-            ],
-            "motor": "<ophyd_async.epics.motor.Motor object>",
-            "panda": "<ophyd_async.fastcs.panda._detector.HDFPanda object>",
-            "element": "Ar",
-            "metadata": {
-              "extra_comment:": "This is an intersting scan"
+          {
+            "name": "composite",
+            "version": null
+          }
+        ],
+        "metadata": {
+          "uid": "3a06d062-b85f-468a-84e4-d9e35d5b8db3",
+          "time": 1781000777.7029006,
+          "hints": {
+            "turbo_slit": {
+              "fields": ["turbo_slit-gap", "turbo_slit-arc", "turbo_slit-xfine"]
             },
-            "detectors": ["panda1"],
-            "ramp_time": null,
-            "scan_name": "seq_table_energy_scan",
-            "readable_pvs": null,
-            "prescale_as_us": "1",
-            "time_per_sweep": "12.0",
-            "turnaround_time": null,
-            "number_of_sweeps": "2",
-            "variable_exafs_time": "False"
+            "turbo_slit_x": {
+              "fields": ["turbo_slit_x"]
+            }
           },
-          "plan_name": "seq_table_energy_scan",
-          "plan_type": "generator",
-          "scan_file": "2217",
-          "instrument": "p51",
-          "instrument_session": "cm44254-1",
-          "data_session_directory": "/data/2026/cm44254-1",
-          "detector_file_template": "{instrument}-{scan_id}-{device_name}"
-        }
+          "data_keys": {
+            "turbo_slit_x": {
+              "dtype": "number",
+              "external": "Stream",
+              "shape": [],
+              "units": "mm",
+              "limits": {
+                "control": {
+                  "low": -36.0,
+                  "high": 44.0
+                },
+                "display": {
+                  "low": -36.0,
+                  "high": 44.0
+                }
+              },
+              "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.RBV",
+              "precision": 5,
+              "dtype_numpy": "<f8",
+              "object_name": "turbo_slit_x"
+            },
+            "turbo_slit-arc": {
+              "dtype": "number",
+              "shape": [],
+              "units": "deg",
+              "limits": {
+                "control": {
+                  "low": 0.0,
+                  "high": 89.0
+                },
+                "display": {
+                  "low": 0.0,
+                  "high": 89.0
+                }
+              },
+              "source": "ca://BL51P-OP-PCHRO-01:TS:ARC.RBV",
+              "precision": 5,
+              "dtype_numpy": "<f8",
+              "object_name": "turbo_slit"
+            },
+            "turbo_slit-gap": {
+              "dtype": "number",
+              "shape": [],
+              "units": "mm",
+              "limits": {
+                "control": {
+                  "low": -999.0,
+                  "high": 1001.0
+                },
+                "display": {
+                  "low": -999.0,
+                  "high": 1001.0
+                }
+              },
+              "source": "ca://BL51P-OP-PCHRO-01:TS:GAP.RBV",
+              "precision": 5,
+              "dtype_numpy": "<f8",
+              "object_name": "turbo_slit"
+            },
+            "turbo_slit-xfine": {
+              "dtype": "number",
+              "shape": [],
+              "units": "mm",
+              "limits": {
+                "control": {
+                  "low": -36.0,
+                  "high": 44.0
+                },
+                "display": {
+                  "low": -36.0,
+                  "high": 44.0
+                }
+              },
+              "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.RBV",
+              "precision": 5,
+              "dtype_numpy": "<f8",
+              "object_name": "turbo_slit"
+            }
+          },
+          "configuration": {
+            "turbo_slit": {
+              "data": {
+                "turbo_slit-arc-offset": 89.0,
+                "turbo_slit-gap-offset": 1.0,
+                "turbo_slit-arc-velocity": 2.2,
+                "turbo_slit-gap-velocity": 0.04,
+                "turbo_slit-xfine-offset": 0.0,
+                "turbo_slit-arc-motor_egu": "deg",
+                "turbo_slit-gap-motor_egu": "mm",
+                "turbo_slit-xfine-velocity": 300.0,
+                "turbo_slit-xfine-motor_egu": "mm"
+              },
+              "data_keys": {
+                "turbo_slit-arc-offset": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "deg",
+                  "limits": {
+                    "control": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    },
+                    "display": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:ARC.OFF",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit-gap-offset": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "mm",
+                  "limits": {
+                    "control": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    },
+                    "display": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:GAP.OFF",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit-arc-velocity": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "deg/sec",
+                  "limits": {
+                    "control": {
+                      "low": 0.0,
+                      "high": 2.2
+                    },
+                    "display": {
+                      "low": 0.0,
+                      "high": 2.2
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:ARC.VELO",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit-gap-velocity": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "mm/sec",
+                  "limits": {
+                    "control": {
+                      "low": 0.0,
+                      "high": 0.04
+                    },
+                    "display": {
+                      "low": 0.0,
+                      "high": 0.04
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:GAP.VELO",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit-xfine-offset": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "mm",
+                  "limits": {
+                    "control": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    },
+                    "display": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.OFF",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit-arc-motor_egu": {
+                  "dtype": "string",
+                  "shape": [],
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:ARC.EGU",
+                  "dtype_numpy": "|S40"
+                },
+                "turbo_slit-gap-motor_egu": {
+                  "dtype": "string",
+                  "shape": [],
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:GAP.EGU",
+                  "dtype_numpy": "|S40"
+                },
+                "turbo_slit-xfine-velocity": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "mm/sec",
+                  "limits": {
+                    "control": {
+                      "low": 0.0,
+                      "high": 300.0
+                    },
+                    "display": {
+                      "low": 0.0,
+                      "high": 300.0
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.VELO",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit-xfine-motor_egu": {
+                  "dtype": "string",
+                  "shape": [],
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.EGU",
+                  "dtype_numpy": "|S40"
+                }
+              },
+              "timestamps": {
+                "turbo_slit-arc-offset": 631152000.0,
+                "turbo_slit-gap-offset": 631152000.0,
+                "turbo_slit-arc-velocity": 631152000.0,
+                "turbo_slit-gap-velocity": 631152000.0,
+                "turbo_slit-xfine-offset": 1781000777.691279,
+                "turbo_slit-arc-motor_egu": 631152000.0,
+                "turbo_slit-gap-motor_egu": 631152000.0,
+                "turbo_slit-xfine-velocity": 1781000777.691279,
+                "turbo_slit-xfine-motor_egu": 1781000777.691279
+              }
+            },
+            "turbo_slit_x": {
+              "data": {
+                "turbo_slit_x-offset": 0.0,
+                "turbo_slit_x-velocity": 300.0,
+                "turbo_slit_x-motor_egu": "mm"
+              },
+              "data_keys": {
+                "turbo_slit_x-offset": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "mm",
+                  "limits": {
+                    "control": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    },
+                    "display": {
+                      "low": -9007199254740991,
+                      "high": 9007199254740991
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.OFF",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit_x-velocity": {
+                  "dtype": "number",
+                  "shape": [],
+                  "units": "mm/sec",
+                  "limits": {
+                    "control": {
+                      "low": 0.0,
+                      "high": 300.0
+                    },
+                    "display": {
+                      "low": 0.0,
+                      "high": 300.0
+                    }
+                  },
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.VELO",
+                  "precision": 5,
+                  "dtype_numpy": "<f8"
+                },
+                "turbo_slit_x-motor_egu": {
+                  "dtype": "string",
+                  "shape": [],
+                  "source": "ca://BL51P-OP-PCHRO-01:TS:XFINE.EGU",
+                  "dtype_numpy": "|S40"
+                }
+              },
+              "timestamps": {
+                "turbo_slit_x-offset": 1781000777.691279,
+                "turbo_slit_x-velocity": 1781000777.691279,
+                "turbo_slit_x-motor_egu": 1781000777.691279
+              }
+            }
+          }
+        },
+        "structure": {
+          "contents": null,
+          "count": 1
+        },
+        "access_blob": {
+          "tags": ["27569259"]
+        },
+        "sorting": [
+          {
+            "key": "",
+            "direction": 1
+          }
+        ],
+        "data_sources": null
       },
-      "structure": {
-        "contents": null,
-        "count": 1
+      "links": {
+        "self": "https://tiled.diamond.ac.uk/api/v1/metadata/98ca8a4e-a197-4e5a-b225-5a482d72b86b/primary",
+        "search": "https://tiled.diamond.ac.uk/api/v1/search/98ca8a4e-a197-4e5a-b225-5a482d72b86b/primary",
+        "full": "https://tiled.diamond.ac.uk/api/v1/container/full/98ca8a4e-a197-4e5a-b225-5a482d72b86b/primary"
       },
-      "access_blob": {
-        "tags": ["27569259"]
-      },
-      "sorting": [
-        {
-          "key": "",
-          "direction": 1
-        }
-      ],
-      "data_sources": null
+      "meta": null
     }
-  },
-  "links": {
-    "self": "https://tiled.diamond.ac.uk/api/v1/metadata/03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
-    "search": "https://tiled.diamond.ac.uk/api/v1/search/03a19b9f-9b25-4e83-a38e-9d9f0f97de54",
-    "full": "https://tiled.diamond.ac.uk/api/v1/container/full/03a19b9f-9d9f0f97..."
-  }
+  ],
+  "error": null,
+  "links": null,
+  "meta": {}
 }

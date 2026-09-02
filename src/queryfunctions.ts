@@ -4,7 +4,8 @@ import type {
   PlansResponse,
   TaskListItem,
   TaskListResponse,
-  BlueapiResponse,
+  TiledResponse,
+  TiledSearchResponse,
 } from "./models";
 import axios from "axios";
 
@@ -14,7 +15,7 @@ const tasks = "/tasks";
 const devices = "/devices";
 const worker = "/worker";
 const task = "/task";
-
+const tiled = "/tiled";
 const user = "oauth2/userinfo";
 
 export const getPlans = async () => {
@@ -34,17 +35,18 @@ export const postPlan = async (input: object) => {
   return response.data;
 };
 
-export const getMetadata = async (taskId: string, authToken: string): Promise<BlueapiResponse> => {
-  const response = await axios.get<BlueapiResponse>(
-    `https://tiled.diamond.ac.uk/api/v1/metadata//${taskId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    }
-  );
+export const searchMeta = async (taskId: string): Promise<TiledResponse> => {
+  const response = await axios.get<TiledResponse>(tiled + "/search/" + taskId);
   if (response.status != 200) {
-    throw new Error("Failed to retrieve task");
+    throw new Error("Failed to retrieve metadata");
+  }
+  return response.data;
+};
+
+export const getMetadata = async (taskId: string): Promise<TiledResponse> => {
+  const response = await axios.get<TiledResponse>(tiled + "/search/" + taskId);
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve metadata");
   }
   return response.data;
 };
@@ -96,5 +98,50 @@ export const getTask = async (taskId: string) => {
     throw new Error("Failed to retrieve task");
   }
 
+  return response.data;
+};
+
+export const getRunsInVisit = async (
+  visit: string,
+  offset: number,
+  limit: number,
+  sort_key: string
+): Promise<TiledSearchResponse> => {
+  const response = await axios.get<TiledSearchResponse>(
+    tiled +
+      "/search/?filter[eq][condition][key]=start.instrument_session&filter[eq][condition][value]=%22" +
+      visit +
+      "%22" +
+      "&page[offset]=" +
+      offset +
+      "&page[limit]=" +
+      limit +
+      "&sort=" +
+      sort_key
+  );
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve metadata");
+  }
+  return response.data;
+};
+
+export const getData = async (
+  id: string,
+  name: string,
+  containerName: string,
+  internal: boolean
+) => {
+  let url = tiled + "/array/full/" + id + "/" + containerName;
+
+  if (internal) {
+    url = url + "/internal";
+  }
+
+  url = url + "/" + name + "?format=application/json";
+
+  const response = await axios.get<number[]>(url);
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve data");
+  }
   return response.data;
 };

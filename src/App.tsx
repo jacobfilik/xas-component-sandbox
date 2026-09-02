@@ -1,6 +1,6 @@
 import {
   ThemeProvider,
-  DiamondTheme,
+  DiamondDSTheme,
   Footer,
 } from "@diamondlightsource/sci-react-ui";
 import { CssBaseline, Stack } from "@mui/material";
@@ -17,16 +17,17 @@ import DevicePage from "./DevicePage";
 import TaskPage from "./TaskPage";
 import CustomPlanPage from "./CustomPlanPage";
 import BlueapiResources from "./BlueapiResources";
+import RunViewPage from "./RunViewPage";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <ThemeProvider theme={DiamondTheme}>
+    <ThemeProvider theme={DiamondDSTheme}>
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
         <UserProvider>
-          <Stack height="100vh" width="100vw" spacing={1} overflow={"hidden"}>
+          <Stack height="100vh" width="100vw" spacing={1}>
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -75,6 +76,14 @@ function App() {
                 element={
                   <RequireAuth>
                     <CustomPlanPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/runs"
+                element={
+                  <RequireAuth>
+                    <RunViewPage />
                   </RequireAuth>
                 }
               />

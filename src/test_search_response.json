@@ -1,0 +1,109 @@
+{
+  "data": [
+    {
+      "id": "36a686af-467c-46d3-b020-f3aaa8cc3233",
+      "attributes": {
+        "ancestors": [],
+        "structure_family": "container",
+        "specs": [{ "name": "BlueskyRun", "version": "3.0" }],
+        "metadata": {
+          "start": {
+            "uid": "36a686af-467c-46d3-b020-f3aaa8cc3233",
+            "time": 1778586785.5736144,
+            "user": "fedid",
+            "scan_id": 2010,
+            "versions": {
+              "ophyd": "1.11.1",
+              "bluesky": "1.15.0",
+              "event_model": "1.23.1",
+              "ophyd_async": "0.17a5.dev4+ga910d3a5a"
+            },
+            "plan_args": {
+              "spec": "Fly(spec=ConstantDuration(constant_duration=0.2, spec=Product(outer=4, inner=Snake(spec=Linspace(axis=<ophyd_async.epics.motor.Motor object at 0x7fa557b5b550>, start=1.0, stop=10.0, num=10)), gap=True)))",
+              "detectors": ["panda1"]
+            },
+            "plan_name": "seq_table_uniform_scan",
+            "plan_type": "generator",
+            "scan_file": "2010",
+            "instrument": "p51",
+            "instrument_session": "cm44254-1",
+            "data_session_directory": "/dls/p51/data/2026/cm44254-1",
+            "detector_file_template": "{instrument}-{scan_id}-{device_name}"
+          }
+        },
+        "structure": { "contents": null, "count": 0 },
+        "access_blob": { "tags": ["27569259"] },
+        "sorting": [{ "key": "", "direction": 1 }],
+        "data_sources": null
+      },
+      "links": {
+        "self": "http://p51-blueapi.diamond.ac.uk/api/v1/metadata/36a686af-467c-46d3-b020-f3aaa8cc3233",
+        "search": "http://p51-blueapi.diamond.ac.uk/api/v1/search/36a686af-467c-46d3-b020-f3aaa8cc3233",
+        "full": "http://p51-blueapi.diamond.ac.uk/api/v1/container/full/36a686af-467c-46d3-b020-f3aaa8cc3233"
+      },
+      "meta": null
+    },
+    {
+      "id": "da8aeed5-cbdb-4583-b663-ebef7c8504b8",
+      "attributes": {
+        "ancestors": [],
+        "structure_family": "container",
+        "specs": [{ "name": "BlueskyRun", "version": "3.0" }],
+        "metadata": {
+          "stop": {
+            "uid": "6e2cf123-b932-4cc3-a336-138fe1fecacc",
+            "time": 1778586943.3708253,
+            "reason": "'id'",
+            "run_start": "da8aeed5-cbdb-4583-b663-ebef7c8504b8",
+            "num_events": { "primary": 0 },
+            "exit_status": "fail"
+          },
+          "start": {
+            "uid": "da8aeed5-cbdb-4583-b663-ebef7c8504b8",
+            "time": 1778586940.7130618,
+            "user": "fedid",
+            "scan_id": 2011,
+            "versions": {
+              "ophyd": "1.11.1",
+              "bluesky": "1.15.0",
+              "event_model": "1.23.1",
+              "ophyd_async": "0.17a5.dev4+ga910d3a5a"
+            },
+            "plan_args": {
+              "spec": "Fly(spec=ConstantDuration(constant_duration=0.2, spec=Product(outer=4, inner=Snake(spec=Linspace(axis=<ophyd_async.epics.motor.Motor object at 0x7fc373b733d0>, start=1.0, stop=10.0, num=10)), gap=True)))",
+              "detectors": ["panda1"],
+              "rampup time": "None",
+              "turnaround_time": "None"
+            },
+            "plan_name": "seq_table_uniform_scan",
+            "plan_type": "generator",
+            "scan_file": "2011",
+            "instrument": "p51",
+            "instrument_session": "cm44254-1",
+            "data_session_directory": "/dls/p51/data/2026/cm44254-1",
+            "detector_file_template": "{instrument}-{scan_id}-{device_name}"
+          }
+        },
+        "structure": { "contents": null, "count": 0 },
+        "access_blob": { "tags": ["27569259"] },
+        "sorting": [{ "key": "", "direction": 1 }],
+        "data_sources": null
+      },
+      "links": {
+        "self": "http://p51-blueapi.diamond.ac.uk/api/v1/metadata/da8aeed5-cbdb-4583-b663-ebef7c8504b8",
+        "search": "http://p51-blueapi.diamond.ac.uk/api/v1/search/da8aeed5-cbdb-4583-b663-ebef7c8504b8",
+        "full": "http://p51-blueapi.diamond.ac.uk/api/v1/container/full/da8aeed5-cbdb-4583-b663-ebef7c8504b8"
+      },
+      "meta": null
+    }
+  ],
+  "error": null,
+  "links": {
+    "self": "http://p51-blueapi.diamond.ac.uk/api/v1/search/?page[offset]=1&page[limit]=2",
+    "first": "http://p51-blueapi.diamond.ac.uk/api/v1/search/?page[offset]=0&page[limit]=2",
+    "last": "http://p51-blueapi.diamond.ac.uk/api/v1/search/?page[offset]=378&page[limit]=2",
+    "next": "http://p51-blueapi.diamond.ac.uk/api/v1/search/?page[offset]=3&page[limit]=2",
+    "prev": "http://p51-blueapi.diamond.ac.uk/api/v1/search/?page[offset]=0&page[limit]=2"
+  },
+  "meta": { "count": 379 }
+}
