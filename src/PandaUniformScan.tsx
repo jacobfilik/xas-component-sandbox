@@ -13,7 +13,7 @@ type TriggerTuple = [
   number    // trigger_repeat
 ];
 
-type ReadablePV = [string, string, string];
+type ReadablePV = [string, string, string, number, number, boolean, number];
 
 
 interface PandaUniformScanPlan {
@@ -38,6 +38,10 @@ interface PandaUniformScanPlan {
   pv_name: string;
   pv_datatype: string;
   pv_id: string;
+  pv_min_threshold : number,
+  pv_max_threshold: number,
+  pv_compute_snr: boolean,
+  pv_snr_min_threshold: number,
 }
 
 
@@ -63,6 +67,10 @@ const parameterInfo: Record<string, string> = {
   pv_name:"Scannable PV",
   pv_datatype:"Datatype of PV",
   pv_id:"PV identifier",
+  pv_min_threshold : "Minimum Threshold",
+  pv_max_threshold: "Maximum Threshold",
+  pv_compute_snr: "Use SNR of this PV (True/False)",
+  pv_snr_min_threshold: "Minimum Required Threshold for SNR",
 };
 
 
@@ -79,8 +87,8 @@ export default function PandaUniformScanPanel(props: {
     time_per_sweep: 5,
     num_trajectory_points: 10,
     add_sweep_triggers: false,
-    ramp_time: 0.00001,
-    turnaround_time: 0.00001,
+    ramp_time: 0.001,
+    turnaround_time: 0.0001,
     metadata: "",
     enable_triggers: false,
     trigger_output_ports: [1, 2],
@@ -93,6 +101,10 @@ export default function PandaUniformScanPanel(props: {
     pv_name:"BL51P-OP-PCHRO-01:TS:XFINE.RBV",
     pv_datatype:"float",
     pv_id: "motor_readback",
+    pv_min_threshold: -10,
+    pv_max_threshold: 20,
+    pv_compute_snr: false,
+    pv_snr_min_threshold: 30,
   });
 
   const [triggers, setTriggers] = useState<TriggerTuple[]>([]);
@@ -277,6 +289,10 @@ export default function PandaUniformScanPanel(props: {
                     "pv_name",
                     "pv_datatype",
                     "pv_id",
+                    "pv_min_threshold",
+                    "pv_max_threshold",
+                    "pv_compute_snr",
+                    "pv_snr_min_threshold",
                   ].map((key) => {
                     const value = (plan as any)[key]; // ✅ get value from plan
                     return (
@@ -316,7 +332,7 @@ export default function PandaUniformScanPanel(props: {
                     onClick={() => {
                       setPvs(prev => [
                         ...prev,
-                        [plan.pv_id, plan.pv_name, plan.pv_datatype],
+                        [plan.pv_id, plan.pv_name, plan.pv_datatype, plan.pv_min_threshold, plan.pv_max_threshold, plan.pv_compute_snr, plan.pv_snr_min_threshold],
                       ]);
                     }}
                   >
@@ -374,6 +390,11 @@ export default function PandaUniformScanPanel(props: {
                   {
                     pv_name: pv[1],
                     pv_datatype: pv[2],
+                    pv_min_threshold : pv[3],
+                    pv_max_threshold: pv[4],
+                    pv_compute_snr: pv[5],
+                    pv_snr_min_threshold: pv[6],
+
                   },
                 ])
               );
