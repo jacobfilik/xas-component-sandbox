@@ -369,6 +369,10 @@ export default function PandaUniformScanPanel(props: {
             pv_name,
             pv_datatype,
             enable_pvs,
+            pv_min_threshold,
+            pv_max_threshold,
+            pv_compute_snr,
+            pv_snr_min_threshold,
             ...rest
             } = plan;
 
