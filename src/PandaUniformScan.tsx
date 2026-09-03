@@ -13,7 +13,7 @@ type TriggerTuple = [
   number    // trigger_repeat
 ];
 
-type ReadablePV = [string, string, string, number, number, boolean, number];
+type ReadablePV = [string, string, string, number, number, boolean, boolean, number];
 
 
 interface PandaUniformScanPlan {
@@ -40,6 +40,7 @@ interface PandaUniformScanPlan {
   pv_id: string;
   pv_min_threshold : number,
   pv_max_threshold: number,
+  pv_ensure_in_range: boolean,
   pv_compute_snr: boolean,
   pv_snr_min_threshold: number,
 }
@@ -69,6 +70,7 @@ const parameterInfo: Record<string, string> = {
   pv_id:"PV identifier",
   pv_min_threshold : "Minimum Threshold",
   pv_max_threshold: "Maximum Threshold",
+  pv_ensure_in_range: "Ensure this PV in range before running a scan",
   pv_compute_snr: "Use SNR of this PV (True/False)",
   pv_snr_min_threshold: "Minimum Required Threshold for SNR",
 };
@@ -103,6 +105,7 @@ export default function PandaUniformScanPanel(props: {
     pv_id: "motor_readback",
     pv_min_threshold: -10,
     pv_max_threshold: 20,
+    pv_ensure_in_range: false,
     pv_compute_snr: false,
     pv_snr_min_threshold: 30,
   });
@@ -291,6 +294,7 @@ export default function PandaUniformScanPanel(props: {
                     "pv_id",
                     "pv_min_threshold",
                     "pv_max_threshold",
+                    "pv_ensure_in_range",
                     "pv_compute_snr",
                     "pv_snr_min_threshold",
                   ].map((key) => {
@@ -332,7 +336,7 @@ export default function PandaUniformScanPanel(props: {
                     onClick={() => {
                       setPvs(prev => [
                         ...prev,
-                        [plan.pv_id, plan.pv_name, plan.pv_datatype, plan.pv_min_threshold, plan.pv_max_threshold, plan.pv_compute_snr, plan.pv_snr_min_threshold],
+                        [plan.pv_id, plan.pv_name, plan.pv_datatype, plan.pv_min_threshold, plan.pv_max_threshold, plan.pv_ensure_in_range, plan.pv_compute_snr, plan.pv_snr_min_threshold],
                       ]);
                     }}
                   >
@@ -371,6 +375,7 @@ export default function PandaUniformScanPanel(props: {
             enable_pvs,
             pv_min_threshold,
             pv_max_threshold,
+            pv_ensure_in_range,
             pv_compute_snr,
             pv_snr_min_threshold,
             ...rest
@@ -396,8 +401,9 @@ export default function PandaUniformScanPanel(props: {
                     pv_datatype: pv[2],
                     pv_min_threshold : pv[3],
                     pv_max_threshold: pv[4],
-                    pv_compute_snr: pv[5],
-                    pv_snr_min_threshold: pv[6],
+                    pv_ensure_in_range: pv[5],
+                    pv_compute_snr: pv[6],
+                    pv_snr_min_threshold: pv[7],
 
                   },
                 ])
