@@ -41,6 +41,7 @@ interface InterPandaTriggerPlan {
   pv_ensure_in_range: boolean,
   pv_compute_snr: boolean,
   pv_snr_min_threshold: number,
+  is_adaptive_scan: boolean;
 }
 
 const parameterInfo: Record<string, string> = {
@@ -67,9 +68,10 @@ const parameterInfo: Record<string, string> = {
   pv_id:"PV identifier",
   pv_min_threshold : "Minimum Threshold",
   pv_max_threshold: "Maximum Threshold",
-  pv_ensure_in_range: "Ensure this PV in range before running a scan",
-  pv_compute_snr: "Use SNR of this PV (True/False)",
+  pv_ensure_in_range: "Ensure PV in range before a scan",
+  pv_compute_snr: "Use SNR of this PV",
   pv_snr_min_threshold: "Minimum Required Threshold for SNR",
+  is_adaptive_scan: "Run adaptive scan",
 };
 
 
@@ -98,14 +100,15 @@ export default function InterPandaTriggerPlanPanel(props: {
     trigger_repeat:1,
     configure_sampleEnv_triggers: false,
     enable_pvs:false,
-    pv_name:"BL51P-OP-PCHRO-01:TS:XFINE.RBV",
-    pv_datatype:"float",
-    pv_id: "motor_readback",
-    pv_min_threshold: -10,
+    pv_name:"BL20J-PV-MOCK-02",
+    pv_datatype:"int",
+    pv_id: "mock_pv",
+    pv_min_threshold: 0,
     pv_max_threshold: 20,
     pv_ensure_in_range: false,
     pv_compute_snr: false,
     pv_snr_min_threshold: 30,
+    is_adaptive_scan: false,
   });
   const [readable_pvs, setPvs] = useState<ReadablePV[]>([]);
   const handleChange = (key: keyof InterPandaTriggerPlan, value: any) => {
@@ -127,10 +130,26 @@ export default function InterPandaTriggerPlanPanel(props: {
         "ramp_time",
         "turnaround_time",
         "metadata",
+        "is_adaptive_scan"
         ].map((key) => {
             const value = (InterPandaTriggerPlan as any)[key]; // ✅ get value from plan
+            if (typeof value === "boolean") {
+              return (
+                <FormControlLabel
+                  key={key}
+                  control={
+                    <Checkbox
+                      checked={value}
+                      onChange={(e) => handleChange(key as any, e.target.checked)}
+                    />
+                  }
+                  label={parameterInfo[key] ?? "No description available"}
+                />
+              );
+            }
+
             return (
-                <Stack direction="column" spacing={"10px"}>
+                <Stack key={key} direction="column" spacing={"10px"}>
                   <Typography variant="body2" color="text.secondary">
                     {parameterInfo[key] ?? "No description available"}
                   </Typography>
@@ -200,9 +219,23 @@ export default function InterPandaTriggerPlanPanel(props: {
                     "trigger_repeat"
                   ].map((key) => {
                     const value = (InterPandaTriggerPlan as any)[key]; // ✅ get value from plan
+                    if (typeof value === "boolean") {
+                      return (
+                        <FormControlLabel
+                          key={key}
+                          control={
+                            <Checkbox
+                              checked={value}
+                              onChange={(e) => handleChange(key as any, e.target.checked)}
+                            />
+                          }
+                          label={parameterInfo[key] ?? "No description available"}
+                        />
+                      );
+                    }
 
                      return (
-                      <Stack direction="column" spacing={"10px"}>
+                      <Stack key={key} direction="column" spacing={"10px"}>
                         <Typography variant="body2" color="text.secondary">
                           {parameterInfo[key] ?? "No description available"}
                         </Typography>
@@ -289,15 +322,30 @@ export default function InterPandaTriggerPlanPanel(props: {
                     "pv_name",
                     "pv_datatype",
                     "pv_id",
+                    "pv_ensure_in_range",
                     "pv_min_threshold",
                     "pv_max_threshold",
-                    "pv_ensure_in_range",
                     "pv_compute_snr",
                     "pv_snr_min_threshold",
                   ].map((key) => {
                     const value = (InterPandaTriggerPlan as any)[key]; // ✅ get value from plan
+                    if (typeof value === "boolean") {
+                      return (
+                        <FormControlLabel
+                          key={key}
+                          control={
+                            <Checkbox
+                              checked={value}
+                              onChange={(e) => handleChange(key as any, e.target.checked)}
+                            />
+                          }
+                          label={parameterInfo[key] ?? "No description available"}
+                        />
+                      );
+                    }
+
                     return (
-                      <Stack direction="column" spacing={"10px"}>
+                      <Stack key={key} direction="column" spacing={"10px"}>
                         <Typography variant="body2" color="text.secondary">
                           {parameterInfo[key] ?? "No description available"}
                         </Typography>
