@@ -43,6 +43,7 @@ interface PandaUniformScanPlan {
   pv_ensure_in_range: boolean,
   pv_compute_snr: boolean,
   pv_snr_min_threshold: number,
+  is_adaptive_scan: boolean; // Optional property for adaptive scans
 }
 
 
@@ -70,9 +71,10 @@ const parameterInfo: Record<string, string> = {
   pv_id:"PV identifier",
   pv_min_threshold : "Minimum Threshold",
   pv_max_threshold: "Maximum Threshold",
-  pv_ensure_in_range: "Ensure this PV in range before running a scan",
-  pv_compute_snr: "Use SNR of this PV (True/False)",
+  pv_ensure_in_range: "Ensure PV in range before a scan",
+  pv_compute_snr: "Use SNR of this PV",
   pv_snr_min_threshold: "Minimum Required Threshold for SNR",
+  is_adaptive_scan: "Run adaptive scan",
 };
 
 
@@ -84,7 +86,7 @@ export default function PandaUniformScanPanel(props: {
   const [plan, setPlan] = useState<PandaUniformScanPlan>({
     start: 0,
     stop: 10,
-    stepsize: 1,
+    stepsize: 0.005,
     number_of_sweeps: 4,
     time_per_sweep: 5,
     num_trajectory_points: 10,
@@ -100,14 +102,15 @@ export default function PandaUniformScanPanel(props: {
     trigger_type: 0,
     trigger_repeat: 1,
     enable_pvs:false,
-    pv_name:"BL51P-OP-PCHRO-01:TS:XFINE.RBV",
-    pv_datatype:"float",
-    pv_id: "motor_readback",
-    pv_min_threshold: -10,
+    pv_name:"BL20J-PV-MOCK-02",
+    pv_datatype:"int",
+    pv_id: "mock_pv",
+    pv_min_threshold: 0,
     pv_max_threshold: 20,
     pv_ensure_in_range: false,
     pv_compute_snr: false,
     pv_snr_min_threshold: 30,
+    is_adaptive_scan: false, // Default value for adaptive scans
   });
 
   const [triggers, setTriggers] = useState<TriggerTuple[]>([]);
@@ -130,10 +133,26 @@ export default function PandaUniformScanPanel(props: {
           "ramp_time",
           "turnaround_time",
           "metadata",
+          "is_adaptive_scan"
         ].map((key) => {
           const value = (plan as any)[key]; // ✅ get value from plan
+            if (typeof value === "boolean") {
+              return (
+                <FormControlLabel
+                  key={key}
+                  control={
+                    <Checkbox
+                      checked={value}
+                      onChange={(e) => handleChange(key as any, e.target.checked)}
+                    />
+                  }
+                  label={parameterInfo[key] ?? "No description available"}
+                />
+              );
+            }
+
           return (
-              <Stack direction="column" spacing={"10px"}>
+              <Stack key={key} direction="column" spacing={"10px"}>
                 <Typography variant="body2" color="text.secondary">
                   {parameterInfo[key] ?? "No description available"}
                 </Typography>
@@ -203,9 +222,23 @@ export default function PandaUniformScanPanel(props: {
                     "trigger_repeat"
                   ].map((key) => {
                     const value = (plan as any)[key]; // ✅ get value from plan
+                    if (typeof value === "boolean") {
+                      return (
+                        <FormControlLabel
+                          key={key}
+                          control={
+                            <Checkbox
+                              checked={value}
+                              onChange={(e) => handleChange(key as any, e.target.checked)}
+                            />
+                          }
+                          label={parameterInfo[key] ?? "No description available"}
+                        />
+                      );
+                    }
 
                      return (
-                      <Stack direction="column" spacing={"10px"}>
+                      <Stack key={key} direction="column" spacing={"10px"}>
                         <Typography variant="body2" color="text.secondary">
                           {parameterInfo[key] ?? "No description available"}
                         </Typography>
@@ -292,15 +325,30 @@ export default function PandaUniformScanPanel(props: {
                     "pv_name",
                     "pv_datatype",
                     "pv_id",
+                    "pv_ensure_in_range",
                     "pv_min_threshold",
                     "pv_max_threshold",
-                    "pv_ensure_in_range",
                     "pv_compute_snr",
                     "pv_snr_min_threshold",
                   ].map((key) => {
                     const value = (plan as any)[key]; // ✅ get value from plan
+                    if (typeof value === "boolean") {
+                      return (
+                        <FormControlLabel
+                          key={key}
+                          control={
+                            <Checkbox
+                              checked={value}
+                              onChange={(e) => handleChange(key as any, e.target.checked)}
+                            />
+                          }
+                          label={parameterInfo[key] ?? "No description available"}
+                        />
+                      );
+                    }
+
                     return (
-                      <Stack direction="column" spacing={"10px"}>
+                      <Stack key={key} direction="column" spacing={"10px"}>
                         <Typography variant="body2" color="text.secondary">
                           {parameterInfo[key] ?? "No description available"}
                         </Typography>
@@ -404,7 +452,6 @@ export default function PandaUniformScanPanel(props: {
                     pv_ensure_in_range: pv[5],
                     pv_compute_snr: pv[6],
                     pv_snr_min_threshold: pv[7],
-
                   },
                 ])
               );
