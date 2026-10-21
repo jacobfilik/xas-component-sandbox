@@ -1,15 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import $monacoEditorPlugin from "vite-plugin-monaco-editor";
+import monacoEditorPlugin from "vite-plugin-monaco-editor";
 
-//ts-ignore
-const monacoEditorPlugin = $monacoEditorPlugin.default ?? $monacoEditorPlugin;
+const plugin = (monacoEditorPlugin as any).default || monacoEditorPlugin;
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    monacoEditorPlugin({
+    plugin({
       languageWorkers: ["editorWorkerService", "json"],
       customWorkers: [
         {
