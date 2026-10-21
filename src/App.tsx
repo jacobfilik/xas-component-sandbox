@@ -18,6 +18,7 @@ import TaskPage from "./TaskPage";
 import CustomPlanPage from "./CustomPlanPage";
 import BlueapiResources from "./BlueapiResources";
 import RunViewPage from "./RunViewPage";
+import GraphiqlComponent from "./GraphiqlComponent";
 
 const queryClient = new QueryClient();
 
@@ -84,6 +85,14 @@ function App() {
                 element={
                   <RequireAuth>
                     <RunViewPage />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/graphiql"
+                element={
+                  <RequireAuth>
+                    <GraphiqlComponent />
                   </RequireAuth>
                 }
               />

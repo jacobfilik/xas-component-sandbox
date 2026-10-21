@@ -21,7 +21,10 @@
     "@mui/icons-material": "7",
     "@mui/material": "^7.3.11",
     "@tanstack/react-query": "^5.90.20",
+    "app": "link:",
     "axios": "^1.13.4",
+    "graphiql": "^5.4.0",
+    "graphql": "^17.0.2",
     "ndarray": "^1.0.19",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -43,7 +46,8 @@
     "msw": "^2.12.8",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "vite-plugin-monaco-editor": "^1.1.0"
   },
   "msw": {
     "workerDirectory": [
