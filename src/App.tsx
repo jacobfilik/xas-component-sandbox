@@ -18,6 +18,7 @@ import TaskPage from "./TaskPage";
 import CustomPlanPage from "./CustomPlanPage";
 import BlueapiResources from "./BlueapiResources";
 import RunViewPage from "./RunViewPage";
+import SubmitGraphQueryPage from "./SubmitGraphQueryPage";
 
 const queryClient = new QueryClient();
 
@@ -87,6 +88,16 @@ function App() {
                   </RequireAuth>
                 }
               />
+
+              <Route
+              path="/graphpost"
+              element={
+                <RequireAuth>
+                  <SubmitGraphQueryPage/>
+                </RequireAuth>
+              }
+              />
+
               <Route path="/test" element={<TestComponent />} />
             </Routes>
             <Footer copyright="Diamond Light Source" />

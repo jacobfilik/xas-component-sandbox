@@ -54,6 +54,8 @@ export default function Header() {
         <NavLink to="/runs" key="rubs" linkComponent={Link}>
           View Runs
         </NavLink>
+
+        <NavLink to="/graphpost" key="graphql" linkComponent={Link}>Post Graphql Query</NavLink>
       </NavLinks>
     </Navbar>
   );

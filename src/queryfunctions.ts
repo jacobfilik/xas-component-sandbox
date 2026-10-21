@@ -18,7 +18,7 @@ const task = "/task";
 const tiled = "/tiled";
 const user = "oauth2/userinfo";
 
-const graph = "/graph/graphql";
+export const graph = "/graph/graphql";
 
 export const getPlans = async () => {
   const { data } = await axios.get<PlansResponse, AxiosResponse<PlansResponse>>(

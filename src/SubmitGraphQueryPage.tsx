@@ -1,5 +1,5 @@
 import { Button, Stack, TextField, Typography } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
+import { mutationOptions, useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { postGraphQuery } from "./queryfunctions";
 
@@ -25,7 +25,8 @@ export default function SubmitGraphQueryPage() {
     })
 
     return (
-        <Stack height="100%" padding="50px" spacing="10px">
+        <Stack height="100%" padding="50px" spacing="10px"
+        sx={{alignItems:"center"}}>
         <TextField 
          sx={{width:"100%"}}
          id="queryinputbox"
@@ -36,12 +37,21 @@ export default function SubmitGraphQueryPage() {
          onChange={e => onQueryChange(e.target.value)}>
         </TextField>
 
-        <Button
-        disabled={queryObj==null || postFn.isPending}
-        variant="contained">
-            POST QUERY
+        <Button 
+        sx = {{ bgcolor:"dark" }}
+        // disabled={queryObj==null || postFn.isPending}
+        variant="contained"
+
+        onClick = { () => {
+        if (queryObj != null) {
+            postFn.mutate(queryObj)
+        }
+        }}
+        >
+            post query
         </Button>
-        <Stack><Typography variant="h3"><b>RESULT</b></Typography>
+        <Stack width="60%"
+        ><Typography variant="h4">result</Typography>
         <TextField 
         value={JSON.stringify(myResult)}>
         </TextField>

@@ -1,14 +1,15 @@
 import { delay, http, HttpResponse } from "msw";
-import type {
-  DeviceResponse,
-  TaskListResponse,
-  TaskResponse,
-  TiledResponse,
-  TiledSearchResponse,
+import {
+  type DeviceResponse,
+  type TaskListResponse,
+  type TaskResponse,
+  type TiledResponse,
+  type TiledSearchResponse,
 } from "../models";
 import testdata from "../test_data.json";
 
 import testsearch from "../test_search_response.json";
+
 
 const mockPlans = {
   plans: [
@@ -211,6 +212,9 @@ const mockTiledResponse: TiledResponse = testdata;
 
 const mockPaginatedResponse: TiledSearchResponse = testsearch;
 
+// const graphApi = graphql.link(graph)
+
+
 // mockPaginatedResponse.data.push(testsearch.data[0]);
 // mockPaginatedResponse.data.push(testsearch.data[0]);
 // mockPaginatedResponse.data.push(testsearch.data[0]);
@@ -298,4 +302,54 @@ export const handlers = [
       )
     );
   }),
+
+  http.post("graph/graphql", async ({request}) => {
+  
+    const obj = await request.clone().json()
+    console.log(obj)
+    console.log(typeof obj)
+    
+    console.log(obj.query)
+   
+    // if ("query" in keys) {
+
+    //   const query = obj1.query
+
+    //   if ("__typename" in Object.keys(query)) {
+  
+    //     return HttpResponse.json({data: {"__typename": "Query"}}, {status:200})
+    //   }
+
+    //   if ("username" in Object.keys(query)) {
+    //     let data = {account: {
+    //       emailAddress: "example.diamond.ac.uk",
+    //       username: query.username,
+    //       title: null,
+    //       preferredGivenName: "john",
+    //       familyName: "doe",
+    //       type: "functional",
+    //       state: "disabled",
+
+    //     }}
+    //     // putting in my details as a placeholder!
+    //     if (query.username == "fcm32466") {
+    //       data.account.emailAddress = "l.haddad@diamond.ac.uk"
+    //       data.account.familyName = "Haddad"
+    //       data.account.preferredGivenName = "Lucy"
+    //       data.account.type = "staff"
+    //       data.account.state = "enabled"
+    //     }
+
+    //     return HttpResponse.json({data:data}, {status:200})
+    //     }
+    //   }
+    
+   return HttpResponse.json({"error": "Not a valid query"},
+         {status:405})}
+    
+  )
+
+
 ];
+
+
