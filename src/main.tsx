@@ -8,6 +8,7 @@ async function enableMocking() {
   if (process.env.NODE_ENV !== "development") {
     return;
   }
+  console.log("DEV")
 
   const { worker } = await import("./mocks/browser");
 
