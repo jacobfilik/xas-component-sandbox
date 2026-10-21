@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import $monacoEditorPlugin from "vite-plugin-monaco-editor";
+
+//ts-ignore
 const monacoEditorPlugin = $monacoEditorPlugin.default ?? $monacoEditorPlugin;
 
 // https://vite.dev/config/

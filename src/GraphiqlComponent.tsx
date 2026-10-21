@@ -4,6 +4,7 @@ import "graphiql/style.css";
 
 const graph_url = "/graph/graphql";
 
+//@ts-ignore
 async function fetcher(graphQLParams) {
   const response = await fetch(graph_url, {
     method: "POST",
