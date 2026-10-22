@@ -272,12 +272,12 @@ export const handlers = [
     return HttpResponse.json({ preferredUsername: "test user" });
   }),
 
-  http.get("/tiled/search/:id", () => {
+  http.get("/tiled/search/p51/cm44254/cm44254-1/:id", () => {
     console.log("ID SEARCH");
     return HttpResponse.json(mockTiledResponse);
   }),
 
-  http.get("tiled/search", ({ request }) => {
+  http.get("tiled/search/p51/cm44254/cm44254-1", ({ request }) => {
     const url = new URL(request.url);
 
     const key = url.searchParams.get("filter[eq][condition][key]");
@@ -288,14 +288,31 @@ export const handlers = [
     return HttpResponse.json(mockPaginatedResponse);
   }),
 
-  http.get("tiled/array/full/:id/primary/internal/:name", ({ request }) => {
-    const url = new URL(request.url);
-    console.log(url);
+  http.get(
+    "tiled/array/full/p51/cm44254/cm44254-1/:id/primary/internal/:name",
+    ({ request }) => {
+      const url = new URL(request.url);
+      console.log(url);
 
-    return HttpResponse.json(
-      Array.from({ length: 100 + Math.floor(Math.random() * 500) }, () =>
-        Math.random()
-      )
-    );
-  }),
+      return HttpResponse.json(
+        Array.from({ length: 100 + Math.floor(Math.random() * 500) }, () =>
+          Math.random(),
+        ),
+      );
+    },
+  ),
+
+  http.get(
+    "tiled/array/full/p51/cm44254/cm44254-1/:id/primary/:name",
+    ({ request }) => {
+      const url = new URL(request.url);
+      console.log(url);
+
+      return HttpResponse.json(
+        Array.from({ length: 100 + Math.floor(Math.random() * 500) }, () =>
+          Math.random(),
+        ),
+      );
+    },
+  ),
 ];

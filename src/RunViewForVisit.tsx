@@ -9,13 +9,27 @@ import DataChartWrapper from "./DataChartWrapper";
 import TiledContainerPanel from "./ListenTiled";
 
 export default function RunViewForVisit(props: {
+  beamline: string;
   visit: string;
   offset: number;
   setOffset: (ofset: number) => void;
 }) {
   const query = useQuery<TiledSearchResponse, Error>({
-    queryKey: ["search", props.visit, "-start.time", props.offset],
-    queryFn: () => getRunsInVisit(props.visit, props.offset, 10, "-start.time"),
+    queryKey: [
+      "search",
+      props.visit,
+      "-start.time",
+      props.offset,
+      props.beamline,
+    ],
+    queryFn: () =>
+      getRunsInVisit(
+        props.beamline,
+        props.visit,
+        props.offset,
+        10,
+        "-start.time",
+      ),
     refetchInterval: 5000,
   });
 
@@ -32,7 +46,7 @@ export default function RunViewForVisit(props: {
   };
 
   return (
-    <Stack direction={"row"} spacing="10px" overflow="hidden">
+    <Stack direction={"row"} spacing="10px" overflow="hidden" flex={1}>
       <Stack spacing="10px">
         <RunViewList data={query.data.data} setId={setId}></RunViewList>
         <Pagination
@@ -45,7 +59,12 @@ export default function RunViewForVisit(props: {
 
       <Stack flex={1} overflow="auto">
         {id ? (
-          <TiledContainerPanel taskID={id.id} setDataInfo={setDataInfo} />
+          <TiledContainerPanel
+            beamline={props.beamline}
+            visit={props.visit}
+            taskID={id.id}
+            setDataInfo={setDataInfo}
+          />
         ) : (
           <Box></Box>
         )}
@@ -54,7 +73,12 @@ export default function RunViewForVisit(props: {
         <Card sx={{ height: "100%" }}>
           <CardContent sx={{ height: "100%" }}>
             {dataInfo && id ? (
-              <DataChartWrapper dataInfo={dataInfo} id={id} />
+              <DataChartWrapper
+                beamline={props.beamline}
+                visit={props.visit}
+                dataInfo={dataInfo}
+                id={id}
+              />
             ) : (
               <DataChart data={null} />
             )}

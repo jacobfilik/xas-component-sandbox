@@ -5,12 +5,14 @@ import type { DataInfo, TiledResponse } from "./models";
 import TiledResponseComponent from "./TiledResponseComponent";
 
 export default function TiledContainerPanel(props: {
+  beamline: string;
+  visit: string;
   taskID: string;
   setDataInfo: (name: DataInfo) => void;
 }) {
   const query = useQuery<TiledResponse, Error>({
-    queryKey: ["taskId", props.taskID],
-    queryFn: () => getMetadata(props.taskID),
+    queryKey: ["taskId", props.taskID, props.beamline.at, props.visit],
+    queryFn: () => getMetadata(props.taskID, props.beamline, props.visit),
     enabled: !!props.taskID, // prevents running with empty ID
   });
 
