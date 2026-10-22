@@ -20,7 +20,7 @@ const user = "oauth2/userinfo";
 
 export const getPlans = async () => {
   const { data } = await axios.get<PlansResponse, AxiosResponse<PlansResponse>>(
-    blueapi + plans
+    blueapi + plans,
   );
   return data;
 };
@@ -43,8 +43,16 @@ export const searchMeta = async (taskId: string): Promise<TiledResponse> => {
   return response.data;
 };
 
-export const getMetadata = async (taskId: string): Promise<TiledResponse> => {
-  const response = await axios.get<TiledResponse>(tiled + "/search/" + taskId);
+export const getMetadata = async (
+  taskId: string,
+  beamline: string,
+  visit: string,
+): Promise<TiledResponse> => {
+  const code = visit.split("-")[0];
+
+  const response = await axios.get<TiledResponse>(
+    tiled + "/search/" + beamline + "/" + code + "/" + visit + "/" + taskId,
+  );
   if (response.status != 200) {
     throw new Error("Failed to retrieve metadata");
   }
@@ -91,7 +99,7 @@ export const putTask = async (input: object) => {
 
 export const getTask = async (taskId: string) => {
   const response = await axios.get<TaskListItem, AxiosResponse<TaskListItem>>(
-    blueapi + tasks + "/" + taskId
+    blueapi + tasks + "/" + taskId,
   );
 
   if (response.status != 200) {
@@ -102,22 +110,28 @@ export const getTask = async (taskId: string) => {
 };
 
 export const getRunsInVisit = async (
+  beamline: string,
   visit: string,
   offset: number,
   limit: number,
-  sort_key: string
+  sort_key: string,
 ): Promise<TiledSearchResponse> => {
+  const code = visit.split("-")[0];
+
   const response = await axios.get<TiledSearchResponse>(
     tiled +
-      "/search/?filter[eq][condition][key]=start.instrument_session&filter[eq][condition][value]=%22" +
+      "/search/" +
+      beamline +
+      "/" +
+      code +
+      "/" +
       visit +
-      "%22" +
-      "&page[offset]=" +
+      "?page[offset]=" +
       offset +
       "&page[limit]=" +
       limit +
       "&sort=" +
-      sort_key
+      sort_key,
   );
   if (response.status != 200) {
     throw new Error("Failed to retrieve metadata");
@@ -126,12 +140,16 @@ export const getRunsInVisit = async (
 };
 
 export const getData = async (
+  beamline: string,
+  visit: string,
   id: string,
   name: string,
   containerName: string,
-  internal: boolean
+  internal: boolean,
 ) => {
-  let url = tiled + "/array/full/" + id + "/" + containerName;
+  const code = visit.split("-")[0];
+
+  let url = `${tiled}/array/full/${beamline}/${code}/${visit}/${id}/${containerName}`;
 
   if (internal) {
     url = url + "/internal";
