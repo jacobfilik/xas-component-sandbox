@@ -20,7 +20,6 @@ import InterPandaTriggerPlanPanel from "./InterPandaTriggerScan";
 import TurboSlitPlanPanel from "./TurboSlitPlanPanel";
 import RefreshPandaPanel from "./RefreshPanda";
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
-import ListenTiledPanel from "./ListenTiled";
 import SubmittedJson from "./SubmittedJson";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -235,13 +234,7 @@ export default function CustomPlanPage() {
           spacing="20px"
           overflow="auto"
           flex={1}
-        >
-          {submittedTaskId ? (
-            <ListenTiledPanel taskID={tiledId} setDataInfo={() => {}} />
-          ) : (
-            <Box>No Submitted Task</Box>
-          )}
-        </Stack>
+        ></Stack>
       </Stack>
     );
   }
