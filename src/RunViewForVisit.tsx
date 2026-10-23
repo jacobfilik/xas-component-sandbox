@@ -36,9 +36,7 @@ export default function RunViewForVisit(props: {
   const [id, setId] = useState<TiledEntryInfo | null>(null);
   const [dataInfo, setDataInfo] = useState<DataInfo | null>(null);
 
-  console.log(id);
-
-  if (!query.data) {
+  if (!query.data || !query.data.meta) {
     return <Stack>No data</Stack>;
   }
   const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {

@@ -14,7 +14,7 @@
     "@diamondlightsource/sci-react-ui": "^0.6.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@h5web/lib": "^16.0.1",
+    "@h5web/lib": "^18.0.0",
     "@jsonforms/core": "^3.6.0",
     "@jsonforms/material-renderers": "^3.6.0",
     "@jsonforms/react": "^3.6.0",

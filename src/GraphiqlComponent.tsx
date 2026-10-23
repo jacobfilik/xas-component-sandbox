@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack, useColorScheme } from "@mui/material";
 import { GraphiQL } from "graphiql";
 import "graphiql/style.css";
 
@@ -17,9 +17,14 @@ async function fetcher(graphQLParams) {
   return response.json();
 }
 export default function GraphiqlComponent() {
+  const { mode, systemMode } = useColorScheme();
+
+  let resolvedMode = mode === "system" ? systemMode : mode;
+  if (resolvedMode !== "light" && resolvedMode !== "dark") {
+  }
   return (
     <Stack sx={{ height: "100%", width: "100%" }}>
-      <GraphiQL fetcher={fetcher} />
+      <GraphiQL fetcher={fetcher} forcedTheme={resolvedMode} />
     </Stack>
   );
 }
