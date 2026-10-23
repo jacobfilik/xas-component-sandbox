@@ -8,7 +8,6 @@ import {
   ResetZoomButton,
   DataCurve,
   type Domain,
-  CurveType,
 } from "@h5web/lib";
 import "@h5web/lib/styles.css";
 
