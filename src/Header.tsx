@@ -51,8 +51,11 @@ export default function Header() {
         <NavLink to="/submit" key="submit" linkComponent={Link}>
           Submit JSON
         </NavLink>
-        <NavLink to="/runs" key="rubs" linkComponent={Link}>
+        <NavLink to="/runs" key="runs" linkComponent={Link}>
           View Runs
+        </NavLink>
+        <NavLink to="/graphiQL" key="graphiql" linkComponent={Link}>
+          Graphql IDE
         </NavLink>
       </NavLinks>
     </Navbar>

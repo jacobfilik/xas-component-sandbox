@@ -8,8 +8,9 @@ import {
   ResetZoomButton,
   DataCurve,
   type Domain,
+  CurveType,
 } from "@h5web/lib";
-import "@h5web/lib/dist/styles.css";
+import "@h5web/lib/styles.css";
 
 import Paper from "@mui/material/Paper";
 import { MdGridOn } from "react-icons/md";
@@ -86,9 +87,6 @@ export function DataChart(props: { data: number[] | null }) {
   let domain: Domain | undefined = ydata ? getDomain(ydata) : [0, 1];
   let domainx: Domain | undefined = xdata ? getDomain(xdata) : [0, 1];
 
-  domain = domain ? domain : [0, 1];
-  domainx = domainx ? domainx : [0, 1];
-
   return (
     <Paper
       sx={{
@@ -127,7 +125,7 @@ export function DataChart(props: { data: number[] | null }) {
           <TooltipMesh renderTooltip={tooltipText} />
           <ResetZoomButton />
 
-          {ydata && xdata && (
+           {ydata && xdata && (
             <DataCurve
               abscissas={xdata.data}
               color="green"

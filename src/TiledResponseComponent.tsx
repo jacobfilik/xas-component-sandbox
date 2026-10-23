@@ -48,6 +48,9 @@ export default function TiledResponseComponent(props: {
                 </Typography>
                 <Typography>Source: {dk.source}</Typography>
                 {dk.units && <Typography>Units: {dk.units}</Typography>}
+                {dk.shape && (
+                  <Typography>Shape: {dk.shape.toString()}</Typography>
+                )}
               </CardContent>
             </CardActionArea>
           </Card>
