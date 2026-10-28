@@ -9,7 +9,7 @@ const config: CodegenConfig = {
       config: {
         generateOperationTypes: false,
       }, // generate __generated__/graphql for main types
-      plugins: ["typescript", "typescript-operations"],
+      plugins: ["typescript"],
     },
     "./src/": {
       preset: "near-operation-file", // make extra __generated__/some-file.ts for components using new types
