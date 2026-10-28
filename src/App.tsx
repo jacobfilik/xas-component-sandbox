@@ -25,6 +25,7 @@ const queryClient = new QueryClient();
 
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
+import WorkflowsPage from "./WorkflowsPage";
 
 
 const workflowsClient = new ApolloClient({
@@ -108,6 +109,14 @@ function App() {
                   </RequireAuth>
                 }
               />
+            <Route
+            path="/workflowview"
+            element={
+              <RequireAuth>
+                <WorkflowsPage/>
+              </RequireAuth>
+            }/>
+
               <Route path="/test" element={<TestComponent />} />
             </Routes>
             <Footer copyright="Diamond Light Source" />

@@ -14,6 +14,8 @@ RUN yes | pnpm install --frozen-lockfile --prod
 
 RUN yes | pnpm install vite
 
+RUN pnpm run codegen
+
 RUN pnpm vite build
 
 From docker.io/nginxinc/nginx-unprivileged:alpine3.21-slim as host

@@ -29,7 +29,6 @@ import type {
 } from "../../__generated__/graphql";
 
 export function WorkflowsSearchComponent() {
-  // probably want to move visit input to a provider/context model.
   const [inputValues, setInputValues] = useState<WorkflowQueryVariables>(
     defaultWorkflowConnection,
   );
@@ -44,7 +43,7 @@ export function WorkflowsSearchComponent() {
           <TextField
             sx={{ width: "30%" }}
             id="propcodeinputbox"
-            label="Change Proposal Code"
+            label="Proposal Code"
             title="Proposal Code"
             value={inputValues.visit.proposalCode}
             onChange={(e) => {
@@ -59,7 +58,7 @@ export function WorkflowsSearchComponent() {
           <TextField
             sx={{ width: "30%" }}
             id="propnumberinputbox"
-            label="Change Proposal Number"
+            label="Proposal Number"
             title="Proposal Number"
             value={inputValues.visit.proposalNumber}
             onChange={(e) => {
@@ -88,7 +87,7 @@ export function WorkflowsSearchComponent() {
             }}
           />
         </Grid>
-      </Grid>
+            <Grid size={6}>
       <Button
         variant="contained"
         sx={{ bgcolor: "blue", color: "white" }}
@@ -98,6 +97,8 @@ export function WorkflowsSearchComponent() {
       >
         Search for workflows
       </Button>
+      </Grid>
+       </Grid>
       <WorkflowHandler data={data} error={error} loading={loading} />
     </Stack>
   );
@@ -109,7 +110,7 @@ function WorkflowHandler(props: {
   loading: undefined | boolean;
 }) {
   if (props.loading || !props.data) {
-    return <Stack>loading?</Stack>;
+    return <Stack></Stack>;
   }
   if (props.error) {
     return <Alert severity="error">{props.error.message}</Alert>;
