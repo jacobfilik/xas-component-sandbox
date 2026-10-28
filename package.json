@@ -12,6 +12,7 @@
     "tsc": "tsc --project tsconfig.app.json"
   },
   "dependencies": {
+    "@apollo/client": "^4.3.5",
     "@diamondlightsource/sci-react-ui": "^0.6.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -31,7 +32,8 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.7.0",
     "react-is": "18.3.1",
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.13.0",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

@@ -1,0 +1,670 @@
+[
+  {
+    "visit": "cm44186-5",
+    "data": {
+      "workflows": {
+        "__typename": "WorkflowConnection",
+        "nodes": [
+          {
+            "__typename": "Workflow",
+            "name": "example-autoprocessing-4f8wm",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "startTime": "2026-10-26T10:49:23+00:00",
+              "endTime": "2026-10-26T10:50:36+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "example-autoprocessing-4f8wm",
+                  "startTime": "2026-10-26T10:49:23+00:00",
+                  "endTime": "2026-10-26T10:50:36+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "read-Cu-data",
+                  "startTime": "2026-10-26T10:49:23+00:00",
+                  "endTime": "2026-10-26T10:49:55+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "repetitions-routine",
+                  "startTime": "2026-10-26T10:50:05+00:00",
+                  "endTime": "2026-10-26T10:50:17+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "snr-routine",
+                  "startTime": "2026-10-26T10:50:05+00:00",
+                  "endTime": "2026-10-26T10:50:31+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "make-fake-data",
+                  "startTime": "2026-10-26T10:49:23+00:00",
+                  "endTime": "2026-10-26T10:49:23+00:00",
+                  "status": "SKIPPED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-89tjm",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "startTime": "2026-10-19T10:50:52+00:00",
+              "endTime": "2026-10-19T10:53:32+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-89tjm",
+                  "startTime": "2026-10-19T10:50:52+00:00",
+                  "endTime": "2026-10-19T10:53:32+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-10-19T10:50:52+00:00",
+                  "endTime": "2026-10-19T10:51:22+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-10-19T10:51:26+00:00",
+                  "endTime": "2026-10-19T10:51:26+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-10-19T10:52:18+00:00",
+                  "endTime": "2026-10-19T10:53:22+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-10-19T10:51:26+00:00",
+                  "endTime": "2026-10-19T10:51:47+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-10-19T10:51:57+00:00",
+                  "endTime": "2026-10-19T10:52:12+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-99pmh",
+            "status": {
+              "__typename": "WorkflowFailedStatus",
+              "startTime": "2026-10-19T10:43:50+00:00",
+              "endTime": "2026-10-19T10:44:22+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-10-19T10:44:22+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "status": "OMITTED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-10-19T10:43:50+00:00",
+                  "endTime": "2026-10-19T10:44:14+00:00",
+                  "status": "FAILED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-10-19T10:44:22+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "status": "OMITTED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-10-19T10:44:22+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "status": "OMITTED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-99pmh",
+                  "startTime": "2026-10-19T10:43:50+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "status": "FAILED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-10-19T10:44:22+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "status": "OMITTED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-fqtvc",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "startTime": "2026-10-14T09:44:15+00:00",
+              "endTime": "2026-10-14T09:46:40+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-10-14T09:44:47+00:00",
+                  "endTime": "2026-10-14T09:45:08+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-10-14T09:44:48+00:00",
+                  "endTime": "2026-10-14T09:44:48+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-10-14T09:45:40+00:00",
+                  "endTime": "2026-10-14T09:46:36+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-10-14T09:44:15+00:00",
+                  "endTime": "2026-10-14T09:44:39+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-fqtvc",
+                  "startTime": "2026-10-14T09:44:15+00:00",
+                  "endTime": "2026-10-14T09:46:40+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-10-14T09:45:18+00:00",
+                  "endTime": "2026-10-14T09:45:30+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "visit": "cm44186-4",
+    "data": {
+      "workflows": {
+        "__typename": "WorkflowConnection",
+        "nodes": [
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-4sh8j",
+            "status": {
+              "__typename": "WorkflowErroredStatus",
+              "startTime": "2026-10-13T15:59:00+00:00",
+              "endTime": "2026-10-13T16:02:05+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-4sh8j",
+                  "startTime": "2026-10-13T15:59:00+00:00",
+                  "endTime": "2026-10-13T16:02:05+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-10-13T15:59:00+00:00",
+                  "endTime": "2026-10-13T15:59:22+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-10-13T15:59:34+00:00",
+                  "endTime": "2026-10-13T15:59:34+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-10-13T15:59:34+00:00",
+                  "endTime": "2026-10-13T16:00:34+00:00",
+                  "status": "FAILED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-10-13T16:01:03+00:00",
+                  "endTime": "2026-10-13T16:02:03+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-10-13T16:00:40+00:00",
+                  "endTime": "2026-10-13T16:01:00+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-ttgr4",
+            "status": {
+              "__typename": "WorkflowErroredStatus",
+              "startTime": "2026-10-13T09:17:23+00:00",
+              "endTime": "2026-10-13T09:20:08+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-10-13T09:17:23+00:00",
+                  "endTime": "2026-10-13T09:17:45+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-10-13T09:17:55+00:00",
+                  "endTime": "2026-10-13T09:17:55+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-10-13T09:18:57+00:00",
+                  "endTime": "2026-10-13T09:19:56+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-10-13T09:17:54+00:00",
+                  "endTime": "2026-10-13T09:18:25+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-10-13T09:18:36+00:00",
+                  "endTime": "2026-10-13T09:18:45+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-ttgr4",
+                  "startTime": "2026-10-13T09:17:23+00:00",
+                  "endTime": "2026-10-13T09:20:08+00:00",
+                  "status": "ERROR"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-6szcf",
+            "status": {
+              "__typename": "WorkflowErroredStatus",
+              "startTime": "2026-09-01T15:34:45+00:00",
+              "endTime": "2026-09-01T15:36:20+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-09-01T15:35:37+00:00",
+                  "endTime": "2026-09-01T15:35:49+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-6szcf",
+                  "startTime": "2026-09-01T15:34:45+00:00",
+                  "endTime": "2026-09-01T15:36:20+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-09-01T15:35:58+00:00",
+                  "endTime": "2026-09-01T15:36:14+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-09-01T15:35:16+00:00",
+                  "endTime": "2026-09-01T15:35:34+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-09-01T15:35:17+00:00",
+                  "endTime": "2026-09-01T15:35:17+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-09-01T15:34:45+00:00",
+                  "endTime": "2026-09-01T15:35:09+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-lb72d",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "startTime": "2026-09-01T10:18:31+00:00",
+              "endTime": "2026-09-01T10:20:46+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-09-01T10:19:44+00:00",
+                  "endTime": "2026-09-01T10:20:35+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-09-01T10:18:52+00:00",
+                  "endTime": "2026-09-01T10:18:52+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-lb72d",
+                  "startTime": "2026-09-01T10:18:31+00:00",
+                  "endTime": "2026-09-01T10:20:46+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-09-01T10:18:31+00:00",
+                  "endTime": "2026-09-01T10:18:47+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-09-01T10:19:23+00:00",
+                  "endTime": "2026-09-01T10:19:38+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-09-01T10:18:52+00:00",
+                  "endTime": "2026-09-01T10:19:12+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-sn76b",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "startTime": "2026-09-01T09:51:05+00:00",
+              "endTime": "2026-09-01T09:53:30+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-09-01T09:51:38+00:00",
+                  "endTime": "2026-09-01T09:52:02+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-09-01T09:51:05+00:00",
+                  "endTime": "2026-09-01T09:51:35+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-09-01T09:51:39+00:00",
+                  "endTime": "2026-09-01T09:51:39+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-sn76b",
+                  "startTime": "2026-09-01T09:51:05+00:00",
+                  "endTime": "2026-09-01T09:53:30+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-09-01T09:52:31+00:00",
+                  "endTime": "2026-09-01T09:53:20+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-09-01T09:52:10+00:00",
+                  "endTime": "2026-09-01T09:52:22+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-fjdtr",
+            "status": {
+              "__typename": "WorkflowErroredStatus",
+              "startTime": "2026-09-01T09:45:06+00:00",
+              "endTime": "2026-09-01T09:47:17+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-fjdtr",
+                  "startTime": "2026-09-01T09:45:06+00:00",
+                  "endTime": "2026-09-01T09:47:17+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-09-01T09:45:28+00:00",
+                  "endTime": "2026-09-01T09:45:28+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-09-01T09:45:28+00:00",
+                  "endTime": "2026-09-01T09:45:43+00:00",
+                  "status": "FAILED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-09-01T09:45:06+00:00",
+                  "endTime": "2026-09-01T09:45:25+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-09-01T09:45:48+00:00",
+                  "endTime": "2026-09-01T09:45:58+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-09-01T09:46:09+00:00",
+                  "endTime": "2026-09-01T09:47:14+00:00",
+                  "status": "ERROR"
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-442hh",
+            "status": {
+              "__typename": "WorkflowErroredStatus",
+              "startTime": "2026-08-27T13:49:04+00:00",
+              "endTime": "2026-08-27T13:51:21+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "prepare",
+                  "startTime": "2026-08-27T13:49:04+00:00",
+                  "endTime": "2026-08-27T13:49:37+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "plot",
+                  "startTime": "2026-08-27T13:50:30+00:00",
+                  "endTime": "2026-08-27T13:51:07+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "get-filepath",
+                  "startTime": "2026-08-27T13:50:09+00:00",
+                  "endTime": "2026-08-27T13:50:23+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "ptypy-p99-from-config-442hh",
+                  "startTime": "2026-08-27T13:49:04+00:00",
+                  "endTime": "2026-08-27T13:51:21+00:00",
+                  "status": "ERROR"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-gpu",
+                  "startTime": "2026-08-27T13:49:48+00:00",
+                  "endTime": "2026-08-27T13:50:06+00:00",
+                  "status": "FAILED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "reconstruct-with-cpu",
+                  "startTime": "2026-08-27T13:49:48+00:00",
+                  "endTime": "2026-08-27T13:49:48+00:00",
+                  "status": "SKIPPED"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "visit": "cm44186-3",
+    "data": {
+      "workflows": {
+        "__typename": "WorkflowConnection",
+        "nodes": [
+          {
+            "__typename": "Workflow",
+            "name": "conditional-steps-kqv5l",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "startTime": "2026-06-10T08:35:25+00:00",
+              "endTime": "2026-06-10T08:35:46+00:00",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "name": "complex-condition",
+                  "startTime": "2026-06-10T08:35:36+00:00",
+                  "endTime": "2026-06-10T08:35:36+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "less-than-5",
+                  "startTime": "2026-06-10T08:35:37+00:00",
+                  "endTime": "2026-06-10T08:35:37+00:00",
+                  "status": "SKIPPED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "conditional-steps-kqv5l",
+                  "startTime": "2026-06-10T08:35:25+00:00",
+                  "endTime": "2026-06-10T08:35:46+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "greater-than-5",
+                  "startTime": "2026-06-10T08:35:36+00:00",
+                  "endTime": "2026-06-10T08:35:41+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "even",
+                  "startTime": "2026-06-10T08:35:36+00:00",
+                  "endTime": "2026-06-10T08:35:40+00:00",
+                  "status": "SUCCEEDED"
+                },
+                {
+                  "__typename": "Task",
+                  "name": "pick-a-number",
+                  "startTime": "2026-06-10T08:35:25+00:00",
+                  "endTime": "2026-06-10T08:35:30+00:00",
+                  "status": "SUCCEEDED"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "visit": "empty",
+    "data": {
+      "workflows": {
+        "__typename": "WorkflowConnection",
+        "nodes": []
+      }
+    }
+  }
+]

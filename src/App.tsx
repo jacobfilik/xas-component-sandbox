@@ -20,13 +20,25 @@ import BlueapiResources from "./BlueapiResources";
 import RunViewPage from "./RunViewPage";
 import GraphiqlComponent from "./GraphiqlComponent";
 
+
 const queryClient = new QueryClient();
+
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
+
+
+const workflowsClient = new ApolloClient({
+  link: new HttpLink({ uri: "/graph/graphql", credentials: "include" }),
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
   return (
     <ThemeProvider theme={DiamondDSTheme}>
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
+      <ApolloProvider client={workflowsClient}>
         <UserProvider>
           <Stack height="100vh" width="100vw" spacing={1}>
             <Header />
@@ -101,6 +113,7 @@ function App() {
             <Footer copyright="Diamond Light Source" />
           </Stack>
         </UserProvider>
+        </ApolloProvider>
       </QueryClientProvider>
     </ThemeProvider>
   );
