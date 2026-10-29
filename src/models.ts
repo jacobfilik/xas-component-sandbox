@@ -1,3 +1,8 @@
+import type { ErrorLike } from "@apollo/client";
+import type { WorkflowQuery } from "./workflows/WorkflowsData/__generated__/WorkflowQuery.generated";
+import type { Visit, VisitInput } from "./__generated__/graphql";
+import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
+
 export interface Plan {
   name: string;
   description: string;
@@ -176,4 +181,45 @@ export interface Configuration {
   data: Record<string, number | string>;
   data_keys: Record<string, DataKey>;
   timestamps: Record<string, number>;
+}
+
+export interface WorkflowQueryHandlerResponse {
+  error: ErrorLike | undefined;
+  loading: boolean;
+  data: WorkflowQuery | undefined;
+}
+
+export interface WorkflowContextType {
+  currentVisit: { visit: VisitInput };
+  setCurrentVisit: React.Dispatch<React.SetStateAction<{ visit: VisitInput }>>;
+  workflowData: WorkflowQuery;
+  setWorkflowData: React.Dispatch<React.SetStateAction<WorkflowQuery>>;
+  getVisitString(): string;
+  templateFilter: string;
+  setTemplateFilter: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface JSONObject {
+  [key: string]: JSONValue;
+}
+
+export type JSONValue =
+  | string
+  | number
+  | boolean
+  | null
+  | JSONObject
+  | JSONValue[];
+
+export interface WorkflowTemplateProps {
+  title: string;
+  maintainer: string;
+  description?: string;
+  repository?: string;
+  parametersSchema: JsonSchema;
+  parametersUISchema?: UISchemaElement;
+  prepopulatedParameters?: JSONObject;
+  visit?: Visit
+  onSubmit: (visit:Visit, parameters:object) => void;
+  parameterMessage?: React.JSX.Element;
 }
