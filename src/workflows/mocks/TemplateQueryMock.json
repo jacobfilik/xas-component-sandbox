@@ -1,0 +1,325 @@
+[
+  {
+    "filter": "SPECTROSCOPY",
+    "data": {
+    "workflowTemplates": {
+      "__typename": "WorkflowTemplateConnection",
+      "nodes": [
+        {
+          "name": "example-autoprocessing",
+          "title": "Example Autoprocessing Routines",
+          "description": "Run b18 snr + repetitions routines from autoprocessing notebooks.\nThis will either use fake data or Cu formate scans in the directory: \n/dls/science/groups/das/ExampleData/b18/nexus.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "spectroscopy-group",
+          "repository": "\"https://github.com/DiamondLightSource/spectroscopy-workflows\"\n",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/spectroscopy-workflows",
+            "path": "demos",
+            "targetRevision": "HEAD"
+          }
+        }
+      ]
+    }
+  }
+},
+  {
+    "filter": "EMPTY",
+    "data": {
+      "workflowTemplates": {
+        "__typename":"WorkflowTemplateConnection",
+        "nodes": []
+      }
+    }
+  },
+  {
+    "filter":"EXAMPLES",
+    "data": {
+    "workflowTemplates": {
+      "__typename": "WorkflowTemplateConnection",
+      "nodes": [
+        {
+          "name": "authenticated-graph-query",
+          "title": "Authenticated GraphQL Query",
+          "description": "An example demonstrating how perform an authenticated GraphQL Query from a running workflow.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "conditional-steps",
+          "title": "conditional-steps",
+          "description": "Run steps based on conditions from previous outputs.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "dawn-powder-calibration",
+          "title": "DAWN Powder calibration",
+          "description": "Runs the DAWN command-line powder calibration tool from a given config JSON file. All file paths used\nin the config must be in the same directory as the config file (or within a sub-directory).\n(https://diamondlightsource.atlassian.net/wiki/spaces/DT/pages/1378465/Command-Line+Powder+Calibration)\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "dawn-processing",
+          "title": "DAWN Processing",
+          "description": "Runs the DAWN command-line processing tool from a given config JSON file. All file paths used\nin the config cannot be in home or scratch directories.\n(https://diamondlightsource.atlassian.net/wiki/spaces/DT/pages/1378457/Command-line+processing+DAWN+2.1)\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "echo-input",
+          "title": "echo-input",
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "events",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows.git",
+            "path": "charts/events",
+            "targetRevision": "production"
+          }
+        },
+        {
+          "name": "example-template",
+          "title": "Example Template",
+          "description": "This is an example template to use during testing and developement.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "live-clustertemplate",
+          "title": "Live cluster template",
+          "description": "Example live-priority workflow.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "looping-through-inputs",
+          "title": "using-loops",
+          "description": "Use script step to transform inputs and dynamically create workflow steps.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "mount-tmpdir",
+          "title": null,
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "mpi-workflow",
+          "title": "MPI Matrix Benchmark",
+          "description": "Creates an MPIJob and runs a matrix multiplication benchmark across multiple nodes.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "notebook",
+          "title": null,
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-helm-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/helm-based-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "notebook-with-input",
+          "title": null,
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-helm-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/helm-based-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "numpy-benchmark",
+          "title": "Numpy Benchmark",
+          "description": "Runs a numpy script in a python container.\nThe script finds the normal of the dot product of two random matrices.\nMatrix sizes are specified by the input parameter \"size\".\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "pytorch-example",
+          "title": null,
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "pytorch-notebook",
+          "title": null,
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-helm-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/helm-based-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "subscription-benchmarking",
+          "title": null,
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "using-cluster-templates",
+          "title": "using-cluster-templates",
+          "description": "Use pre-exisiting cluster-workflows as steps in your workflow.\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "visr",
+          "title": "visr",
+          "description": "Data processing for the Visible Light Spectroscopy beamline (ViSR).\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "visr-group",
+          "repository": "https://github.com/DiamondLightSource/test-rig-workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/test-rig-workflows",
+            "path": "visr",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "visr-reconstruction",
+          "title": "visr-reconstruction",
+          "description": "Image Reconstruction for the Visible Light Spectroscopy beamline (ViSR).\n",
+          "__typename": "WorkflowTemplate",
+          "maintainer": "visr-group",
+          "repository": "https://github.com/DiamondLightSource/test-rig-workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/test-rig-workflows",
+            "path": "visr",
+            "targetRevision": "HEAD"
+          }
+        },
+        {
+          "name": "workflow-of-workflows",
+          "title": "Workflow Of Workflows",
+          "description": null,
+          "__typename": "WorkflowTemplate",
+          "maintainer": "example-manifests-group",
+          "repository": "https://github.com/DiamondLightSource/workflows",
+          "templateSource": {
+            "__typename": "TemplateSource",
+            "repositoryUrl": "https://github.com/DiamondLightSource/workflows",
+            "path": "examples/conventional-templates",
+            "targetRevision": "HEAD"
+          }
+        }
+      ]
+    }
+  }
+  }
+]

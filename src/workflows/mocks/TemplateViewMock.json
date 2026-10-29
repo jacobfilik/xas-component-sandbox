@@ -1,0 +1,139 @@
+[
+  {
+    "templateName": "example-autoprocessing",
+    "data": {
+      "workflowTemplate": {
+        "__typename": "WorkflowTemplate",
+        "name": "example-autoprocessing",
+        "title": "Example Autoprocessing Routines",
+        "maintainer": "spectroscopy-group",
+        "description": "Run b18 snr + repetitions routines from autoprocessing notebooks.\nThis will either use fake data or Cu formate scans in the directory: \n/dls/science/groups/das/ExampleData/b18/nexus.\n",
+        "arguments": {
+          "properties": {
+            "absorbing_atom": {
+              "default": "Ti",
+              "pattern": "^[A-Z]\\w{0,1}$",
+              "type": "string"
+            },
+            "edge": {
+              "default": "K",
+              "pattern": "^[A-Z]\\d?",
+              "type": "string"
+            },
+            "formula": {
+              "default": "TiO",
+              "pattern": "^([A-Z][a-z]?\\d*)[A-Z]?[a-z]?\\d*",
+              "type": "string"
+            },
+            "generate_data": {
+              "default": true,
+              "type": "boolean"
+            },
+            "nscans": {
+              "default": "5",
+              "pattern": "^\\d+$",
+              "type": "string"
+            },
+            "scan_numbers": {
+              "default": "1, 2 | 5 | 1-26",
+              "pattern": "(^[0-9]+-[0-9]+$)|(^[0-9]+(, ?[0-9]+)*?$)",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "uiSchema": {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/scan_numbers",
+              "label": "Scan Numbers",
+              "options": null,
+              "rule": null
+            },
+            {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/generate_data",
+                      "label": "Use Generated Data?",
+                      "options": null,
+                      "rule": null
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/formula",
+                      "label": "Chemical Formula",
+                      "options": null,
+                      "rule": null
+                    }
+                  ],
+                  "options": null,
+                  "rule": null
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/absorbing_atom",
+                  "label": "Absorbing Atom",
+                  "options": null,
+                  "rule": null
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/edge",
+                  "label": "Absorption Edge",
+                  "options": null,
+                  "rule": null
+                },
+                {
+                  "type": "Control",
+                  "scope": "#/properties/nscans",
+                  "label": "Number of scans",
+                  "options": null,
+                  "rule": null
+                }
+              ],
+              "options": null,
+              "rule": null
+            }
+          ],
+          "options": null,
+          "rule": null
+        },
+        "repository": "\"https://github.com/DiamondLightSource/spectroscopy-workflows\"\n",
+        "templateSource": {
+          "__typename": "TemplateSource",
+          "repositoryUrl": "https://github.com/DiamondLightSource/spectroscopy-workflows",
+          "path": "demos",
+          "targetRevision": "HEAD"
+        }
+      }
+    }
+  },
+  {
+    "templateName": "empty",
+    "data": {
+      "workflowTemplate": {
+        "__typename": "WorkflowTemplate",
+        "name": "empty",
+        "title": null,
+        "maintainer": null,
+        "description": null,
+        "arguments": {},
+        "uiSchema": {},
+        "repository": null,
+        "templateSource": {
+          "__typename": "TemplateSource",
+          "repositoryUrl": null,
+          "path": null,
+          "targetRevision": "HEAD"
+        }
+      }
+    }
+  }
+]
