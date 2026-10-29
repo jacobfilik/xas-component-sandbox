@@ -26,6 +26,7 @@ const queryClient = new QueryClient();
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import WorkflowsPage from "./WorkflowsPage";
+import { WorkflowsProvider } from "./workflows/WorkflowProvider";
 
 
 const workflowsClient = new ApolloClient({
@@ -41,6 +42,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
       <ApolloProvider client={workflowsClient}>
         <UserProvider>
+          <WorkflowsProvider>
           <Stack height="100vh" width="100vw" spacing={1}>
             <Header />
             <Routes>
@@ -121,6 +123,7 @@ function App() {
             </Routes>
             <Footer copyright="Diamond Light Source" />
           </Stack>
+          </WorkflowsProvider>
         </UserProvider>
         </ApolloProvider>
       </QueryClientProvider>
