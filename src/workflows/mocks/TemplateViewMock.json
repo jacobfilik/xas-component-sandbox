@@ -120,12 +120,16 @@
     "data": {
       "workflowTemplate": {
         "__typename": "WorkflowTemplate",
-        "name": "empty",
+        "name": "None",
         "title": null,
         "maintainer": null,
         "description": null,
-        "arguments": {},
-        "uiSchema": {},
+        "arguments": {
+          "type":"object",
+          "properties":{}
+        },
+        "uiSchema": {"type":"HorizontalLayout",
+      "elements":[]},
         "repository": null,
         "templateSource": {
           "__typename": "TemplateSource",

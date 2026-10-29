@@ -88,7 +88,6 @@ function FilterMenu(props: {
                 onChange(option);
               }}
             >
-              {" "}
               {option}
             </MenuItem>
           ))}
@@ -189,9 +188,6 @@ function SingleTemplateView(props: {
         </AccordionSummary>
         <AccordionDetails>
           <Typography variant="body1">{props.template.description}</Typography>
-          {/* <Link href={props.template.repository as string} underline="hover"> */}
-          <Typography variant="body2">{props.template.repository}</Typography>
-          {/* </Link> */}
         </AccordionDetails>
       </Accordion>
     </Stack>

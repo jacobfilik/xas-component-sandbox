@@ -42,7 +42,16 @@ export const graphHandlers = [
       const response = templateviewdata.filter(
         (val) => val.templateName == "empty",
       );
-      return HttpResponse.json({ data: response[0].data });
+
+      const out = {
+        workflowTemplate: {
+          ...response[0].data,
+          name: variables.templateName,
+          title: variables.templateName,
+        },
+      };
+
+      return HttpResponse.json({ data: out });
     }
   }),
   graphEndpoint.mutation("TemplateViewMutation", ({ variables }) => {

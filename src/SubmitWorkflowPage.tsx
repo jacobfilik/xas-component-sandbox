@@ -4,7 +4,7 @@ import { ChangeVisitComponent } from "./workflows/components/ChangeVisitComponen
 import { WorkflowTemplateSearch } from "./workflows/components/WorkflowTemplateSearch";
 import { TemplatePopper } from "./workflows/components/WorkflowTemplatePopper";
 
-export function WorkflowPostPage() {
+export function SubmitWorkflowPage() {
 
   const [templateName, setTemplateName] = useState<string>("None")
 

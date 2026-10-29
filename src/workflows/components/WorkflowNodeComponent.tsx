@@ -13,7 +13,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Progress } from "@diamondlightsource/sci-react-ui";
 import { TaskStatusHandler } from "./WorkflowTaskComponent";
 
 export function FailedNodeComponent(props: {
@@ -96,7 +95,6 @@ export function PendingNodeComponent(props: {
       <Typography align="center" variant="h6" sx={{ color: "warning.main" }}>
         {props.title} (Pending)
       </Typography>
-      <Progress />
     </Stack>
   );
 }

@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import { WorkflowContext } from "../WorkflowProvider";
 import { TEMPLATE_VIEW_QUERY } from "../WorkflowsData/TemplateViewQuery";
-import { Alert, Stack } from "@mui/material";
+import { Alert, Stack, Typography } from "@mui/material";
 import type { WorkflowTemplateProps } from "../../models";
 import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
 import { FormComponent } from "./FormTemplate";
 import { useQuery } from "@apollo/client/react";
-
 
 export function TemplatePopper(props: { name: string }) {
   const { currentVisit } = useContext(WorkflowContext);
@@ -40,13 +39,18 @@ export function TemplatePopper(props: { name: string }) {
     };
 
     if (props.name == "None") {
-      return <Stack sx={{ bgcolor: "honeydew" }}>No Template Selected</Stack>;
+      return (
+        <Stack>
+          <Typography align="center" variant="body1">
+            No Template Selected
+          </Typography>
+        </Stack>
+      );
     }
 
     return (
-      <Stack sx={{ bgcolor: "honeydew" }}>
-        Hi i am template viewer! Current template is {props.name}
-        <FormComponent {...formProps}/>
+      <Stack>
+        <FormComponent {...formProps} />
       </Stack>
     );
   }
