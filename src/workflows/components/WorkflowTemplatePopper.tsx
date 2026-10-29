@@ -5,13 +5,28 @@ import { Alert, Stack, Typography } from "@mui/material";
 import type { WorkflowTemplateProps } from "../../models";
 import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
 import { FormComponent } from "./FormTemplate";
-import { useQuery } from "@apollo/client/react";
+import { useMutation, useQuery } from "@apollo/client/react";
+import { TEMPLATE_VIEW_MUTATION } from "../WorkflowsData/TemplateMutation";
+import type { Visit } from "../../__generated__/graphql";
 
 export function TemplatePopper(props: { name: string }) {
+
   const { currentVisit } = useContext(WorkflowContext);
+
   const { error, data } = useQuery(TEMPLATE_VIEW_QUERY, {
     variables: { templateName: props.name },
   });
+
+  const [submitMutation] = useMutation(TEMPLATE_VIEW_MUTATION)
+
+  const handleSubmit = (visit:Visit, parameters?:object) => {
+   
+    submitMutation({variables:{
+      visit:visit,
+      templateName: props.name,
+      parameters: parameters
+    }}).then(data => {console.log(data)})
+  }
 
   if (error) {
     return (
@@ -35,7 +50,7 @@ export function TemplatePopper(props: { name: string }) {
         : undefined,
       prepopulatedParameters: undefined,
       visit: currentVisit.visit,
-      onSubmit: () => {},
+      onSubmit: handleSubmit,
     };
 
     if (props.name == "None") {
