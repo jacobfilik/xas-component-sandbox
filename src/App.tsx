@@ -25,7 +25,7 @@ const queryClient = new QueryClient();
 
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
-import WorkflowsPage from "./WorkflowsPage";
+import TrackWorkflowsPage from "./TrackWorkflowsPage";
 import { WorkflowsProvider } from "./workflows/WorkflowProvider";
 
 
@@ -115,7 +115,7 @@ function App() {
             path="/workflowview"
             element={
               <RequireAuth>
-                <WorkflowsPage/>
+                <TrackWorkflowsPage/>
               </RequireAuth>
             }/>
 
