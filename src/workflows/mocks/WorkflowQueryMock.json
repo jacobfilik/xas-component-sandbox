@@ -7,46 +7,596 @@
         "nodes": [
           {
             "__typename": "Workflow",
-            "name": "example-autoprocessing-4f8wm",
+            "name": "example-autoprocessing-kbkxt",
+            "id": "cm44186-5:example-autoprocessing-kbkxt:280f6405-47e7-4ae4-8dd3-c279d4c93cee",
             "status": {
               "__typename": "WorkflowSucceededStatus",
-              "startTime": "2026-10-26T10:49:23+00:00",
-              "endTime": "2026-10-26T10:50:36+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "example-autoprocessing-4f8wm",
-                  "startTime": "2026-10-26T10:49:23+00:00",
-                  "endTime": "2026-10-26T10:50:36+00:00",
-                  "status": "SUCCEEDED"
+                  "startTime": "2026-11-02T08:33:00+00:00",
+                  "endTime": "2026-11-02T08:33:30+00:00",
+                  "id": "example-autoprocessing-kbkxt-2510357808",
+                  "name": "make-fake-data",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "DATA.nxs",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2510357808/DATA.nxs?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9bb0e43188f66f9575ced38164d5d3c40b26229c702e3571087fdfee0ab5c8ae",
+                      "mimeType": "application/octet-stream"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2510357808/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c1a9f41a2b4bc9243149dcbab04c4372da5dccc8dce1e5f2647f8f1d6e28da82",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
+                  "startTime": "2026-11-02T08:33:00+00:00",
+                  "endTime": "2026-11-02T08:34:11+00:00",
+                  "id": "example-autoprocessing-kbkxt",
+                  "name": "example-autoprocessing-kbkxt",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-11-02T08:33:41+00:00",
+                  "endTime": "2026-11-02T08:34:06+00:00",
+                  "id": "example-autoprocessing-kbkxt-2475907013",
+                  "name": "snr-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2475907013/snr_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=5753a087587b3452d00f9422e0b6488910b5a77feab34adc3ad8470dcf829a18",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2475907013/snr_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a6ae714626dec28ea60840400ab83c2e7c01f7c96f4ba772714641591c2fe4c6",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2475907013/snr_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f3e88e86f4950e8b60c61eed703221acf9b9d79f98654755f25f631b5002d3e9",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2475907013/snr_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=36798fea900c7f4e7d778d325ecbf524a440fbf7b0ee39c7eb9ac1271239a8fc",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-2475907013/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=331e5e9ff7099f842c6d183deb0954a74dc875e0d99726325db7e2a89f5762a2",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-11-02T08:33:00+00:00",
+                  "endTime": "2026-11-02T08:33:00+00:00",
+                  "id": "example-autoprocessing-kbkxt-1843981401",
                   "name": "read-Cu-data",
-                  "startTime": "2026-10-26T10:49:23+00:00",
-                  "endTime": "2026-10-26T10:49:55+00:00",
-                  "status": "SUCCEEDED"
+                  "status": "SKIPPED",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
+                  "startTime": "2026-11-02T08:33:41+00:00",
+                  "endTime": "2026-11-02T08:33:51+00:00",
+                  "id": "example-autoprocessing-kbkxt-839890608",
                   "name": "repetitions-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-839890608/repetitions_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e9adaf399c4a952f744802ce691455e9fd7c16c6f95acacd94721a4d9fc180ef",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-839890608/repetitions_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8646a75bde6452d5eceb03e197e19a03d26d7a9251aa9be0327643e67d1f9c04",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-839890608/repetitions_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0a4467ba69befa9f31450add49553ddb65321d91b9cd99676cb43b5d560d7b18",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-839890608/repetitions_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8d80dbfd7adcde305394501c1e044fdb121c7805ad3c03ab948133e1c8faa6d5",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-kbkxt/example-autoprocessing-kbkxt-839890608/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7b16b7cf19460216c66e030b1a3e6f7dd0a1273b5976a4c2d8cc7d0dc0dde830",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "example-autoprocessing-jtq9b",
+            "id": "cm44186-5:example-autoprocessing-jtq9b:900846c2-3c3b-40e4-9804-6a0d7bf3a35d",
+            "status": {
+              "__typename": "WorkflowFailedStatus",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:56:14+00:00",
+                  "endTime": "2026-10-29T12:56:14+00:00",
+                  "id": "example-autoprocessing-jtq9b-1440718701",
+                  "name": "read-Cu-data",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:56:45+00:00",
+                  "endTime": "2026-10-29T12:56:59+00:00",
+                  "id": "example-autoprocessing-jtq9b-4198883764",
+                  "name": "repetitions-routine",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-jtq9b/example-autoprocessing-jtq9b-4198883764/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ef41792d7a6a96482dea686126500653151020c4ac6127ca6a4226d6570130a9",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:56:14+00:00",
+                  "endTime": "2026-10-29T12:56:39+00:00",
+                  "id": "example-autoprocessing-jtq9b-926458860",
+                  "name": "make-fake-data",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-jtq9b/example-autoprocessing-jtq9b-926458860/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=72c05d690dd8838764c5f1eddea5e790207e36f5106af7411ac0fca3f6fe9df3",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:56:14+00:00",
+                  "endTime": "2026-10-29T12:57:25+00:00",
+                  "id": "example-autoprocessing-jtq9b",
+                  "name": "example-autoprocessing-jtq9b",
+                  "status": "FAILED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:56:45+00:00",
+                  "endTime": "2026-10-29T12:57:15+00:00",
+                  "id": "example-autoprocessing-jtq9b-946166545",
+                  "name": "snr-routine",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-jtq9b/example-autoprocessing-jtq9b-946166545/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a3ed2e485c7867050cd22fc1433fe2c24077f72ea5c07f327a30503ce54f1daf",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "example-autoprocessing-4kqbj",
+            "id": "cm44186-5:example-autoprocessing-4kqbj:c77ffce8-1ba5-4119-9096-d387528883c3",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:54:08+00:00",
+                  "endTime": "2026-10-29T12:55:18+00:00",
+                  "id": "example-autoprocessing-4kqbj",
+                  "name": "example-autoprocessing-4kqbj",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:54:48+00:00",
+                  "endTime": "2026-10-29T12:55:12+00:00",
+                  "id": "example-autoprocessing-4kqbj-1438599583",
+                  "name": "snr-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-1438599583/snr_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b86250cef03b0c0b455775f7ab8f7af64ec81e86e71cf34d73e93eadf9fd4eff",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-1438599583/snr_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=306e506c9bba1241fb381862d7e1393b34ab39ac89a74f373ce2cda8abd089b2",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-1438599583/snr_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c28ec8401d252ad15bf2e00dfc66e423495ffc54089ee2d3c20f6d11d52455e6",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-1438599583/snr_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1837b2024d016ab5c235eb9963f59fed29ae535ca3315dca4d3054ffed12c262",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-1438599583/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7d6bafe68b99d24cdd9a1f2e5c15b4b3e9278f49a1b48cc03375b49471284110",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:54:08+00:00",
+                  "endTime": "2026-10-29T12:54:37+00:00",
+                  "id": "example-autoprocessing-4kqbj-2409116071",
+                  "name": "read-Cu-data",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "DATA.nxs",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-2409116071/DATA.nxs?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ceda7d6fccd298eb7b8922bb510264575e3452bacbd6d43af2c3926ab3fb5b78",
+                      "mimeType": "application/octet-stream"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-2409116071/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1e657cb72d21f49467440fa3818e5bfdb2a8f184be76ba38ca22aa145648285e",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:54:48+00:00",
+                  "endTime": "2026-10-29T12:54:58+00:00",
+                  "id": "example-autoprocessing-4kqbj-3454212126",
+                  "name": "repetitions-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-3454212126/repetitions_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bcfb60330ec3c1a4e39b1f6ef6d7d051a940b67594679d03713047d6b64b9488",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-3454212126/repetitions_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=926177e6289988bc685b5edb80cfa076d81a5bf2343d37fb578fd624e0d073fb",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-3454212126/repetitions_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7ae268a66e466fab34d06631d75f9d0f10e10ce010aaa274e33e4057b5e6d036",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-3454212126/repetitions_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d4866e2262c4ecbe6a1fc9c981f9b07b210101edc55056786507a3badf78ed29",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4kqbj/example-autoprocessing-4kqbj-3454212126/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3ef2ee999fe11c4d8cf7e294b881c6cba9030599da226f49070a75d50ed5be28",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:54:08+00:00",
+                  "endTime": "2026-10-29T12:54:08+00:00",
+                  "id": "example-autoprocessing-4kqbj-952382722",
+                  "name": "make-fake-data",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "example-autoprocessing-gmh9c",
+            "id": "cm44186-5:example-autoprocessing-gmh9c:b78ec941-7563-4ec6-9c9e-bc94ab7c7a88",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:41:26+00:00",
+                  "endTime": "2026-10-29T12:41:42+00:00",
+                  "id": "example-autoprocessing-gmh9c-605933662",
+                  "name": "repetitions-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-605933662/repetitions_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7fc4fded74842631385b6c80f68e1a39912d69aa9df297f70642ced444b4db48",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-605933662/repetitions_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7c586f353d8005914b10d61c59b91020c6c186fcecd491b36c0b246f01fa0ecd",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-605933662/repetitions_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d91c09c9fa4197a788ec463b63353c920ba48c4a16c8417889dd040e4184eebc",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-605933662/repetitions_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=13b6a3c4086d4c46467280e3113a778cab2299b950684d57ac362c0e800e79f6",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-605933662/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=5060e95d8e868eb87128a22c4156e2088222e3c8dc53cb3561c8825ee1b3035f",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:40:56+00:00",
+                  "endTime": "2026-10-29T12:42:06+00:00",
+                  "id": "example-autoprocessing-gmh9c",
+                  "name": "example-autoprocessing-gmh9c",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:40:56+00:00",
+                  "endTime": "2026-10-29T12:41:21+00:00",
+                  "id": "example-autoprocessing-gmh9c-13758055",
+                  "name": "read-Cu-data",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "DATA.nxs",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-13758055/DATA.nxs?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=470d7f4b373c8d1018151fb1209e4180179a24b41c65d1433ae52e0a84216c6c",
+                      "mimeType": "application/octet-stream"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-13758055/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=fae732e5546785d32c84fe673b44e7e78528ae52d524626598008687cf0b2c6d",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:40:56+00:00",
+                  "endTime": "2026-10-29T12:40:56+00:00",
+                  "id": "example-autoprocessing-gmh9c-1790774722",
+                  "name": "make-fake-data",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-29T12:41:26+00:00",
+                  "endTime": "2026-10-29T12:41:56+00:00",
+                  "id": "example-autoprocessing-gmh9c-2145256159",
+                  "name": "snr-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-2145256159/snr_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=98360cf5ec462cf585f5422af721d41f524fa2e8e468d6a19072bd12ad6a6200",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-2145256159/snr_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f163450a198c84891c3ffc24e692f2a6a038759c76b86274a152061965139154",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-2145256159/snr_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3e344ca4d73b44a1404031b2bedaf0e1181a4dbc8f08b29b3b71ea24e93206d0",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-2145256159/snr_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=553449fa96416787861cfea8f132b4f6fe7cda619420a2403a1e2ab93a62c368",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-gmh9c/example-autoprocessing-gmh9c-2145256159/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=03e7cc5c7934789abd46d9165f5aee9877f8c5a70300f4f291dd78d051517848",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "__typename": "Workflow",
+            "name": "example-autoprocessing-4f8wm",
+            "id": "cm44186-5:example-autoprocessing-4f8wm:f312d2c7-8068-45c5-b3bf-f3493bec9adc",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "tasks": [
+                {
+                  "__typename": "Task",
                   "startTime": "2026-10-26T10:50:05+00:00",
                   "endTime": "2026-10-26T10:50:17+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "example-autoprocessing-4f8wm-426311704",
+                  "name": "repetitions-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-426311704/repetitions_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=64bf588c213f1d1d7a3e738862582ff6ed2018d1202e7bcee00b1f834d0d615c",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-426311704/repetitions_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=723267ea1991178f6172601fae05596db39f742fed5cf20eedcf4ddb70f9efab",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-426311704/repetitions_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=96be7a3c9b92baabaca0a56b4d839668a53d5f13c557a0d98d952a94964232d2",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "repetitions_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-426311704/repetitions_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=69c1c84ed41eee529da4a25d9ed860c349a37a552175a2244d516b253974598f",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-426311704/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=21a2044b84d23002d9f36499eedcc0c94d9be81d5f73a0e4c97d4c3bda319ed9",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "snr-routine",
+                  "startTime": "2026-10-26T10:49:23+00:00",
+                  "endTime": "2026-10-26T10:49:55+00:00",
+                  "id": "example-autoprocessing-4f8wm-1690993137",
+                  "name": "read-Cu-data",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "DATA.nxs",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-1690993137/DATA.nxs?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=022a3981bb44ee75972232ba340c3562fcde913e8aae50ce0db438783aba40bd",
+                      "mimeType": "application/octet-stream"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-1690993137/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e28efe4f0f4c1af4e6cf3207142e2c1dcce6d5fdf73a8e556e4084da4e8adaab",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-26T10:49:23+00:00",
+                  "endTime": "2026-10-26T10:50:36+00:00",
+                  "id": "example-autoprocessing-4f8wm",
+                  "name": "example-autoprocessing-4f8wm",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-10-26T10:50:05+00:00",
                   "endTime": "2026-10-26T10:50:31+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "example-autoprocessing-4f8wm-3232330589",
+                  "name": "snr-routine",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_0.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-3232330589/snr_0.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=66b313f658ae615bf200c25ce11554fe64cdf204a28f7a5f71195fafd9d56120",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_1.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-3232330589/snr_1.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ee700fd56a0e1401acb43648ef2c9843eb7c30bfe9fa83ba9e26b44a1f1caf39",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_2.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-3232330589/snr_2.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=5eeac34c568ae40d0db9510402e13b9b666bafcff9aa4b30933a4e858420331e",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "snr_3.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-3232330589/snr_3.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6825e7cd810e9c705ab9a99fc68ce86997cc01c007344e21f3edbe35031f4a36",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/example-autoprocessing-4f8wm/example-autoprocessing-4f8wm-3232330589/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=716576917369b440a16f9edf7f9d436dfe9629de2bde2595a6fc4b4c7feb1616",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "make-fake-data",
                   "startTime": "2026-10-26T10:49:23+00:00",
                   "endTime": "2026-10-26T10:49:23+00:00",
-                  "status": "SKIPPED"
+                  "id": "example-autoprocessing-4f8wm-3977844376",
+                  "name": "make-fake-data",
+                  "status": "SKIPPED",
+                  "artifacts": []
                 }
               ]
             }
@@ -54,52 +604,127 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-89tjm",
+            "id": "cm44186-5:ptypy-p99-from-config-89tjm:c90a5e2a-9227-4004-b10e-fd52bd01769c",
             "status": {
               "__typename": "WorkflowSucceededStatus",
-              "startTime": "2026-10-19T10:50:52+00:00",
-              "endTime": "2026-10-19T10:53:32+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "ptypy-p99-from-config-89tjm",
-                  "startTime": "2026-10-19T10:50:52+00:00",
-                  "endTime": "2026-10-19T10:53:32+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-10-19T10:50:52+00:00",
-                  "endTime": "2026-10-19T10:51:22+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-10-19T10:51:26+00:00",
-                  "endTime": "2026-10-19T10:51:26+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "plot",
-                  "startTime": "2026-10-19T10:52:18+00:00",
-                  "endTime": "2026-10-19T10:53:22+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
                   "startTime": "2026-10-19T10:51:26+00:00",
                   "endTime": "2026-10-19T10:51:47+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-89tjm-3307855295",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-3307855295/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4c80c2df2c21026fa43b6cdf97e7c1c21d6dff07e10458232ab6f903b1aea049",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
+                  "startTime": "2026-10-19T10:50:52+00:00",
+                  "endTime": "2026-10-19T10:53:32+00:00",
+                  "id": "ptypy-p99-from-config-89tjm",
+                  "name": "ptypy-p99-from-config-89tjm",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-19T10:50:52+00:00",
+                  "endTime": "2026-10-19T10:51:22+00:00",
+                  "id": "ptypy-p99-from-config-89tjm-12931356",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-12931356/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7b97820087fbf10bf6d73554022774b47c46adda4b0e2fca031d3b09668a0df2",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-19T10:51:26+00:00",
+                  "endTime": "2026-10-19T10:51:26+00:00",
+                  "id": "ptypy-p99-from-config-89tjm-2005337363",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-19T10:52:18+00:00",
+                  "endTime": "2026-10-19T10:53:22+00:00",
+                  "id": "ptypy-p99-from-config-89tjm-2562901474",
+                  "name": "plot",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ae5de101c9416613a90216d127a82e49c0797fe5d1368181fd8585c7f2cb6ce4",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=affbd6190b3703e51fa6d669910101dddd5b88f3bebebe6be027c162f191631d",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bd2ad75a98799949d0780938d25f31b755023d2afb172bbc11b54985a38a80b2",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/probe_amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1641c58285b5ecb05a6512ccf3b5cbc2622df7288aaff8c9694cd01e96f2e69a",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/probe_phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6be8b9d0db7b4142267e62e41312b37ef39e31cd085458f7f253f97ae305a044",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=98df38b2c1ce042cc29762de7dbe0476df469d950faab85428a64c28dd814d90",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-2562901474/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8f2ed3c36b97a40d6e45d74f9ca518c24e8e78cca36a126522a3d27e9f8f33ab",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-10-19T10:51:57+00:00",
                   "endTime": "2026-10-19T10:52:12+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-89tjm-61465279",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-89tjm/ptypy-p99-from-config-89tjm-61465279/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a92c3dd13dbed0c1c87b42faa683faddd8a915f7ceb95f95e41fdb45459ed7cd",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -107,52 +732,70 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-99pmh",
+            "id": "cm44186-5:ptypy-p99-from-config-99pmh:22844428-246c-4ae1-a0ec-be45426e275d",
             "status": {
               "__typename": "WorkflowFailedStatus",
-              "startTime": "2026-10-19T10:43:50+00:00",
-              "endTime": "2026-10-19T10:44:22+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
                   "startTime": "2026-10-19T10:44:22+00:00",
                   "endTime": "2026-10-19T10:44:22+00:00",
-                  "status": "OMITTED"
+                  "id": "ptypy-p99-from-config-99pmh-125892518",
+                  "name": "get-filepath",
+                  "status": "OMITTED",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
-                  "name": "prepare",
+                  "startTime": "2026-10-19T10:44:22+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "id": "ptypy-p99-from-config-99pmh-455915470",
+                  "name": "reconstruct-with-gpu",
+                  "status": "OMITTED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-10-19T10:43:50+00:00",
                   "endTime": "2026-10-19T10:44:14+00:00",
-                  "status": "FAILED"
+                  "id": "ptypy-p99-from-config-99pmh-3685256107",
+                  "name": "prepare",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-99pmh/ptypy-p99-from-config-99pmh-3685256107/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f3258cee224326eca5aea3ec8dfec660e695db895e7e66c193d5ddc9b3e85b82",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
-                  "startTime": "2026-10-19T10:44:22+00:00",
-                  "endTime": "2026-10-19T10:44:22+00:00",
-                  "status": "OMITTED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-10-19T10:44:22+00:00",
-                  "endTime": "2026-10-19T10:44:22+00:00",
-                  "status": "OMITTED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "ptypy-p99-from-config-99pmh",
                   "startTime": "2026-10-19T10:43:50+00:00",
                   "endTime": "2026-10-19T10:44:22+00:00",
-                  "status": "FAILED"
+                  "id": "ptypy-p99-from-config-99pmh",
+                  "name": "ptypy-p99-from-config-99pmh",
+                  "status": "FAILED",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
-                  "name": "plot",
                   "startTime": "2026-10-19T10:44:22+00:00",
                   "endTime": "2026-10-19T10:44:22+00:00",
-                  "status": "OMITTED"
+                  "id": "ptypy-p99-from-config-99pmh-1450240215",
+                  "name": "plot",
+                  "status": "OMITTED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-19T10:44:22+00:00",
+                  "endTime": "2026-10-19T10:44:22+00:00",
+                  "id": "ptypy-p99-from-config-99pmh-1722079578",
+                  "name": "reconstruct-with-cpu",
+                  "status": "OMITTED",
+                  "artifacts": []
                 }
               ]
             }
@@ -160,52 +803,127 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-fqtvc",
+            "id": "cm44186-5:ptypy-p99-from-config-fqtvc:ad354441-3f0d-454f-b697-86764af2a411",
             "status": {
               "__typename": "WorkflowSucceededStatus",
-              "startTime": "2026-10-14T09:44:15+00:00",
-              "endTime": "2026-10-14T09:46:40+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
-                  "startTime": "2026-10-14T09:44:47+00:00",
-                  "endTime": "2026-10-14T09:45:08+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-10-14T09:44:48+00:00",
-                  "endTime": "2026-10-14T09:44:48+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "plot",
-                  "startTime": "2026-10-14T09:45:40+00:00",
-                  "endTime": "2026-10-14T09:46:36+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-10-14T09:44:15+00:00",
-                  "endTime": "2026-10-14T09:44:39+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "ptypy-p99-from-config-fqtvc",
                   "startTime": "2026-10-14T09:44:15+00:00",
                   "endTime": "2026-10-14T09:46:40+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-fqtvc",
+                  "name": "ptypy-p99-from-config-fqtvc",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
+                  "startTime": "2026-10-14T09:44:15+00:00",
+                  "endTime": "2026-10-14T09:44:39+00:00",
+                  "id": "ptypy-p99-from-config-fqtvc-1725222468",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1725222468/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=41a30f9b52ea43beb65f69f4166052eae1a93b5abe3ed1a06bcb5a777e91f48b",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-10-14T09:45:18+00:00",
                   "endTime": "2026-10-14T09:45:30+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-fqtvc-2368479223",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-2368479223/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=785ec32739e5bbdbfbf2c7c134f936fc8dc6282d0cf65a25d50b34462a69da79",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-14T09:45:40+00:00",
+                  "endTime": "2026-10-14T09:46:36+00:00",
+                  "id": "ptypy-p99-from-config-fqtvc-1291205018",
+                  "name": "plot",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=13739a0b91b4cb603afe0d110d0191e31efcd04ea6189cacb0e8521b3719f84e",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bda23c9c739e8cb4dd277ab8db267e25054cb9c8f8379c51170a70090ec8f1ce",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f2f9aa30a5bf624236dcb3dfafa67da7b21613cf75ea4fef277dea4eaa0a008a",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/probe_amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=490beef39e579956c79b79ce38e68c904f9bfaeeb7142ae19c84cff1b050cb3f",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/probe_phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b8baafa1412230a15184f67978823b0ece3989a91f572a7dc5986c7fb7f5e3ba",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bf3f0a3bc6b5b66460fa6efdba33a1f6a9a1fc8039470e531f9a1930530e9069",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-1291205018/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6746daa7d50e24258c5d065542218765ac2197a5ef3f98755dbcc720b865ed33",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-14T09:44:47+00:00",
+                  "endTime": "2026-10-14T09:45:08+00:00",
+                  "id": "ptypy-p99-from-config-fqtvc-3742175191",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fqtvc/ptypy-p99-from-config-fqtvc-3742175191/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093821Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d0959de4df85c978a3c2622f9ad77d7e6175157df9db732705ea4b5757e7b11d",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-14T09:44:48+00:00",
+                  "endTime": "2026-10-14T09:44:48+00:00",
+                  "id": "ptypy-p99-from-config-fqtvc-2476114251",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
                 }
               ]
             }
@@ -223,52 +941,97 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-4sh8j",
+            "id": "cm44186-4:ptypy-p99-from-config-4sh8j:23e8c496-93fb-4b99-aee7-e8960aff4ef7",
             "status": {
               "__typename": "WorkflowErroredStatus",
-              "startTime": "2026-10-13T15:59:00+00:00",
-              "endTime": "2026-10-13T16:02:05+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "ptypy-p99-from-config-4sh8j",
-                  "startTime": "2026-10-13T15:59:00+00:00",
-                  "endTime": "2026-10-13T16:02:05+00:00",
-                  "status": "ERROR"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-10-13T15:59:00+00:00",
-                  "endTime": "2026-10-13T15:59:22+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
-                  "startTime": "2026-10-13T15:59:34+00:00",
-                  "endTime": "2026-10-13T15:59:34+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-10-13T15:59:34+00:00",
-                  "endTime": "2026-10-13T16:00:34+00:00",
-                  "status": "FAILED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "plot",
                   "startTime": "2026-10-13T16:01:03+00:00",
                   "endTime": "2026-10-13T16:02:03+00:00",
-                  "status": "ERROR"
+                  "id": "ptypy-p99-from-config-4sh8j-2296434649",
+                  "name": "plot",
+                  "status": "ERROR",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-4sh8j/ptypy-p99-from-config-4sh8j-2296434649/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=5330dad69b10deedfa25b3cdabb077e74039695556c112ce50e97210730ee495",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-4sh8j/ptypy-p99-from-config-4sh8j-2296434649/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3af990a7144efea5e01c23770286897a71dcc6d2c185796642cc6d080b0d74bb",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
+                  "startTime": "2026-10-13T15:59:00+00:00",
+                  "endTime": "2026-10-13T15:59:22+00:00",
+                  "id": "ptypy-p99-from-config-4sh8j-2579611581",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-4sh8j/ptypy-p99-from-config-4sh8j-2579611581/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4df3789f49c2f9b12fd1f792de17f2a37b77beaa458f04d08edec86cba457de1",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-10-13T16:00:40+00:00",
                   "endTime": "2026-10-13T16:01:00+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-4sh8j-373555924",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-4sh8j/ptypy-p99-from-config-4sh8j-373555924/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bcff6440875e3b9bc0ded7940702d61869a486bc1880b492a411627046cc647f",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-13T15:59:34+00:00",
+                  "endTime": "2026-10-13T15:59:34+00:00",
+                  "id": "ptypy-p99-from-config-4sh8j-105593400",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-13T15:59:00+00:00",
+                  "endTime": "2026-10-13T16:02:05+00:00",
+                  "id": "ptypy-p99-from-config-4sh8j",
+                  "name": "ptypy-p99-from-config-4sh8j",
+                  "status": "ERROR",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-13T15:59:34+00:00",
+                  "endTime": "2026-10-13T16:00:34+00:00",
+                  "id": "ptypy-p99-from-config-4sh8j-1408008164",
+                  "name": "reconstruct-with-cpu",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-4sh8j/ptypy-p99-from-config-4sh8j-1408008164/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6b2693015bf912a9b3e1b3f1a983ffc56ba445e048b2542c5855c59d28e26207",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -276,52 +1039,103 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-ttgr4",
+            "id": "cm44186-4:ptypy-p99-from-config-ttgr4:66e8bbbc-9bfe-4b07-8694-4d01728cb077",
             "status": {
               "__typename": "WorkflowErroredStatus",
-              "startTime": "2026-10-13T09:17:23+00:00",
-              "endTime": "2026-10-13T09:20:08+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-10-13T09:17:23+00:00",
-                  "endTime": "2026-10-13T09:17:45+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-10-13T09:17:55+00:00",
-                  "endTime": "2026-10-13T09:17:55+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "plot",
                   "startTime": "2026-10-13T09:18:57+00:00",
                   "endTime": "2026-10-13T09:19:56+00:00",
-                  "status": "ERROR"
+                  "id": "ptypy-p99-from-config-ttgr4-3588332399",
+                  "name": "plot",
+                  "status": "ERROR",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-ttgr4/ptypy-p99-from-config-ttgr4-3588332399/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=596f65bbf8caaa7feb435a5bf4921e3c770f739e4aed93be27da45806306ebbd",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-ttgr4/ptypy-p99-from-config-ttgr4-3588332399/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=662351cf06466497af36e5d3aa79c92ccd4d64007718fbed3d79b1a089fa0404",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-ttgr4/ptypy-p99-from-config-ttgr4-3588332399/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ad74a329e065c9627914129d399e69d4b2c893b65a2ba42bb0d656dbda62493f",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
                   "startTime": "2026-10-13T09:17:54+00:00",
                   "endTime": "2026-10-13T09:18:25+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-ttgr4-1280075878",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-ttgr4/ptypy-p99-from-config-ttgr4-1280075878/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=93c424b1dd6d458670afe3c8a1a79d00f3c825ef5bf1d9de990a2db25204a6bc",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
                   "startTime": "2026-10-13T09:18:36+00:00",
                   "endTime": "2026-10-13T09:18:45+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-ttgr4-146319710",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-ttgr4/ptypy-p99-from-config-ttgr4-146319710/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=738f3cda977bc303a2f4d6e0c6525cc136ee18b495a2ea88ea81a2d4cee0028a",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "ptypy-p99-from-config-ttgr4",
                   "startTime": "2026-10-13T09:17:23+00:00",
                   "endTime": "2026-10-13T09:20:08+00:00",
-                  "status": "ERROR"
+                  "id": "ptypy-p99-from-config-ttgr4",
+                  "name": "ptypy-p99-from-config-ttgr4",
+                  "status": "ERROR",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-13T09:17:55+00:00",
+                  "endTime": "2026-10-13T09:17:55+00:00",
+                  "id": "ptypy-p99-from-config-ttgr4-2541017106",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-10-13T09:17:23+00:00",
+                  "endTime": "2026-10-13T09:17:45+00:00",
+                  "id": "ptypy-p99-from-config-ttgr4-2304156851",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-ttgr4/ptypy-p99-from-config-ttgr4-2304156851/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=2c9d96f444643383677d22bdaf7a1559cd306968ac78331674e4f3cea822f9ae",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -329,52 +1143,103 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-6szcf",
+            "id": "cm44186-4:ptypy-p99-from-config-6szcf:17298015-7e7a-45de-a434-c9674a364cbe",
             "status": {
               "__typename": "WorkflowErroredStatus",
-              "startTime": "2026-09-01T15:34:45+00:00",
-              "endTime": "2026-09-01T15:36:20+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
-                  "startTime": "2026-09-01T15:35:37+00:00",
-                  "endTime": "2026-09-01T15:35:49+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "ptypy-p99-from-config-6szcf",
                   "startTime": "2026-09-01T15:34:45+00:00",
                   "endTime": "2026-09-01T15:36:20+00:00",
-                  "status": "ERROR"
+                  "id": "ptypy-p99-from-config-6szcf",
+                  "name": "ptypy-p99-from-config-6szcf",
+                  "status": "ERROR",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
-                  "name": "plot",
-                  "startTime": "2026-09-01T15:35:58+00:00",
-                  "endTime": "2026-09-01T15:36:14+00:00",
-                  "status": "ERROR"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
-                  "startTime": "2026-09-01T15:35:16+00:00",
-                  "endTime": "2026-09-01T15:35:34+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-09-01T15:35:17+00:00",
-                  "endTime": "2026-09-01T15:35:17+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "prepare",
                   "startTime": "2026-09-01T15:34:45+00:00",
                   "endTime": "2026-09-01T15:35:09+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-6szcf-1056120250",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-6szcf/ptypy-p99-from-config-6szcf-1056120250/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b2e4024dd128df86b5ec4a821c4409e6d636fab47f06980e7543d8ffbb396c6d",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T15:35:16+00:00",
+                  "endTime": "2026-09-01T15:35:34+00:00",
+                  "id": "ptypy-p99-from-config-6szcf-1510586237",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-6szcf/ptypy-p99-from-config-6szcf-1510586237/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c5e81c6e35f8806db61009dd3cdca401feee5d41916147e4ec51d71db79df616",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T15:35:17+00:00",
+                  "endTime": "2026-09-01T15:35:17+00:00",
+                  "id": "ptypy-p99-from-config-6szcf-202948593",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T15:35:37+00:00",
+                  "endTime": "2026-09-01T15:35:49+00:00",
+                  "id": "ptypy-p99-from-config-6szcf-3582766425",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-6szcf/ptypy-p99-from-config-6szcf-3582766425/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bec5d0c50cc6e20c9558af72f15115d013195a6063f1675e7b46daca127f20b6",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T15:35:58+00:00",
+                  "endTime": "2026-09-01T15:36:14+00:00",
+                  "id": "ptypy-p99-from-config-6szcf-703095440",
+                  "name": "plot",
+                  "status": "ERROR",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-6szcf/ptypy-p99-from-config-6szcf-703095440/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=92f3dc5d866afa5107141d56d61fa08f0f489c2a67114662f3e76c55ef14ef2e",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-6szcf/ptypy-p99-from-config-6szcf-703095440/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=15acf74bcf2fef69af3f558b587236ddecf9cf5be7fdceb445595f0f9087b84b",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-6szcf/ptypy-p99-from-config-6szcf-703095440/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=49e37d07fae5a834fb0503747221a688f525aaf4c7c46fb56f199246248be69b",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -382,52 +1247,127 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-lb72d",
+            "id": "cm44186-4:ptypy-p99-from-config-lb72d:f6a600cd-2d9c-41c6-86d1-589a2abcdafb",
             "status": {
               "__typename": "WorkflowSucceededStatus",
-              "startTime": "2026-09-01T10:18:31+00:00",
-              "endTime": "2026-09-01T10:20:46+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "plot",
-                  "startTime": "2026-09-01T10:19:44+00:00",
-                  "endTime": "2026-09-01T10:20:35+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-09-01T10:18:52+00:00",
-                  "endTime": "2026-09-01T10:18:52+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "ptypy-p99-from-config-lb72d",
-                  "startTime": "2026-09-01T10:18:31+00:00",
-                  "endTime": "2026-09-01T10:20:46+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "prepare",
                   "startTime": "2026-09-01T10:18:31+00:00",
                   "endTime": "2026-09-01T10:18:47+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-lb72d-1093000773",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-1093000773/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=57ea625c91b96170463671afe0a49cf3d8f92898adfc03c5a7448d2bd065aac5",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "get-filepath",
-                  "startTime": "2026-09-01T10:19:23+00:00",
-                  "endTime": "2026-09-01T10:19:38+00:00",
-                  "status": "SUCCEEDED"
+                  "startTime": "2026-09-01T10:18:31+00:00",
+                  "endTime": "2026-09-01T10:20:46+00:00",
+                  "id": "ptypy-p99-from-config-lb72d",
+                  "name": "ptypy-p99-from-config-lb72d",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
                   "startTime": "2026-09-01T10:18:52+00:00",
                   "endTime": "2026-09-01T10:19:12+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-lb72d-2982809872",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-2982809872/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=23e766199d5ce17754596f857546cffd6eccbc20e2fd2fff29f246607c6dc15d",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T10:19:44+00:00",
+                  "endTime": "2026-09-01T10:20:35+00:00",
+                  "id": "ptypy-p99-from-config-lb72d-3913127953",
+                  "name": "plot",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=067874cee6e39ec375e3b71b99d27aa25f6044e2d23a162135e7b3710475c1d3",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4285d2574ae6a32c6d66b8c818bf87ae960abaa260d09f45c2edc55b3bb43204",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d00d772e081d3790070bd478f8a169c4c1f7c9016d7e93b6fe49054045c98282",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/probe_amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b2f9427754132645677d779ad1304b731d154f2db81e2d43011a11d66d80d1d2",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/probe_phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=50e7a897196e0790463010430cbb5f916e61042c855e81cf92098f244e38fb92",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=91a4543aa89ff3b0970a3a4c3ee5101d54301de5b811137158fcba4db0412b75",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-3913127953/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6af7abd2071b784e6cab9206b72a99647c712c6bdb926b9e5e0f05b08786f823",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T10:18:52+00:00",
+                  "endTime": "2026-09-01T10:18:52+00:00",
+                  "id": "ptypy-p99-from-config-lb72d-4248973980",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T10:19:23+00:00",
+                  "endTime": "2026-09-01T10:19:38+00:00",
+                  "id": "ptypy-p99-from-config-lb72d-1324956396",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-lb72d/ptypy-p99-from-config-lb72d-1324956396/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b7606785530e9784e3ab7d3d7bdc17f593bf8878380e89106a9dc3ab26930083",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -435,52 +1375,127 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-sn76b",
+            "id": "cm44186-4:ptypy-p99-from-config-sn76b:2a71c13f-822d-4eb9-94d2-61718700ad65",
             "status": {
               "__typename": "WorkflowSucceededStatus",
-              "startTime": "2026-09-01T09:51:05+00:00",
-              "endTime": "2026-09-01T09:53:30+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
-                  "startTime": "2026-09-01T09:51:38+00:00",
-                  "endTime": "2026-09-01T09:52:02+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-09-01T09:51:05+00:00",
-                  "endTime": "2026-09-01T09:51:35+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-09-01T09:51:39+00:00",
-                  "endTime": "2026-09-01T09:51:39+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "ptypy-p99-from-config-sn76b",
-                  "startTime": "2026-09-01T09:51:05+00:00",
-                  "endTime": "2026-09-01T09:53:30+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "plot",
-                  "startTime": "2026-09-01T09:52:31+00:00",
-                  "endTime": "2026-09-01T09:53:20+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "get-filepath",
                   "startTime": "2026-09-01T09:52:10+00:00",
                   "endTime": "2026-09-01T09:52:22+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-sn76b-423775389",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-423775389/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=cac37175c2a109ae659f02e227e1c23c3c427a855abd012a63a3b755db637bbe",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:51:05+00:00",
+                  "endTime": "2026-09-01T09:53:30+00:00",
+                  "id": "ptypy-p99-from-config-sn76b",
+                  "name": "ptypy-p99-from-config-sn76b",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:51:39+00:00",
+                  "endTime": "2026-09-01T09:51:39+00:00",
+                  "id": "ptypy-p99-from-config-sn76b-562215565",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:51:38+00:00",
+                  "endTime": "2026-09-01T09:52:02+00:00",
+                  "id": "ptypy-p99-from-config-sn76b-3549442049",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3549442049/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=22ec53de2f88cc8ad1c1e86197c9d878d2526695600a00467fc1bc69beee0f0b",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:52:31+00:00",
+                  "endTime": "2026-09-01T09:53:20+00:00",
+                  "id": "ptypy-p99-from-config-sn76b-3865882572",
+                  "name": "plot",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9ec4f0e28dd30b4c6d516dc66844a92b2e836708cb1984c361f0bc529b1bdf6d",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b902104b9272c636a56cc2c3e5f0446ea12412f1b057825b384495eb35bb42ba",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b1ecdca914537f0feef7f4a55bf19b1c0a75b78d28fcdca1e6b878ade32e7cae",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/probe_amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6589fc6919c0d309556a6d62211afc2b04055360ea54465c0ed3911de2765dd2",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/probe_phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=83221ac4c837341332b9490b7c7c24202bde72d47682d3918735f121e1c2af29",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c3c0144a2517140ca9e0f2ce95b3fd389979b9fbdd5f399e2c12825ad9be3b5c",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3865882572/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6913c0e346d371345e9d70f52d1f8411a113cf171170ed19c330fba0dfc019e6",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:51:05+00:00",
+                  "endTime": "2026-09-01T09:51:35+00:00",
+                  "id": "ptypy-p99-from-config-sn76b-3588759174",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-sn76b/ptypy-p99-from-config-sn76b-3588759174/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8f6a7c36c5ee9f02170263f7f2dff1df042f680a490a1128c21f083564ce8685",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -488,52 +1503,97 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-fjdtr",
+            "id": "cm44186-4:ptypy-p99-from-config-fjdtr:d9987d6c-fedb-4adc-9e94-86cc0ef9e402",
             "status": {
               "__typename": "WorkflowErroredStatus",
-              "startTime": "2026-09-01T09:45:06+00:00",
-              "endTime": "2026-09-01T09:47:17+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "ptypy-p99-from-config-fjdtr",
-                  "startTime": "2026-09-01T09:45:06+00:00",
-                  "endTime": "2026-09-01T09:47:17+00:00",
-                  "status": "ERROR"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
-                  "startTime": "2026-09-01T09:45:28+00:00",
-                  "endTime": "2026-09-01T09:45:28+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
                   "startTime": "2026-09-01T09:45:28+00:00",
                   "endTime": "2026-09-01T09:45:43+00:00",
-                  "status": "FAILED"
+                  "id": "ptypy-p99-from-config-fjdtr-2493655061",
+                  "name": "reconstruct-with-gpu",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fjdtr/ptypy-p99-from-config-fjdtr-2493655061/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9979fc18b277164faa48c7d3a725e8208f2024dd2dab7ebd384ed32d07534d43",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-09-01T09:45:06+00:00",
-                  "endTime": "2026-09-01T09:45:25+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "get-filepath",
                   "startTime": "2026-09-01T09:45:48+00:00",
                   "endTime": "2026-09-01T09:45:58+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "ptypy-p99-from-config-fjdtr-846249489",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fjdtr/ptypy-p99-from-config-fjdtr-846249489/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=bbe24055731993c67e88e7bfb9a4ee406ea0cd365118416d468526d61c233f1c",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "plot",
+                  "startTime": "2026-09-01T09:45:06+00:00",
+                  "endTime": "2026-09-01T09:47:17+00:00",
+                  "id": "ptypy-p99-from-config-fjdtr",
+                  "name": "ptypy-p99-from-config-fjdtr",
+                  "status": "ERROR",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:45:28+00:00",
+                  "endTime": "2026-09-01T09:45:28+00:00",
+                  "id": "ptypy-p99-from-config-fjdtr-1186017417",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-01T09:45:06+00:00",
+                  "endTime": "2026-09-01T09:45:25+00:00",
+                  "id": "ptypy-p99-from-config-fjdtr-2742592034",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fjdtr/ptypy-p99-from-config-fjdtr-2742592034/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=932b538d0f2291856d0a003b657b2b27ee195cb9250f2c6d5e45d4573fa0f97f",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-09-01T09:46:09+00:00",
                   "endTime": "2026-09-01T09:47:14+00:00",
-                  "status": "ERROR"
+                  "id": "ptypy-p99-from-config-fjdtr-3257690504",
+                  "name": "plot",
+                  "status": "ERROR",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fjdtr/ptypy-p99-from-config-fjdtr-3257690504/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c4754fb62f777cb42bf2e310fcaf7a4b826e46f17469b4e8209bacd9cdf25f4c",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-fjdtr/ptypy-p99-from-config-fjdtr-3257690504/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1b5556f759dec3295aef575e5f0f36507a2f32b0f8e567f9e5efd3599a1430de",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -541,52 +1601,97 @@
           {
             "__typename": "Workflow",
             "name": "ptypy-p99-from-config-442hh",
+            "id": "cm44186-4:ptypy-p99-from-config-442hh:34d4213b-fb7c-46b2-9818-db7fec3e9f2f",
             "status": {
               "__typename": "WorkflowErroredStatus",
-              "startTime": "2026-08-27T13:49:04+00:00",
-              "endTime": "2026-08-27T13:51:21+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "prepare",
-                  "startTime": "2026-08-27T13:49:04+00:00",
-                  "endTime": "2026-08-27T13:49:37+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "plot",
-                  "startTime": "2026-08-27T13:50:30+00:00",
-                  "endTime": "2026-08-27T13:51:07+00:00",
-                  "status": "ERROR"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "get-filepath",
-                  "startTime": "2026-08-27T13:50:09+00:00",
-                  "endTime": "2026-08-27T13:50:23+00:00",
-                  "status": "SUCCEEDED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "ptypy-p99-from-config-442hh",
-                  "startTime": "2026-08-27T13:49:04+00:00",
-                  "endTime": "2026-08-27T13:51:21+00:00",
-                  "status": "ERROR"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-gpu",
-                  "startTime": "2026-08-27T13:49:48+00:00",
-                  "endTime": "2026-08-27T13:50:06+00:00",
-                  "status": "FAILED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "reconstruct-with-cpu",
                   "startTime": "2026-08-27T13:49:48+00:00",
                   "endTime": "2026-08-27T13:49:48+00:00",
-                  "status": "SKIPPED"
+                  "id": "ptypy-p99-from-config-442hh-1228503725",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-08-27T13:49:04+00:00",
+                  "endTime": "2026-08-27T13:51:21+00:00",
+                  "id": "ptypy-p99-from-config-442hh",
+                  "name": "ptypy-p99-from-config-442hh",
+                  "status": "ERROR",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-08-27T13:49:48+00:00",
+                  "endTime": "2026-08-27T13:50:06+00:00",
+                  "id": "ptypy-p99-from-config-442hh-4257410081",
+                  "name": "reconstruct-with-gpu",
+                  "status": "FAILED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-442hh/ptypy-p99-from-config-442hh-4257410081/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=88e8c1dcf997f8924f99dcc7770cb31b84790031445e14543d979079a491d383",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-08-27T13:50:30+00:00",
+                  "endTime": "2026-08-27T13:51:07+00:00",
+                  "id": "ptypy-p99-from-config-442hh-3079872108",
+                  "name": "plot",
+                  "status": "ERROR",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-442hh/ptypy-p99-from-config-442hh-3079872108/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=fd84bc6393e6cd43ce562dd5b14c5ee7c13e6be6ed91a9b4ca676f590a3dc354",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-442hh/ptypy-p99-from-config-442hh-3079872108/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ad4a07b4df66ec38b7e3ed164bcb8763dfd9fbfee706cd2d14b177655121bba1",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-08-27T13:50:09+00:00",
+                  "endTime": "2026-08-27T13:50:23+00:00",
+                  "id": "ptypy-p99-from-config-442hh-3918040125",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-442hh/ptypy-p99-from-config-442hh-3918040125/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b6edf724d8d0aa600e73a86ca67e56124b76ebebcd39974f227393722b4cc729",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-08-27T13:49:04+00:00",
+                  "endTime": "2026-08-27T13:49:37+00:00",
+                  "id": "ptypy-p99-from-config-442hh-112497318",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-442hh/ptypy-p99-from-config-442hh-112497318/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T093924Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=ef65640c1ef1edab3a93a902f15405e4e1d53a61aaed6bbe0ce6847ef8606124",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
@@ -604,52 +1709,222 @@
           {
             "__typename": "Workflow",
             "name": "conditional-steps-kqv5l",
+            "id": "cm44186-3:conditional-steps-kqv5l:67c45243-75c1-4059-bc50-68a73d9697bc",
             "status": {
               "__typename": "WorkflowSucceededStatus",
-              "startTime": "2026-06-10T08:35:25+00:00",
-              "endTime": "2026-06-10T08:35:46+00:00",
               "tasks": [
                 {
                   "__typename": "Task",
-                  "name": "complex-condition",
-                  "startTime": "2026-06-10T08:35:36+00:00",
-                  "endTime": "2026-06-10T08:35:36+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "less-than-5",
-                  "startTime": "2026-06-10T08:35:37+00:00",
-                  "endTime": "2026-06-10T08:35:37+00:00",
-                  "status": "SKIPPED"
-                },
-                {
-                  "__typename": "Task",
-                  "name": "conditional-steps-kqv5l",
                   "startTime": "2026-06-10T08:35:25+00:00",
                   "endTime": "2026-06-10T08:35:46+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "conditional-steps-kqv5l",
+                  "name": "conditional-steps-kqv5l",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
                 },
                 {
                   "__typename": "Task",
-                  "name": "greater-than-5",
+                  "startTime": "2026-06-10T08:35:37+00:00",
+                  "endTime": "2026-06-10T08:35:37+00:00",
+                  "id": "conditional-steps-kqv5l-796355404",
+                  "name": "less-than-5",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-06-10T08:35:36+00:00",
                   "endTime": "2026-06-10T08:35:41+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "conditional-steps-kqv5l-1767535495",
+                  "name": "greater-than-5",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/conditional-steps-kqv5l/conditional-steps-kqv5l-1767535495/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e0b16c80ec09a22d3aa242f6f43a3f0e82aa6cbd46760966d9496cf39fafa7e2",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "even",
                   "startTime": "2026-06-10T08:35:36+00:00",
                   "endTime": "2026-06-10T08:35:40+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "conditional-steps-kqv5l-3503354591",
+                  "name": "even",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/conditional-steps-kqv5l/conditional-steps-kqv5l-3503354591/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3117be90a120b6562029e0ddd718e028dd210fcb7421551e7473fa1e920f3479",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 },
                 {
                   "__typename": "Task",
-                  "name": "pick-a-number",
+                  "startTime": "2026-06-10T08:35:36+00:00",
+                  "endTime": "2026-06-10T08:35:36+00:00",
+                  "id": "conditional-steps-kqv5l-1538071217",
+                  "name": "complex-condition",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
                   "startTime": "2026-06-10T08:35:25+00:00",
                   "endTime": "2026-06-10T08:35:30+00:00",
-                  "status": "SUCCEEDED"
+                  "id": "conditional-steps-kqv5l-3592102166",
+                  "name": "pick-a-number",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/conditional-steps-kqv5l/conditional-steps-kqv5l-3592102166/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=02dc79e5a2131c81cb53a1a99aa03348919356ca93c7fdb3467d673a94ac7a3c",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "visit": "cm44186-1",
+    "data": {
+      "workflows": {
+        "__typename": "WorkflowConnection",
+        "nodes": [
+          {
+            "__typename": "Workflow",
+            "name": "ptypy-p99-from-config-qhpw5",
+            "id": "cm44186-1:ptypy-p99-from-config-qhpw5:ba9ac5f6-bc29-4ac1-a3c3-62851320bc00",
+            "status": {
+              "__typename": "WorkflowSucceededStatus",
+              "tasks": [
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-02T14:16:15+00:00",
+                  "endTime": "2026-09-02T14:16:21+00:00",
+                  "id": "ptypy-p99-from-config-qhpw5-2755033598",
+                  "name": "get-filepath",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2755033598/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a136eeff7ce212578d00e64a8998f1ac509c7b965f18a5e06110b925f98cfbf6",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-02T14:13:13+00:00",
+                  "endTime": "2026-09-02T14:13:38+00:00",
+                  "id": "ptypy-p99-from-config-qhpw5-3630948307",
+                  "name": "prepare",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-3630948307/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4e96bbe8678f8eff93e00b054752de1e80ff3f73c449147e4c6f7f472fa9923d",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-02T14:13:45+00:00",
+                  "endTime": "2026-09-02T14:13:45+00:00",
+                  "id": "ptypy-p99-from-config-qhpw5-641946246",
+                  "name": "reconstruct-with-gpu",
+                  "status": "SKIPPED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-02T14:13:45+00:00",
+                  "endTime": "2026-09-02T14:16:05+00:00",
+                  "id": "ptypy-p99-from-config-qhpw5-1944464178",
+                  "name": "reconstruct-with-cpu",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-1944464178/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=19c65bcfc430234c76d301c4eee969c3d398f42a4e36cf2582806de8ee10d933",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-02T14:13:13+00:00",
+                  "endTime": "2026-09-02T14:17:26+00:00",
+                  "id": "ptypy-p99-from-config-qhpw5",
+                  "name": "ptypy-p99-from-config-qhpw5",
+                  "status": "SUCCEEDED",
+                  "artifacts": []
+                },
+                {
+                  "__typename": "Task",
+                  "startTime": "2026-09-02T14:16:25+00:00",
+                  "endTime": "2026-09-02T14:17:15+00:00",
+                  "id": "ptypy-p99-from-config-qhpw5-2253903375",
+                  "name": "plot",
+                  "status": "SUCCEEDED",
+                  "artifacts": [
+                    {
+                      "__typename": "Artifact",
+                      "name": "notebook.html",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/notebook.html?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=509fdab4d044a84981ff1d894240ca544971275c62468411829daf87b33ed13a",
+                      "mimeType": "text/html"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=55d74238adf0adf31cadb3ebd69c1092e4209d9145528185cc4dc230a7cc321e",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4311ddd7790e8ba1bd3d47798e6217db09b900231bc9b1aa569116489c06f2e6",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_amplitude_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/probe_amplitude_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=42e85fcc14fe2df1e638b3250b6c7461e9d0c0bc91be94dd2ae7006bf2d3fc09",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "probe_phase_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/probe_phase_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=fed46f5c157f0e6b27290692ca8a307c69a282dd9b7ca6b8b55b4e39ee0bcf94",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "error_plot.png",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/error_plot.png?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d2cfa7b2d9263a953ac93b466074d76bc8557f99a07ea32003a32a8054ea71e8",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "__typename": "Artifact",
+                      "name": "main.log",
+                      "url": "https://sci-nas-s3.diamond.ac.uk/k8s-workflows-test/ptypy-p99-from-config-qhpw5/ptypy-p99-from-config-qhpw5-2253903375/main.log?x-id=GetObject&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=Q4W2I1611M39852X707W%2F20261102%2Fundefined%2Fs3%2Faws4_request&X-Amz-Date=20261102T094013Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b46d45b0208baa29c8b0df5a6fb7c988ebbf0606cb50f1f33bdf405a3b1b3fd8",
+                      "mimeType": "text/plain"
+                    }
+                  ]
                 }
               ]
             }
