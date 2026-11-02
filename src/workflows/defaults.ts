@@ -1,3 +1,4 @@
+import type { WorkflowTemplate } from "../__generated__/graphql";
 import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/WorkflowQuery.generated";
 
 export const defaultWorkflowConnection: WorkflowQueryVariables = {
@@ -27,5 +28,24 @@ export const initialWorkflowQuery: WorkflowQuery = {
     ],
   },
 };
+
+
+export const emptyWorkflowTemplate: WorkflowTemplate = 
+{
+        __typename: "WorkflowTemplate",
+        name: "empty",
+        title: null,
+        description: null,
+        arguments: {},
+        uiSchema: {},
+        repository: null,
+        maintainer: "",
+        templateSource: {
+          __typename: "TemplateSource",
+          path: "",
+          repositoryUrl: "",
+          targetRevision: "HEAD"
+        }
+}
 
 export const TemplateFilters: string[] = ["EXAMPLES", "SPECTROSCOPY"];

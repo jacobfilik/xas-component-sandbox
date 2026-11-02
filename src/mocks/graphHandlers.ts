@@ -1,9 +1,10 @@
-import workflowdata from "../workflows/mocks/WorkflowQueryMock.json";
-import templatedata from "../workflows/mocks/TemplateQueryMock.json";
-import templateviewdata from "../workflows/mocks/TemplateViewMock.json";
 import { graphql, HttpResponse } from "msw";
-import type { ScienceGroup } from "../__generated__/graphql";
+import type { ScienceGroup, WorkflowTemplate } from "../__generated__/graphql";
 
+import workflowdata from "../workflows/mocks/WorkflowQueryMock.json";
+import templatedata from "../workflows/mocks/WorkflowTemplateQueryMock.json";
+import { emptyWorkflowTemplate } from "../workflows/defaults";
+import { getVisitString } from "../queryfunctions";
 const graphEndpoint = graphql.link("/graph/graphql");
 
 export const graphHandlers = [
@@ -31,32 +32,24 @@ export const graphHandlers = [
     }
   }),
 
-  graphEndpoint.query("TemplateViewQuery", ({ variables }) => {
+  graphEndpoint.query("WorkflowTemplateViewQuery", ({ variables }) => {
     const templateName: string = variables.templateName;
-    try {
-      const response = templateviewdata.filter(
-        (val) => val.templateName == templateName,
-      );
-      return HttpResponse.json({ data: response[0].data });
-    } catch {
-      const response = templateviewdata.filter(
-        (val) => val.templateName == "empty",
-      );
+    let response = emptyWorkflowTemplate;
 
-      const out = {
-        workflowTemplate: {
-          ...response[0].data,
-          name: variables.templateName,
-          title: variables.templateName,
-        },
-      };
-
-      return HttpResponse.json({ data: out });
+    for (const val in templatedata) {
+      const nodes = templatedata[val].data.workflowTemplates.nodes;
+      for (const node in nodes) {
+        if (nodes[node].name == templateName) {
+          response = nodes[node] as WorkflowTemplate;
+        }
+      }
     }
+    return HttpResponse.json({ data: { workflowTemplate: response } });
   }),
+
   graphEndpoint.mutation("TemplateViewMutation", ({ variables }) => {
     const templateName: string = variables.templateName;
-    const visitStr: string = `${variables.visit.proposalCode}${variables.visit.proposalNumber}-${variables.visit.number}`;
+    const visitStr = getVisitString(variables.visit);
     const workflowId = `${visitStr}:${templateName}-0abc`;
     // ^ workflow id's will have some random string appended to them.
 
