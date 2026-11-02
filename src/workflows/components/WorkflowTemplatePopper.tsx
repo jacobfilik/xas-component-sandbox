@@ -1,32 +1,35 @@
 import { useContext } from "react";
 import { WorkflowContext } from "../WorkflowProvider";
-import { TEMPLATE_VIEW_QUERY } from "../WorkflowsData/TemplateViewQuery";
-import { Alert, Stack, Typography } from "@mui/material";
+import { Alert, Stack } from "@mui/material";
 import type { WorkflowTemplateProps } from "../../models";
 import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
-import { FormComponent } from "./FormTemplate";
+
 import { useMutation, useQuery } from "@apollo/client/react";
-import { TEMPLATE_VIEW_MUTATION } from "../WorkflowsData/TemplateMutation";
 import type { Visit } from "../../__generated__/graphql";
+import { WORKFLOW_TEMPLATE_VIEW_QUERY } from "../WorkflowsData/TemplateFragment";
+import { TEMPLATE_VIEW_MUTATION } from "../WorkflowsData/PostWorkflow";
+import { FormComponent } from "./FormTemplate";
 
 export function TemplatePopper(props: { name: string }) {
-
   const { currentVisit } = useContext(WorkflowContext);
 
-  const { error, data } = useQuery(TEMPLATE_VIEW_QUERY, {
+  const { error, data } = useQuery(WORKFLOW_TEMPLATE_VIEW_QUERY, {
     variables: { templateName: props.name },
   });
 
-  const [submitMutation] = useMutation(TEMPLATE_VIEW_MUTATION)
+  const [submitMutation] = useMutation(TEMPLATE_VIEW_MUTATION);
 
-  const handleSubmit = (visit:Visit, parameters?:object) => {
-   
-    submitMutation({variables:{
-      visit:visit,
-      templateName: props.name,
-      parameters: parameters
-    }}).then(data => {console.log(data)})
-  }
+  const handleSubmit = (visit: Visit, parameters?: object) => {
+    submitMutation({
+      variables: {
+        visit: visit,
+        templateName: props.name,
+        parameters: parameters,
+      },
+    }).then((data) => {
+      console.log(data);
+    });
+  };
 
   if (error) {
     return (
@@ -54,13 +57,7 @@ export function TemplatePopper(props: { name: string }) {
     };
 
     if (props.name == "None") {
-      return (
-        <Stack>
-          <Typography align="center" variant="body1">
-            No Template Selected
-          </Typography>
-        </Stack>
-      );
+      return <Stack>No Template Selected</Stack>;
     }
 
     return (

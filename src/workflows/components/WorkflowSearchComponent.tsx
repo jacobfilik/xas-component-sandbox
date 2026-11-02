@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { WorkflowContext } from "../WorkflowProvider";
 import { useLazyQuery } from "@apollo/client/react";
-import { WORKFLOW_QUERY } from "../WorkflowsData/WorkflowQuery";
 import { emptyWorkflowQuery } from "../defaults";
 import { Alert, Box, Button, Stack, Typography } from "@mui/material";
 import type { ErrorLike } from "@apollo/client";
@@ -19,12 +18,16 @@ import type {
   WorkflowSucceededStatus,
 } from "../../__generated__/graphql";
 import { ChangeVisitComponent } from "./ChangeVisitComponent";
+import { getVisitString } from "../../queryfunctions";
+import { WORKFLOW_QUERY } from "../WorkflowsData/TaskFragments";
 
 export function WorkflowSearchComponent() {
-  const { currentVisit, getVisitString, workflowData, setWorkflowData } =
+  const { currentVisit, workflowData, setWorkflowData } =
     useContext(WorkflowContext);
 
-  const [currentVal, setCurrentVal] = useState<string>(getVisitString());
+  const [currentVal, setCurrentVal] = useState<string>(
+    getVisitString(currentVisit),
+  );
 
   const [WorkflowQueryFn, { error, loading }] = useLazyQuery(WORKFLOW_QUERY, {
     // pollInterval: 1000,
@@ -58,21 +61,21 @@ export function WorkflowSearchComponent() {
           variant="contained"
           sx={{ width: "120px", height: "80px" }}
           onClick={() => {
-            setCurrentVal(getVisitString());
+            setCurrentVal(getVisitString(currentVisit));
             handleWorkflowQuery();
           }}
         >
-          Search in visit {getVisitString()}
+          Search in visit {getVisitString(currentVisit)}
         </Button>
       </Stack>
-      {currentVal == getVisitString() && (
+      {currentVal == getVisitString(currentVisit) && (
         <Stack>
           <Typography align="center" variant="h6">
             Data for visit {currentVal}
           </Typography>
         </Stack>
       )}
-      {currentVal != getVisitString() && (
+      {currentVal != getVisitString(currentVisit) && (
         <Stack>
           <Typography align="center" variant="h6" color="text.muted">
             Data for visit {currentVal}
@@ -104,6 +107,16 @@ function WorkflowDataHandler(props: {
     );
   }
 
+  if (workflowData.workflows.nodes.length == 0) {
+    return (
+      <Box height={"100%"} width={"100%"} key="empty-search">
+        <Typography align="center" key={"empty-type"}>
+          No workflows found for visit {props.currentVal}
+        </Typography>
+      </Box>
+    );
+  }
+
   if (workflowData.workflows.nodes[0].name == "initial") {
     return (
       <Stack key="initial-node">
@@ -118,12 +131,6 @@ function WorkflowDataHandler(props: {
 
   return (
     <Box height={"100%"} width={"100%"} key="workflow-handler">
-      {workflowData.workflows.nodes.length <= 0 && (
-        <Typography align="center" key={"empty-type"}>
-          No workflows found for visit {props.currentVal}
-        </Typography>
-      )}
-
       {workflowData.workflows.nodes.length > 0 &&
         workflowData.workflows.nodes.map((val, idx) => {
           if (val.status?.__typename == "WorkflowPendingStatus") {
@@ -142,6 +149,7 @@ function WorkflowDataHandler(props: {
             return (
               <Stack key={`${idx}=running-${val.name}`}>
                 <RunningNodeComponent
+                  key={`${idx}-running-${val.name}-node`}
                   title={val.name}
                   data={val.status as WorkflowRunningStatus}
                 />
@@ -152,6 +160,7 @@ function WorkflowDataHandler(props: {
             return (
               <Stack key={`${idx}${val.name}`}>
                 <SucceededNodeComponent
+                  key={`${idx}-success-${val.name}-node`}
                   title={val.name}
                   data={val.status as WorkflowSucceededStatus}
                 />
@@ -164,6 +173,7 @@ function WorkflowDataHandler(props: {
           ) {
             return (
               <FailedNodeComponent
+                key={`${idx}-failed-${val.name}-node`}
                 title={val.name}
                 data={
                   val.status as WorkflowErroredStatus | WorkflowFailedStatus

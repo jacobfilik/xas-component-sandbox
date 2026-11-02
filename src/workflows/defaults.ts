@@ -1,5 +1,5 @@
 import type { WorkflowTemplate } from "../__generated__/graphql";
-import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/WorkflowQuery.generated";
+import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/TaskFragments.generated";
 
 export const defaultWorkflowConnection: WorkflowQueryVariables = {
   visit: { number: 5, proposalCode: "cm", proposalNumber: 44186 },
@@ -20,9 +20,10 @@ export const initialWorkflowQuery: WorkflowQuery = {
       {
         __typename: "Workflow",
         name: "initial",
+        id: "0000",
         status: {
           __typename: "WorkflowPendingStatus",
-          message: "initial search",
+          message: "initial seatch",
         },
       },
     ],

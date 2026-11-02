@@ -10,7 +10,8 @@ export function SubmitWorkflowPage() {
 
 
   return (
-    <Stack height="100%" width="100%" sx={{ alignItems: "center" }} spacing={2}>
+    <Stack height="100%" width="100%" sx={{ alignItems: "center" }}
+     spacing={2}>
       <Typography variant="h5" align="center">
         Post from template
       </Typography>

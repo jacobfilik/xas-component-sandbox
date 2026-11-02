@@ -57,10 +57,10 @@ export default function Header() {
         <NavLink to="/graphiQL" key="graphiql" linkComponent={Link}>
           Graphql IDE
         </NavLink>
-        <NavLink to="/track-workflows" key="track" linkComponent={Link}>
+        <NavLink to="/track-workflows" key="track-wf" linkComponent={Link}>
           Workflow Track
         </NavLink>
-        <NavLink to="/submit-workflows" key="submit" linkComponent={Link}>
+        <NavLink to="/submit-workflows" key="submit-wf" linkComponent={Link}>
           Workflow Submit
         </NavLink>
       </NavLinks>
