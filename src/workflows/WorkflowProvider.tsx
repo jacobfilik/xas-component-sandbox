@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import type {
-  WorkflowQuery,
-  WorkflowQueryVariables,
-} from "./WorkflowsData/__generated__/WorkflowQuery.generated";
+
 import {
   defaultWorkflowConnection,
   initialWorkflowQuery,
@@ -14,24 +11,23 @@ import { createContext, type SetStateAction } from "react";
 
 import type { VisitInput } from "../__generated__/graphql";
 import type { WorkflowContextType } from "../models";
+import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/TaskFragments.generated";
 
 const WorkflowContext = createContext<WorkflowContextType>({
-  workflowData: emptyWorkflowQuery,
-  currentVisit: defaultWorkflowConnection,
-  setCurrentVisit: function (_: SetStateAction<{ visit: VisitInput }>): void {
-    throw new Error("Function not implemented.");
-  },
-  setWorkflowData: function (_: SetStateAction<WorkflowQuery>): void {
-    throw new Error("Function not implemented.");
-  },
-  getVisitString: function (): string {
-    throw new Error("Function not implemented.");
-  },
-  templateFilter: "SPECTROSCOPY",
-  setTemplateFilter: function (_: SetStateAction<string>): void {
-    throw new Error("Function not implemented.");
-  },
-});
+    workflowData: emptyWorkflowQuery,
+    currentVisit: defaultWorkflowConnection,
+    setCurrentVisit: function (_: SetStateAction<{ visit: VisitInput; }>): void {
+        throw new Error("Function not implemented.");
+    },
+    setWorkflowData: function (_: SetStateAction<WorkflowQuery>): void {
+        throw new Error("Function not implemented.");
+    },
+    templateFilter: "SPECTROSCOPY",
+    setTemplateFilter: function (_: SetStateAction<string>): void {
+        throw new Error("Function not implemented.");
+    },
+    
+})
 
 function WorkflowsProvider(props: { children: React.ReactNode }) {
   const { children } = props;
@@ -42,9 +38,6 @@ function WorkflowsProvider(props: { children: React.ReactNode }) {
 
   const [templateFilter, setTemplateFilter] = useState<string>("SPECTROSCOPY");
 
-  function getVisitString() {
-    return `${currentVisit.visit.proposalCode}${currentVisit.visit.proposalNumber}-${currentVisit.visit.number}`;
-  }
 
   const [workflowData, setWorkflowData] =
     useState<WorkflowQuery>(initialWorkflowQuery);
@@ -56,7 +49,6 @@ function WorkflowsProvider(props: { children: React.ReactNode }) {
         setCurrentVisit: setCurrentVisit,
         workflowData: workflowData,
         setWorkflowData: setWorkflowData,
-        getVisitString: getVisitString,
         templateFilter: templateFilter,
         setTemplateFilter: setTemplateFilter,
       }}

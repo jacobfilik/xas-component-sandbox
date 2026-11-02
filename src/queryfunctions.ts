@@ -8,6 +8,7 @@ import type {
   TiledSearchResponse,
 } from "./models";
 import axios from "axios";
+import type { VisitInput } from "./__generated__/graphql";
 
 const blueapi = "/blueapi";
 const plans = "/plans";
@@ -175,3 +176,14 @@ export const debounce = <T extends unknown[]>(
     timeoutID = setTimeout(() => fn(...args), delay);
   };
 };
+
+export function getVisitString (visit:{visit:VisitInput} | VisitInput) {
+
+  if ("visit" in visit){
+    return `${visit.visit.proposalCode}${visit.visit.proposalNumber}-${visit.visit.number}`
+  }
+  else {
+    return `${visit.proposalCode}${visit.proposalNumber}-${visit.number}`
+  }
+  }
+  
