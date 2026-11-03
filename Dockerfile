@@ -14,7 +14,7 @@ RUN yes | pnpm install --frozen-lockfile --prod
 
 RUN yes | pnpm install vite
 
-RUN pnpm run codegen
+RUN pnpm run generate
 
 RUN pnpm vite build
 
