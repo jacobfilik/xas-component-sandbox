@@ -17,7 +17,6 @@ import type {
   WorkflowRunningStatus,
   WorkflowSucceededStatus,
 } from "../../__generated__/graphql";
-import { VisitTextField } from "./ChangeVisitComponent";
 import { getVisitString } from "../../queryfunctions";
 import { WORKFLOW_QUERY } from "../WorkflowsData/TaskFragments";
 
@@ -48,12 +47,10 @@ export function WorkflowSearchComponent() {
     <Stack
       alignContent={"center"}
       spacing={2}
-      width="100vw"
       padding="50px"
       overflow="auto"
       flex={1}
     >
-      <VisitTextField />
       <Stack direction={"row"} justifyContent={"space-around"}>
         <Button
           variant="contained"
