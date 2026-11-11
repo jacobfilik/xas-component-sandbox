@@ -7,10 +7,14 @@ import {
 } from "@mui/material";
 import type { TiledEntryInfo, TiledSearchData } from "./models";
 
+
 export default function RunViewList(props: {
   data: TiledSearchData[];
   setId: (id: TiledEntryInfo) => void;
 }) {
+
+  //meta.data_keys[dataInfo.datasetName].source;
+
   return (
     <Stack spacing={"5px"} flex={1} overflow="auto">
       {props.data.map((td) => {

@@ -4,6 +4,7 @@ import {
   defaultWorkflowConnection,
   initialWorkflowQuery,
   emptyWorkflowQuery,
+  defaultWorkflowParams,
 } from "./defaults";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -31,7 +32,7 @@ const WorkflowContext = createContext<WorkflowContextType>({
   },
   tiledEntry: null,
 
-  workflowParams: {},
+  workflowParams: defaultWorkflowParams,
   setWorkflowParams: function (_: React.SetStateAction<JSONObject>): void {
     throw new Error("Function not implemented.");
   },
@@ -51,14 +52,13 @@ function WorkflowsProvider(props: { children: React.ReactNode }) {
 
   const [templateFilter, setTemplateFilter] = useState<string>("SPECTROSCOPY");
 
-  const [workflowParams, setWorkflowParams] = useState<JSONObject>({})
+  const [workflowParams, setWorkflowParams] = useState<JSONObject>(defaultWorkflowParams)
   // add beamline !
 
   const setTiledEntry = (val:TiledEntryInfo|null) => {
     _setTiledEntry(val)
     if (val){
       setWorkflowParams({...workflowParams, tiled_id:val.id})
-      // console.log("changed id to: ", workflowParams.tiled_id)
     }
   }
 

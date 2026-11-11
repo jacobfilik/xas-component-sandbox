@@ -45,7 +45,8 @@ export default function TiledResponseComponent(props: {
                   internal: dk.external ? false : true,
                 };
                 props.setDataInfo(info, metadata);
-                setWorkflowParams({...workflowParams, fpath: metadata.data_keys[info.datasetName].source})
+                setWorkflowParams({...workflowParams, 
+                  fpath: metadata.data_keys[info.datasetName].source})
               }}
             >
               <CardContent>

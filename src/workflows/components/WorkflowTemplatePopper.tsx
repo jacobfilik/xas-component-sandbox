@@ -12,7 +12,7 @@ import { FormComponent } from "./FormTemplate";
 export function TemplatePopper(props: {
   name: string
 }) {
-  const { currentVisit, workflowParams } = useContext(WorkflowContext);
+  const { currentVisit } = useContext(WorkflowContext);
 
   const { error, data } = useQuery(WORKFLOW_TEMPLATE_VIEW_QUERY, {
     variables: { templateName: props.name },
@@ -53,8 +53,6 @@ export function TemplatePopper(props: {
       parametersUISchema: wf.uiSchema
         ? (wf.uiSchema as UISchemaElement)
         : undefined,
-      prepopulatedParameters: workflowParams,
-      visit: currentVisit.visit,
       onSubmit: handleSubmit,
     };
 

@@ -22,7 +22,7 @@ import type {
 import RunViewList from "../RunViewList";
 import TiledContainerPanel from "../ListenTiled";
 import { TemplateName } from "./defaults";
-import { TemplatePopper } from "./components/WorkflowTemplatePopper";
+import { WorkflowParameterComponent } from "./components/WorkflowParameterTemplate";
 
 function RunViewComponent(props: {
   beamline: string;
@@ -33,6 +33,7 @@ function RunViewComponent(props: {
   const {
     tiledEntry,
     setTiledEntry,
+
     currentVisit,
     workflowParams,
     setWorkflowParams,
@@ -40,13 +41,16 @@ function RunViewComponent(props: {
 
   const [, _setDataInfo] = useState<DataInfo | null>(null);
 
+  const [currentMeta, setCurrentMeta] = useState<Metadata | null>(null);
+
+
   const setDataInfo = (val: DataInfo, meta: Metadata) => {
     _setDataInfo(val);
     const source = meta.data_keys[val.datasetName].source;
-
-    setWorkflowParams({ ...workflowParams, fpath: source, 
-  });
-  };
+    // get meta: data_keys for workflow parameter x, y dropdown.
+    setWorkflowParams({ ...workflowParams, fpath: source });
+    setCurrentMeta(meta);
+  }
 
   const query = useQuery<TiledSearchResponse, Error>({
     queryKey: [
@@ -109,9 +113,8 @@ function RunViewComponent(props: {
         <Card sx={{ height: "100%" }}>
           <CardContent sx={{ height: "100%" }}>
             <Stack>
-              <TemplatePopper
-                name={props.templateName}
-              />
+              <WorkflowParameterComponent 
+              workflowMeta={currentMeta} />
             </Stack>
           </CardContent>
         </Card>

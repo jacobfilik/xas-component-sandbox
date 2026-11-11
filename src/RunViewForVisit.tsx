@@ -55,6 +55,8 @@ export default function RunViewForVisit(props: {
 
   const handleSetDataInfo = (dataInfo: DataInfo, meta: Metadata) => {
     setDataInfo(dataInfo);
+
+
     const source = meta.data_keys[dataInfo.datasetName].source;
     setWorkflowParams({ ...workflowParams, fpath: source });
   };

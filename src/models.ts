@@ -89,7 +89,22 @@ export interface TilePageCount {
 }
 
 export interface TiledSearchMetadata {
-  start: { plan_name: string; time: number; scan_id: number };
+  start: {
+    plan_name: string;
+    time: number;
+    scan_id: number;
+    versions: object;
+    plan_args: object;
+    plan_type: string;
+    scan_file: string;
+    instrument: string;
+
+    instrument_session: string;
+
+    data_session_directory: string;
+
+    detector_file_template: string;
+  };
   stop?: unknown;
 }
 
@@ -221,8 +236,6 @@ export interface WorkflowTemplateProps {
   repository?: string;
   parametersSchema: JsonSchema;
   parametersUISchema?: UISchemaElement;
-  prepopulatedParameters?: JSONObject;
-  visit?: Visit;
   onSubmit: (parameters: object) => void;
   parameterMessage?: React.JSX.Element;
 }

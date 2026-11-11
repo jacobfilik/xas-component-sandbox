@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 
 import { createAjv } from "@jsonforms/core";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { type ErrorObject } from "ajv";
 import { JsonForms } from "@jsonforms/react";
 import {
@@ -16,6 +16,7 @@ import {
   materialRenderers,
 } from "@jsonforms/material-renderers";
 import type { JSONObject, WorkflowTemplateProps } from "../../models";
+import { WorkflowContext } from "../WorkflowProvider";
 
 export const FormComponent: React.FC<WorkflowTemplateProps> = ({
   title,
@@ -24,17 +25,17 @@ export const FormComponent: React.FC<WorkflowTemplateProps> = ({
   description,
   parametersSchema,
   parametersUISchema,
-  prepopulatedParameters,
   onSubmit,
   parameterMessage,
 }) => {
   const theme = useTheme();
   const validator = createAjv({ useDefaults: true, coerceTypes: true });
 
-  const [params, setParams] = useState<JSONObject>(
-    prepopulatedParameters ?? {},
-  );
-  
+  const { workflowParams, setWorkflowParams } =
+    useContext(WorkflowContext);
+
+  const [params, setParams] = useState<JSONObject>(workflowParams);
+
   const [errors, setErrors] = useState<ErrorObject[]>([]);
   const [submit, setSubmit] = useState<boolean>(false);
 
@@ -79,6 +80,7 @@ export const FormComponent: React.FC<WorkflowTemplateProps> = ({
         ajv={validator}
         onChange={({ data, errors }) => {
           setParams(data as JSONObject);
+          setWorkflowParams(data)
           setErrors(errors ? errors : []);
         }}
       />

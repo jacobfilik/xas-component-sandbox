@@ -1,5 +1,5 @@
 import type { WorkflowTemplate } from "../__generated__/graphql";
-import type { TiledEntryInfo } from "../models";
+import type { JSONObject, TiledEntryInfo } from "../models";
 import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/TaskFragments.generated";
 
 export const defaultWorkflowConnection: WorkflowQueryVariables = {
@@ -8,6 +8,13 @@ export const defaultWorkflowConnection: WorkflowQueryVariables = {
 
 export const defaultTiledEntry: TiledEntryInfo = {
   id: "", running: false
+}
+
+export const defaultWorkflowParams: JSONObject = {
+  fpath: "",
+  tiled_id: "",
+  xname: "",
+  yname: ""
 }
 
 export const emptyWorkflowQuery: WorkflowQuery = {
