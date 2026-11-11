@@ -2,6 +2,7 @@ import type { ErrorLike } from "@apollo/client";
 import type { Visit, VisitInput } from "./__generated__/graphql";
 import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
 import type { WorkflowQuery } from "./workflows/WorkflowsData/__generated__/TaskFragments.generated";
+import type React from "react";
 
 export interface Plan {
   name: string;
@@ -191,6 +192,8 @@ export interface WorkflowQueryHandlerResponse {
 export interface WorkflowContextType {
   currentVisit: { visit: VisitInput };
   setCurrentVisit: React.Dispatch<React.SetStateAction<{ visit: VisitInput }>>;
+  tiledId: string,
+  setTiledId: React.Dispatch<React.SetStateAction<string>>;
   workflowData: WorkflowQuery;
   setWorkflowData: React.Dispatch<React.SetStateAction<WorkflowQuery>>;
   templateFilter: string;

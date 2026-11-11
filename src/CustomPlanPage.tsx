@@ -58,7 +58,7 @@ export default function CustomPlanPage() {
     queryFn: getDevices,
   });
 
-  const { currentVisit } = useContext(WorkflowContext);
+  const { currentVisit, tiledId, setTiledId } = useContext(WorkflowContext);
 
   const putMutation = useMutation({
     mutationFn: putTask,
@@ -79,7 +79,7 @@ export default function CustomPlanPage() {
   const [session] = useState<string>(getVisitString(currentVisit));
   const [submittedTaskId, setSubmittedTaskId] = useState<string | null>(null);
   const [submittedJson, setSubmittedJson] = useState<string>("{}");
-  const [tiledId, setTiledId] = useState<string>("");
+ 
 
   const notifyOfPlan = (plan: object) => {
     setSubmittedJson(JSON.stringify(plan, null, 2));
