@@ -1,10 +1,14 @@
 import { Stack, TextField } from "@mui/material";
 
 import RunViewForVisit from "./RunViewForVisit";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { WorkflowContext } from "./workflows/WorkflowProvider";
+import { getVisitString } from "./queryfunctions";
+import { VisitTextField } from "./workflows/components/ChangeVisitComponent";
 
 export default function RunViewPage() {
-  const [visit, setVisit] = useState("cm44254-1");
+  const { currentVisit } = useContext(WorkflowContext);
+  const [visit] = useState(getVisitString(currentVisit));
   const [beamline, setBeamline] = useState("p51");
   const [offset, setOffset] = useState(0);
 
@@ -27,16 +31,7 @@ export default function RunViewPage() {
           }}
           slotProps={{ inputLabel: { shrink: true } }}
         />
-        <TextField
-          variant="outlined"
-          label="Visit"
-          value={visit}
-          onChange={(e) => {
-            setOffset(0);
-            setVisit(e.target.value);
-          }}
-          slotProps={{ inputLabel: { shrink: true } }}
-        />
+        <VisitTextField />
       </Stack>
 
       {visit.length != 0 && beamline.length != 0 && (

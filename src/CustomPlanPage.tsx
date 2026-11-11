@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getDevices, postPlan, putTask } from "./queryfunctions";
+import { getDevices, getVisitString, postPlan, putTask } from "./queryfunctions";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
@@ -11,7 +11,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CountPlanPanel from "./CountPlanPanel";
 import StepScanPanel from "./StepScanPanel";
 import PandaUniformScanPanel from "./PandaUniformScan";
@@ -22,6 +22,8 @@ import RefreshPandaPanel from "./RefreshPanda";
 import SubmittedTaskPanel from "./SubmittedTaskPanel";
 import SubmittedJson from "./SubmittedJson";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { WorkflowContext } from "./workflows/WorkflowProvider";
+import { VisitTextField } from "./workflows/components/ChangeVisitComponent";
 
 export function DeviceSelector(props: {
   devices: Device[];
@@ -56,6 +58,8 @@ export default function CustomPlanPage() {
     queryFn: getDevices,
   });
 
+  const { currentVisit } = useContext(WorkflowContext);
+
   const putMutation = useMutation({
     mutationFn: putTask,
     onSuccess: (data) => {
@@ -72,7 +76,7 @@ export default function CustomPlanPage() {
     onError: () => {},
   });
 
-  const [session, setSession] = useState<string>("cm44254-1");
+  const [session] = useState<string>(getVisitString(currentVisit));
   const [submittedTaskId, setSubmittedTaskId] = useState<string | null>(null);
   const [submittedJson, setSubmittedJson] = useState<string>("{}");
   const [tiledId, setTiledId] = useState<string>("");
@@ -97,13 +101,8 @@ export default function CustomPlanPage() {
           overflow="auto"
           flex={1}
         >
-          <TextField
-            variant="outlined"
-            label="Visit"
-            value={session}
-            onChange={(e) => setSession(e.target.value)}
-            slotProps={{ inputLabel: { shrink: true } }}
-          />
+          <VisitTextField/>
+
           <TextField
             variant="outlined"
             label="tiled task ID"

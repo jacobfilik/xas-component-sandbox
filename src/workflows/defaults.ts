@@ -2,7 +2,7 @@ import type { WorkflowTemplate } from "../__generated__/graphql";
 import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/TaskFragments.generated";
 
 export const defaultWorkflowConnection: WorkflowQueryVariables = {
-  visit: { number: 5, proposalCode: "cm", proposalNumber: 44186 },
+  visit: { number: 1, proposalCode: "cm", proposalNumber: 44254 },
 };
 
 export const emptyWorkflowQuery: WorkflowQuery = {

@@ -17,7 +17,7 @@ import type {
   WorkflowRunningStatus,
   WorkflowSucceededStatus,
 } from "../../__generated__/graphql";
-import { ChangeVisitComponent } from "./ChangeVisitComponent";
+import { VisitTextField } from "./ChangeVisitComponent";
 import { getVisitString } from "../../queryfunctions";
 import { WORKFLOW_QUERY } from "../WorkflowsData/TaskFragments";
 
@@ -25,9 +25,7 @@ export function WorkflowSearchComponent() {
   const { currentVisit, workflowData, setWorkflowData } =
     useContext(WorkflowContext);
 
-  const [currentVal, setCurrentVal] = useState<string>(
-    getVisitString(currentVisit),
-  );
+  const [currentVal] = useState<string>(getVisitString(currentVisit));
 
   const [WorkflowQueryFn, { error, loading }] = useLazyQuery(WORKFLOW_QUERY, {
     // pollInterval: 1000,
@@ -55,13 +53,12 @@ export function WorkflowSearchComponent() {
       overflow="auto"
       flex={1}
     >
+      <VisitTextField />
       <Stack direction={"row"} justifyContent={"space-around"}>
-        <ChangeVisitComponent />
         <Button
           variant="contained"
           sx={{ width: "120px", height: "80px" }}
           onClick={() => {
-            setCurrentVal(getVisitString(currentVisit));
             handleWorkflowQuery();
           }}
         >

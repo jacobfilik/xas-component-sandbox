@@ -1,82 +1,64 @@
-import { Grid, Stack, TextField } from "@mui/material";
-import { useContext } from "react";
+import { TextField } from "@mui/material";
+import { useContext, useState } from "react";
 import { WorkflowContext } from "../WorkflowProvider";
+import { getVisitString } from "../../queryfunctions";
 
-export function ChangeVisitComponent() {
+export function VisitTextField() {
   const { currentVisit, setCurrentVisit } = useContext(WorkflowContext);
 
+  const [visitString, setVisitString] = useState(getVisitString(currentVisit));
+
+  const [isError, setIsError] = useState(false);
+
+  const onVisitChange = (value: string) => {
+    setVisitString(value);
+
+    const visitNumber = Number(value.split("-")[1]);
+    const propCode = String(value.split("-")[0].match(/[^0-9]+/));
+    const propNumber = Number(value.split("-")[0].match(/[0-9]+/));
+
+    if (
+      Number.isNaN(visitNumber) ||
+      Number.isNaN(propNumber) ||
+      propCode.length != 2 ||
+      Number(visitNumber) == 0 ||
+      String(propNumber).length !== 5
+    ) {
+      setIsError(true);
+    } else {
+      setIsError(false);
+
+      setCurrentVisit({
+        visit: {
+          proposalCode: propCode,
+          proposalNumber: propNumber,
+          number: visitNumber,
+        },
+      });
+    }
+  };
+
   return (
-    <Stack
-      alignItems={"center"}
-      spacing={"10px"}
-      justifyContent={"space-around"}
-      maxHeight={"150px"}
-      height={"150px"}
-      width={"800px"}
-      maxWidth={"1000px"}
-    >
-      Current Visit
-      <Stack
-        spacing={"10px"}
-        direction={"row"}
-        justifyContent={"space-around"}
-        width={"100%"}
-        height="100px"
-      >
-        <Grid container spacing={3}>
-          <Grid size={{ xs: 6, md: 4 }} key={"code-grid"}>
-            <TextField
-              id="propcodeinputbox"
-              label="Proposal Code"
-              title="Proposal Code"
-              value={currentVisit.visit.proposalCode}
-              onChange={(e) => {
-                setCurrentVisit({
-                  ...currentVisit,
-                  visit: {
-                    ...currentVisit.visit,
-                    proposalCode: e.target.value,
-                  },
-                });
-              }}
-            />
-          </Grid>
-          <Grid size={{ xs: 6, md: 4 }} key={"number-grid"}>
-            <TextField
-              id="propnumberinputbox"
-              label="Proposal Number"
-              title="Proposal Number"
-              value={currentVisit.visit.proposalNumber}
-              onChange={(e) => {
-                setCurrentVisit({
-                  ...currentVisit,
-                  visit: {
-                    ...currentVisit.visit,
-                    proposalNumber: Number(e.target.value),
-                  },
-                });
-              }}
-            />
-          </Grid>
-          <Grid size={{ xs: 6, md: 4 }} key={"visit-grid"}>
-            <TextField
-              id="numberinputbox"
-              label="Visit Number"
-              title="Visit Number"
-              value={currentVisit.visit.number}
-              onChange={(e) => {
-                setCurrentVisit({
-                  ...currentVisit,
-                  visit: {
-                    ...currentVisit.visit,
-                    number: Number(e.target.value),
-                  },
-                });
-              }}
-            />
-          </Grid>
-        </Grid>
-      </Stack>
-    </Stack>
+    <>
+      {!isError && (
+        <TextField
+          variant="outlined"
+          label="Visit"
+          value={visitString}
+          slotProps={{ inputLabel: { shrink: true } }}
+          onChange={(val) => onVisitChange(val.target.value)}
+        ></TextField>
+      )}
+      {isError && (
+        <TextField
+          error
+          variant="outlined"
+          label="Invalid Visit Code"
+          value={visitString}
+          slotProps={{ inputLabel: { shrink: true } }}
+          onChange={(val) => onVisitChange(val.target.value)}
+        ></TextField>
+      )}
+    </>
   );
 }
