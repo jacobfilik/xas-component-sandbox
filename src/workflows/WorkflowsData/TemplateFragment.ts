@@ -1,11 +1,6 @@
 import { gql, type TypedDocumentNode } from "@apollo/client";
-import type {
-  TemplateFragment,
-  WorkflowTemplateQuery,
-  WorkflowTemplateQueryVariables,
-  WorkflowTemplateViewQuery,
-  WorkflowTemplateViewQueryVariables,
-} from "./__generated__/TemplateFragments.generated";
+import type { TemplateFragment, WorkflowTemplateQuery, WorkflowTemplateQueryVariables, WorkflowTemplateViewQuery, WorkflowTemplateViewQueryVariables } from "./__generated__/TemplateFragment.generated";
+
 
 export const TEMPLATE_FRAGMENT: TypedDocumentNode<TemplateFragment> = gql`
   fragment TemplateFragment on WorkflowTemplate {

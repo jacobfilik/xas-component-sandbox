@@ -1,8 +1,8 @@
 import type { ErrorLike } from "@apollo/client";
-import type { Visit, VisitInput } from "./__generated__/graphql";
 import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
 import type { WorkflowQuery } from "./workflows/WorkflowsData/__generated__/TaskFragments.generated";
 import type React from "react";
+import type { VisitInput } from "./__generated__/graphql";
 
 export interface Plan {
   name: string;
