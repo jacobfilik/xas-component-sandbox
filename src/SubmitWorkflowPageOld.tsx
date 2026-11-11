@@ -4,7 +4,7 @@ import { WorkflowTemplateSearch } from "./workflows/components/WorkflowTemplateS
 import { TemplatePopper } from "./workflows/components/WorkflowTemplatePopper";
 import { VisitTextField } from "./workflows/components/ChangeVisitComponent";
 
-export function SubmitWorkflowPage() {
+export function SubmitWorkflowPageOld() {
   const [templateName, setTemplateName] = useState<string>("None");
 
   return (

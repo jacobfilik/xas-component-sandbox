@@ -10,6 +10,7 @@ export default function TiledContainerPanel(props: {
   taskID: string;
   setDataInfo: (name: DataInfo) => void;
 }) {
+
   const query = useQuery<TiledResponse, Error>({
     queryKey: ["taskId", props.taskID, props.beamline.at, props.visit],
     queryFn: () => getMetadata(props.taskID, props.beamline, props.visit),

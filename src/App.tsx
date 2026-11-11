@@ -26,7 +26,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import TrackWorkflowsPage from "./TrackWorkflowsPage";
 import { WorkflowsProvider } from "./workflows/WorkflowProvider";
-import { SubmitWorkflowPage } from "./SubmitWorkflowPage";
+import SubmitWorkflowPage  from "./workflows/SubmitWorkflowPage";
 
 const workflowsClient = new ApolloClient({
   link: new HttpLink({ uri: "/graph/graphql", credentials: "include" }),

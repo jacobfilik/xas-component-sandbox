@@ -60,9 +60,9 @@ export default function Header() {
         <NavLink to="/track-workflows" key="track-wf" linkComponent={Link}>
           Search Visits (Workflows)
         </NavLink>
-        {/* <NavLink to="/submit-workflows" key="submit-wf" linkComponent={Link}>
+        <NavLink to="/submit-workflows" key="submit-wf" linkComponent={Link}>
           Submit Workflow
-        </NavLink> */}
+        </NavLink>
       </NavLinks>
     </Navbar>
   );
