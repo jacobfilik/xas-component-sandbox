@@ -10,13 +10,16 @@ import {
 import { createContext, type SetStateAction } from "react";
 
 import type { VisitInput } from "../__generated__/graphql";
-import type { WorkflowContextType } from "../models";
-import type { WorkflowQuery, WorkflowQueryVariables } from "./WorkflowsData/__generated__/TaskFragments.generated";
+import type { TiledEntryInfo, WorkflowContextType } from "../models";
+import type {
+  WorkflowQuery,
+  WorkflowQueryVariables,
+} from "./WorkflowsData/__generated__/TaskFragments.generated";
 
 const WorkflowContext = createContext<WorkflowContextType>({
   workflowData: emptyWorkflowQuery,
   currentVisit: defaultWorkflowConnection,
-  setCurrentVisit: function (_: SetStateAction<{ visit: VisitInput; }>): void {
+  setCurrentVisit: function (_: SetStateAction<{ visit: VisitInput }>): void {
     throw new Error("Function not implemented.");
   },
   setWorkflowData: function (_: SetStateAction<WorkflowQuery>): void {
@@ -26,11 +29,13 @@ const WorkflowContext = createContext<WorkflowContextType>({
   setTemplateFilter: function (_: SetStateAction<string>): void {
     throw new Error("Function not implemented.");
   },
-  tiledId: "",
-  setTiledId: function (_: React.SetStateAction<string>): void {
+  tiledEntry: null,
+  setTiledEntry: function (
+    _: React.SetStateAction<TiledEntryInfo | null>,
+  ): void {
     throw new Error("Function not implemented.");
-  }
-})
+  },
+});
 
 function WorkflowsProvider(props: { children: React.ReactNode }) {
   const { children } = props;
@@ -39,10 +44,9 @@ function WorkflowsProvider(props: { children: React.ReactNode }) {
     defaultWorkflowConnection,
   );
 
-  const [tiledId, setTiledId] = useState<string>("")
+  const [tiledEntry, setTiledEntry] = useState<TiledEntryInfo | null>(null);
 
   const [templateFilter, setTemplateFilter] = useState<string>("SPECTROSCOPY");
-
 
   const [workflowData, setWorkflowData] =
     useState<WorkflowQuery>(initialWorkflowQuery);
@@ -52,8 +56,8 @@ function WorkflowsProvider(props: { children: React.ReactNode }) {
       value={{
         currentVisit: currentVisit,
         setCurrentVisit: setCurrentVisit,
-        tiledId: tiledId,
-        setTiledId: setTiledId,
+        tiledEntry: tiledEntry,
+        setTiledEntry: setTiledEntry,
         workflowData: workflowData,
         setWorkflowData: setWorkflowData,
         templateFilter: templateFilter,

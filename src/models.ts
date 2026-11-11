@@ -192,8 +192,8 @@ export interface WorkflowQueryHandlerResponse {
 export interface WorkflowContextType {
   currentVisit: { visit: VisitInput };
   setCurrentVisit: React.Dispatch<React.SetStateAction<{ visit: VisitInput }>>;
-  tiledId: string,
-  setTiledId: React.Dispatch<React.SetStateAction<string>>;
+  tiledEntry: TiledEntryInfo|null;
+  setTiledEntry: React.Dispatch<React.SetStateAction<TiledEntryInfo|null>>
   workflowData: WorkflowQuery;
   setWorkflowData: React.Dispatch<React.SetStateAction<WorkflowQuery>>;
   templateFilter: string;
