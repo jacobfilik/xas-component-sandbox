@@ -5,9 +5,11 @@ import { WorkflowContext } from "./WorkflowProvider";
 import { getRunsInVisit, getVisitString } from "../queryfunctions";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Pagination,
+  Snackbar,
   Stack,
   TextField,
 } from "@mui/material";
@@ -23,6 +25,8 @@ import RunViewList from "../RunViewList";
 import TiledContainerPanel from "../ListenTiled";
 import { TemplateName } from "./defaults";
 import { WorkflowParameterComponent } from "./components/WorkflowParameterTemplate";
+import { useMutation } from "@apollo/client/react";
+import { TEMPLATE_VIEW_MUTATION } from "./WorkflowsData/PostWorkflow";
 
 function RunViewComponent(props: {
   beamline: string;
@@ -43,14 +47,13 @@ function RunViewComponent(props: {
 
   const [currentMeta, setCurrentMeta] = useState<Metadata | null>(null);
 
-
   const setDataInfo = (val: DataInfo, meta: Metadata) => {
     _setDataInfo(val);
     const source = meta.data_keys[val.datasetName].source;
     // get meta: data_keys for workflow parameter x, y dropdown.
     setWorkflowParams({ ...workflowParams, fpath: source });
     setCurrentMeta(meta);
-  }
+  };
 
   const query = useQuery<TiledSearchResponse, Error>({
     queryKey: [
@@ -109,12 +112,11 @@ function RunViewComponent(props: {
           <Box></Box>
         )}
       </Stack>
-      <Stack height="100%" flex={2}>
+      <Stack height="100%" flex={2} spacing={2}>
         <Card sx={{ height: "100%" }}>
           <CardContent sx={{ height: "100%" }}>
-            <Stack>
-              <WorkflowParameterComponent 
-              workflowMeta={currentMeta} />
+            <Stack spacing={2}>
+              <WorkflowParameterComponent workflowMeta={currentMeta} />
             </Stack>
           </CardContent>
         </Card>
@@ -124,13 +126,31 @@ function RunViewComponent(props: {
 }
 
 export default function SubmitWorkflowPage() {
-  const { currentVisit } = useContext(WorkflowContext);
+  const { currentVisit, workflowParams } = useContext(WorkflowContext);
+
   const [visit] = useState(getVisitString(currentVisit));
 
   // move to a provider?
   const [beamline, setBeamline] = useState("p51");
   const [offset, setOffset] = useState(0);
   const templateName = TemplateName;
+
+  const [submit, setSubmit] = useState<boolean>(false);
+
+  const [submitMutation] = useMutation(TEMPLATE_VIEW_MUTATION);
+
+  const onSubmit = () => {
+    setSubmit(true);
+    submitMutation({
+      variables: {
+        visit: currentVisit.visit,
+        templateName: templateName,
+        parameters: workflowParams,
+      },
+    }).then((data) => {
+      console.log("submitted workflow ", data);
+    });
+  };
 
   return (
     <Stack
@@ -162,6 +182,26 @@ export default function SubmitWorkflowPage() {
           templateName={templateName}
         />
       )}
+
+      <Stack alignItems="flex-end">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            onSubmit();
+          }}
+          data-testid="submit-button"
+        >
+          Submit Workflow
+        </Button>
+      </Stack>
+
+      <Snackbar
+        open={submit}
+        autoHideDuration={6000}
+        message="submitted"
+        onClose={() => setSubmit(false)}
+      />
     </Stack>
   );
 }
