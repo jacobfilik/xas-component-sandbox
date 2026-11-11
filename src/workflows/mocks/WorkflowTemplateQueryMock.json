@@ -115,6 +115,89 @@
               "path": "demos",
               "targetRevision": "HEAD"
             }
+          },
+          {
+            "name": "panda-repetitions",
+            "title": "Panda Repetitions Routine",
+            "description": "\"An example notebook to run some basic analysis on \npanda data in /p51.\"\n",
+            "__typename": "WorkflowTemplate",
+            "maintainer": "spectroscopy-group",
+            "arguments": {
+              "properties": {
+                "fpath": {
+                  "type": "string"
+                },
+                "tiled_id": {
+                  "default": "abcd-1234",
+                  "type": "string"
+                },
+                "xname": {
+                  "default": "inenc-1-val_dataset",
+                  "type": "string"
+                },
+                "yname": {
+                  "default": "fmc_in-val1_dataset",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "uiSchema": {
+              "type": "VerticalLayout",
+              "elements": [
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/fpath",
+                      "label": "Path to File",
+                      "options": null,
+                      "rule": null
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/tiled_id",
+                      "label": "Tiled ID",
+                      "options": null,
+                      "rule": null
+                    }
+                  ],
+                  "options": null,
+                  "rule": null
+                },
+                {
+                  "type": "HorizontalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/xname",
+                      "label": "X Dataset Name",
+                      "options": null,
+                      "rule": null
+                    },
+                    {
+                      "type": "Control",
+                      "scope": "#/properties/yname",
+                      "label": "Y Dataset Name",
+                      "options": null,
+                      "rule": null
+                    }
+                  ],
+                  "options": null,
+                  "rule": null
+                }
+              ],
+              "options": null,
+              "rule": null
+            },
+            "repository": "\"https://github.com/DiamondLightSource/spectroscopy-workflows\"\n",
+            "templateSource": {
+              "__typename": "TemplateSource",
+              "repositoryUrl": "https://github.com/DiamondLightSource/spectroscopy-workflows",
+              "path": "demos",
+              "targetRevision": "HEAD"
+            }
           }
         ]
       }

@@ -37,7 +37,6 @@ export default function RunViewPage() {
       {visit.length != 0 && beamline.length != 0 && (
         <RunViewForVisit
           beamline={beamline}
-          visit={visit}
           offset={offset}
           setOffset={setOffset}
         ></RunViewForVisit>

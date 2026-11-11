@@ -17,12 +17,12 @@ export default function RunViewList(props: {
         return (
           <Card key={td.id} sx={{ overflow: "visible" }}>
             <CardActionArea
-              onClick={() =>
+              onClick={() => {
                 props.setId({
                   id: td.id,
                   running: td.attributes.metadata.stop == undefined,
-                })
-              }
+                });
+              }}
             >
               <CardContent>
                 <Typography>id: {td.id}</Typography>
@@ -34,7 +34,7 @@ export default function RunViewList(props: {
                 </Typography>
                 <Typography>
                   {new Date(
-                    td.attributes.metadata.start.time * 1000
+                    td.attributes.metadata.start.time * 1000,
                   ).toISOString()}
                 </Typography>
               </CardContent>

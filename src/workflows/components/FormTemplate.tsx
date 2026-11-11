@@ -1,4 +1,11 @@
-import { Divider, Snackbar, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Button,
+  Divider,
+  Snackbar,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 
 import { createAjv } from "@jsonforms/core";
 import { useState } from "react";
@@ -8,7 +15,6 @@ import {
   materialCells,
   materialRenderers,
 } from "@jsonforms/material-renderers";
-import { VisitInput, type Visit } from "@diamondlightsource/sci-react-ui";
 import type { JSONObject, WorkflowTemplateProps } from "../../models";
 
 export const FormComponent: React.FC<WorkflowTemplateProps> = ({
@@ -19,7 +25,6 @@ export const FormComponent: React.FC<WorkflowTemplateProps> = ({
   parametersSchema,
   parametersUISchema,
   prepopulatedParameters,
-  visit,
   onSubmit,
   parameterMessage,
 }) => {
@@ -29,21 +34,28 @@ export const FormComponent: React.FC<WorkflowTemplateProps> = ({
   const [params, setParams] = useState<JSONObject>(
     prepopulatedParameters ?? {},
   );
+  
   const [errors, setErrors] = useState<ErrorObject[]>([]);
   const [submit, setSubmit] = useState<boolean>(false);
 
-  const onClick = (visit:Visit, parameters?:object) => {
-    if (errors.length === 0){
-        onSubmit(visit, parameters??{})
-        setSubmit(true)
+  const onClick = (parameters?: object) => {
+    if (errors.length === 0) {
+      onSubmit(parameters ?? {});
+      setSubmit(true);
     }
-  }
+  };
 
   const theWidth =
     ((parametersUISchema?.options?.formWidth as string) || undefined) ?? "100%";
 
   return (
-    <Stack spacing={theme.spacing(2)} width={theWidth}>
+    <Stack
+      spacing={theme.spacing(3)}
+      direction={"column"}
+      overflow="hidden"
+      flex={4}
+      width={theWidth}
+    >
       <Typography variant="h6" align="center">
         {title}
       </Typography>
@@ -53,7 +65,9 @@ export const FormComponent: React.FC<WorkflowTemplateProps> = ({
       <Typography variant="body1" align="center">
         Maintainer: {maintainer}
       </Typography>
-      <Typography variant="body2">{repository}</Typography>
+      <Typography variant="body2" align="center">
+        {repository}
+      </Typography>
       <Divider />
       {parameterMessage}
       <JsonForms
@@ -68,15 +82,27 @@ export const FormComponent: React.FC<WorkflowTemplateProps> = ({
           setErrors(errors ? errors : []);
         }}
       />
-      <Divider/>
-      <VisitInput
-      visit = {visit}
-      onSubmit={onClick}
-    parameters={params}
-    submitOnReturn={false}
-      />
-      <Snackbar open={submit} autoHideDuration={6000}
-      message="submitted" onClose={() => setSubmit(false)}/>
+      <Divider />
+
+      <Stack height="100%" flex={2}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            onClick(params);
+          }}
+          data-testid="submit-button"
+        >
+          Submit Workflow
+        </Button>
+
+        <Snackbar
+          open={submit}
+          autoHideDuration={6000}
+          message="submitted"
+          onClose={() => setSubmit(false)}
+        />
+      </Stack>
     </Stack>
   );
 };

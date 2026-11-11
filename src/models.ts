@@ -192,14 +192,15 @@ export interface WorkflowQueryHandlerResponse {
 export interface WorkflowContextType {
   currentVisit: { visit: VisitInput };
   setCurrentVisit: React.Dispatch<React.SetStateAction<{ visit: VisitInput }>>;
-  tiledEntry: TiledEntryInfo|null;
-  setTiledEntry: React.Dispatch<React.SetStateAction<TiledEntryInfo|null>>
+  tiledEntry: TiledEntryInfo | null;
+  setTiledEntry: (val: TiledEntryInfo | null) => void;
   workflowData: WorkflowQuery;
   setWorkflowData: React.Dispatch<React.SetStateAction<WorkflowQuery>>;
   templateFilter: string;
   setTemplateFilter: React.Dispatch<React.SetStateAction<string>>;
+  workflowParams: JSONObject;
+  setWorkflowParams: React.Dispatch<React.SetStateAction<JSONObject>>;
 }
-
 
 export interface JSONObject {
   [key: string]: JSONValue;
@@ -221,7 +222,7 @@ export interface WorkflowTemplateProps {
   parametersSchema: JsonSchema;
   parametersUISchema?: UISchemaElement;
   prepopulatedParameters?: JSONObject;
-  visit?: Visit
-  onSubmit: (visit:Visit, parameters:object) => void;
+  visit?: Visit;
+  onSubmit: (parameters: object) => void;
   parameterMessage?: React.JSX.Element;
 }

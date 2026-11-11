@@ -1,5 +1,10 @@
 import { Box, Card, CardContent, Pagination, Stack } from "@mui/material";
-import type { DataInfo, TiledEntryInfo, TiledSearchResponse } from "./models";
+import type {
+  DataInfo,
+  Metadata,
+  TiledEntryInfo,
+  TiledSearchResponse,
+} from "./models";
 import { useQuery } from "@tanstack/react-query";
 import { getRunsInVisit, getVisitString } from "./queryfunctions";
 import RunViewList from "./RunViewList";
@@ -14,8 +19,13 @@ export default function RunViewForVisit(props: {
   offset: number;
   setOffset: (ofset: number) => void;
 }) {
-  const { tiledEntry, setTiledEntry, currentVisit } =
-    useContext(WorkflowContext);
+  const {
+    tiledEntry,
+    setTiledEntry,
+    currentVisit,
+    setWorkflowParams,
+    workflowParams,
+  } = useContext(WorkflowContext);
 
   const query = useQuery<TiledSearchResponse, Error>({
     queryKey: [
@@ -41,10 +51,13 @@ export default function RunViewForVisit(props: {
       setTiledEntry(data);
     }
   };
-
-  // const [id, setId] = useState<TiledEntryInfo | null>(tiledEntry);
   const [dataInfo, setDataInfo] = useState<DataInfo | null>(null);
 
+  const handleSetDataInfo = (dataInfo: DataInfo, meta: Metadata) => {
+    setDataInfo(dataInfo);
+    const source = meta.data_keys[dataInfo.datasetName].source;
+    setWorkflowParams({ ...workflowParams, fpath: source });
+  };
   if (!query.data || !query.data.meta) {
     return <Stack>No data</Stack>;
   }
@@ -70,7 +83,7 @@ export default function RunViewForVisit(props: {
             beamline={props.beamline}
             visit={getVisitString(currentVisit)}
             taskID={tiledEntry.id}
-            setDataInfo={setDataInfo}
+            setDataInfo={handleSetDataInfo}
           />
         ) : (
           <Box></Box>

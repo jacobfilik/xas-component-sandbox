@@ -5,13 +5,16 @@ import {
   Divider,
   CardActionArea,
 } from "@mui/material";
-import type { DataInfo, TiledData } from "./models";
+import type { DataInfo, Metadata, TiledData } from "./models";
+import { useContext } from "react";
+import { WorkflowContext } from "./workflows/WorkflowProvider";
 
 export default function TiledResponseComponent(props: {
   BlueapiItem?: TiledData;
-  setDataInfo: (dataInfo: DataInfo) => void;
+  setDataInfo: (dataInfo: DataInfo, meta: Metadata) => void;
 }) {
-  console.log(props.BlueapiItem);
+
+  const {workflowParams, setWorkflowParams} = useContext(WorkflowContext)
   const data = props.BlueapiItem;
   if (!data) return <div>Loading...</div>;
   if (!data.attributes) return <div>No attributes</div>;
@@ -19,6 +22,7 @@ export default function TiledResponseComponent(props: {
 
   const attrs = data.attributes;
   const metadata = attrs.metadata;
+
   return (
     <Card sx={{ overflow: "visible", mb: 2, p: 2 }}>
       <CardContent>
@@ -35,11 +39,13 @@ export default function TiledResponseComponent(props: {
           <Card key={key} sx={{ mb: 1, p: 1 }}>
             <CardActionArea
               onClick={() => {
-                props.setDataInfo({
+                const info: DataInfo = {
                   datasetName: key,
                   datasetContainerName: data.id,
                   internal: dk.external ? false : true,
-                });
+                };
+                props.setDataInfo(info, metadata);
+                setWorkflowParams({...workflowParams, fpath: metadata.data_keys[info.datasetName].source})
               }}
             >
               <CardContent>

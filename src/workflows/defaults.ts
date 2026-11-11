@@ -55,3 +55,6 @@ export const emptyWorkflowTemplate: WorkflowTemplate =
 }
 
 export const TemplateFilters: string[] = ["EXAMPLES", "SPECTROSCOPY"];
+
+
+export const TemplateName: string = "panda-repetitions"

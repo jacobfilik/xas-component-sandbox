@@ -1,16 +1,15 @@
 import { Box, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { getMetadata } from "./queryfunctions";
-import type { DataInfo, TiledResponse } from "./models";
+import type { DataInfo, Metadata, TiledResponse } from "./models";
 import TiledResponseComponent from "./TiledResponseComponent";
 
 export default function TiledContainerPanel(props: {
   beamline: string;
   visit: string;
   taskID: string;
-  setDataInfo: (name: DataInfo) => void;
+  setDataInfo: (dataInfo: DataInfo, meta: Metadata) => void;
 }) {
-
   const query = useQuery<TiledResponse, Error>({
     queryKey: ["taskId", props.taskID, props.beamline.at, props.visit],
     queryFn: () => getMetadata(props.taskID, props.beamline, props.visit),

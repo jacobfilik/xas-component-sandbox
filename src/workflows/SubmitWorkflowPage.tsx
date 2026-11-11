@@ -3,22 +3,50 @@
 import { useContext, useState } from "react";
 import { WorkflowContext } from "./WorkflowProvider";
 import { getRunsInVisit, getVisitString } from "../queryfunctions";
-import { Box, Pagination, Stack, TextField } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Pagination,
+  Stack,
+  TextField,
+} from "@mui/material";
 import { VisitTextField } from "./components/ChangeVisitComponent";
 import { useQuery } from "@tanstack/react-query";
-import type { DataInfo, TiledEntryInfo, TiledSearchResponse } from "../models";
+import type {
+  DataInfo,
+  Metadata,
+  TiledEntryInfo,
+  TiledSearchResponse,
+} from "../models";
 import RunViewList from "../RunViewList";
 import TiledContainerPanel from "../ListenTiled";
+import { TemplateName } from "./defaults";
+import { TemplatePopper } from "./components/WorkflowTemplatePopper";
 
-function PlotlessRunViewVisit(props: {
+function RunViewComponent(props: {
   beamline: string;
   offset: number;
   setOffset: (ofset: number) => void;
+  templateName: string;
 }) {
-  const { tiledEntry, setTiledEntry, currentVisit } =
-    useContext(WorkflowContext);
+  const {
+    tiledEntry,
+    setTiledEntry,
+    currentVisit,
+    workflowParams,
+    setWorkflowParams,
+  } = useContext(WorkflowContext);
 
-  const [, setDataInfo] = useState<DataInfo | null>(null);
+  const [, _setDataInfo] = useState<DataInfo | null>(null);
+
+  const setDataInfo = (val: DataInfo, meta: Metadata) => {
+    _setDataInfo(val);
+    const source = meta.data_keys[val.datasetName].source;
+
+    setWorkflowParams({ ...workflowParams, fpath: source, 
+  });
+  };
 
   const query = useQuery<TiledSearchResponse, Error>({
     queryKey: [
@@ -56,7 +84,7 @@ function PlotlessRunViewVisit(props: {
   return (
     <Stack direction={"row"} spacing="10px" overflow="hidden" flex={1}>
       <Stack spacing="10px">
-        <RunViewList data={query.data.data} setId={onIdChange}></RunViewList>
+        <RunViewList data={query.data.data} setId={onIdChange} />
         <Pagination
           onChange={handleChange}
           page={props.offset / 10 + 1}
@@ -77,6 +105,17 @@ function PlotlessRunViewVisit(props: {
           <Box></Box>
         )}
       </Stack>
+      <Stack height="100%" flex={2}>
+        <Card sx={{ height: "100%" }}>
+          <CardContent sx={{ height: "100%" }}>
+            <Stack>
+              <TemplatePopper
+                name={props.templateName}
+              />
+            </Stack>
+          </CardContent>
+        </Card>
+      </Stack>
     </Stack>
   );
 }
@@ -88,6 +127,7 @@ export default function SubmitWorkflowPage() {
   // move to a provider?
   const [beamline, setBeamline] = useState("p51");
   const [offset, setOffset] = useState(0);
+  const templateName = TemplateName;
 
   return (
     <Stack
@@ -110,11 +150,13 @@ export default function SubmitWorkflowPage() {
         />
         <VisitTextField />
       </Stack>
+
       {visit.length != 0 && beamline.length != 0 && (
-        <PlotlessRunViewVisit
+        <RunViewComponent
           beamline={beamline}
           offset={offset}
           setOffset={setOffset}
+          templateName={templateName}
         />
       )}
     </Stack>

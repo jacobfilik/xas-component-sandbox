@@ -29,6 +29,7 @@ export function SubmitWorkflowPageOld() {
           <WorkflowTemplateSearch changeName={setTemplateName} />
         </Stack>
       </Stack>
+    
     </Stack>
   );
 }

@@ -3,15 +3,16 @@ import { WorkflowContext } from "../WorkflowProvider";
 import { Alert, Stack } from "@mui/material";
 import type { WorkflowTemplateProps } from "../../models";
 import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
-
 import { useMutation, useQuery } from "@apollo/client/react";
-import type { Visit } from "../../__generated__/graphql";
+
 import { WORKFLOW_TEMPLATE_VIEW_QUERY } from "../WorkflowsData/TemplateFragment";
 import { TEMPLATE_VIEW_MUTATION } from "../WorkflowsData/PostWorkflow";
 import { FormComponent } from "./FormTemplate";
 
-export function TemplatePopper(props: { name: string }) {
-  const { currentVisit } = useContext(WorkflowContext);
+export function TemplatePopper(props: {
+  name: string
+}) {
+  const { currentVisit, workflowParams } = useContext(WorkflowContext);
 
   const { error, data } = useQuery(WORKFLOW_TEMPLATE_VIEW_QUERY, {
     variables: { templateName: props.name },
@@ -19,15 +20,16 @@ export function TemplatePopper(props: { name: string }) {
 
   const [submitMutation] = useMutation(TEMPLATE_VIEW_MUTATION);
 
-  const handleSubmit = (visit: Visit, parameters?: object) => {
+  const handleSubmit = (parameters?: object) => {
+
     submitMutation({
       variables: {
-        visit: visit,
+        visit: currentVisit.visit,
         templateName: props.name,
         parameters: parameters,
       },
     }).then((data) => {
-      console.log(data);
+      console.log("data: ", data);
     });
   };
 
@@ -51,7 +53,7 @@ export function TemplatePopper(props: { name: string }) {
       parametersUISchema: wf.uiSchema
         ? (wf.uiSchema as UISchemaElement)
         : undefined,
-      prepopulatedParameters: undefined,
+      prepopulatedParameters: workflowParams,
       visit: currentVisit.visit,
       onSubmit: handleSubmit,
     };
@@ -61,7 +63,7 @@ export function TemplatePopper(props: { name: string }) {
     }
 
     return (
-      <Stack>
+      <Stack height="100%">
         <FormComponent {...formProps} />
       </Stack>
     );
