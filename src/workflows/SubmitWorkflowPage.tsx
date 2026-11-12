@@ -164,13 +164,14 @@ export default function SubmitWorkflowPage() {
 
   return (
     <Stack
-      height={"100%"}
-      width={"100%"}
+      height={"100vh"}
+      width={"100vw"}
       spacing="10px"
-      overflow="hidden"
       padding="10px"
     >
-      <Stack direction="row" spacing={"10px"}>
+      
+      <Stack direction="row" spacing={"10px"} alignItems="center">
+        
         <TextField
           variant="outlined"
           label="Visit"
@@ -183,22 +184,7 @@ export default function SubmitWorkflowPage() {
         />
 
         <VisitTextField />
-      </Stack>
-      <Stack direction="row" spacing={"10px"}>
-        <Stack width="50%">
-          <ListRunsComponent
-            beamline={beamline}
-            offset={offset}
-            setOffset={setOffset}
-            onIdChange={onIdChange}
-            setDataInfo={setDataInfo}
-          />
-        </Stack>
-        <Stack width="80%">
-          <WorkflowSubmitComponent currentMeta={currentMeta} />
-        </Stack>
-      </Stack>
-      <Stack alignItems="flex-end">
+              <Stack alignItems="flex-end">
         <Button
           variant="contained"
           color="primary"
@@ -210,7 +196,21 @@ export default function SubmitWorkflowPage() {
           Submit Workflow
         </Button>
       </Stack>
-
+      </Stack>
+      <Stack direction="row" spacing={"10px"}>
+        <Stack width="50vw">
+          <ListRunsComponent
+            beamline={beamline}
+            offset={offset}
+            setOffset={setOffset}
+            onIdChange={onIdChange}
+            setDataInfo={setDataInfo}
+          />
+        </Stack>
+        <Stack width="80vw">
+          <WorkflowSubmitComponent currentMeta={currentMeta} />
+        </Stack>
+      </Stack>
       <Snackbar
         open={submit}
         autoHideDuration={6000}
