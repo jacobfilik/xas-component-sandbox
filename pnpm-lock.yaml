@@ -11,6 +11,9 @@ importers:
       '@apollo/client':
         specifier: ^4.3.5
         version: 4.3.5(graphql-ws@6.4.1(graphql@17.0.2)(ws@8.22.0))(graphql@17.0.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rxjs@7.8.2)
+      '@celadora/periodic-table':
+        specifier: ^0.1.32
+        version: 0.1.32
       '@diamondlightsource/sci-react-ui':
         specifier: ^0.6.2
         version: 0.6.2(@emotion/react@11.14.0(@types/react@18.3.1)(react@18.3.1)(supports-color@7.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.1)(react@18.3.1)(supports-color@7.2.0))(@types/react@18.3.1)(react@18.3.1)(supports-color@7.2.0))(@jsonforms/core@3.6.0)(@jsonforms/material-renderers@3.6.0(cf7c63f09a9724da1ccf7c863ac4f1e3))(@jsonforms/react@3.6.0(@jsonforms/core@3.6.0)(react@18.3.1))(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@18.3.1)(react@18.3.1)(supports-color@7.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.1)(react@18.3.1)(supports-color@7.2.0))(@types/react@18.3.1)(react@18.3.1)(supports-color@7.2.0))(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.1)(react@18.3.1)
@@ -323,6 +326,9 @@ packages:
   '@babel/types@7.29.11':
     resolution: {integrity: sha512-WCsemW40Cpc6gouC1SrY6PBaZ+oLRlEVY9XBvZBI7il/HyUrb2nJ505wE1MHEFyDZNnrWDEuy4jL50WVHfTTSQ==}
     engines: {node: '>=6.9.0'}
+
+  '@celadora/periodic-table@0.1.32':
+    resolution: {integrity: sha512-TcmpVSlWfLIBWmyV8Em4Q4O+D6tXaJ9em5xEOYs19Pz8nJxlhZpvp5oknHP6MibEUCwpplX53N3F+sVo2de++g==}
 
   '@date-io/core@3.2.0':
     resolution: {integrity: sha512-hqwXvY8/YBsT9RwQITG868ZNb1MVFFkF7W1Ecv4P472j/ZWa7EFcgSmxy8PUElNVZfvhdvfv+a8j6NWJqOX5mA==}
@@ -4278,6 +4284,8 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.29.11
       '@babel/helper-validator-identifier': 7.29.7
+
+  '@celadora/periodic-table@0.1.32': {}
 
   '@date-io/core@3.2.0': {}
 

@@ -94,7 +94,7 @@ export interface TiledSearchMetadata {
     time: number;
     scan_id: number;
     versions: object;
-    plan_args: object;
+    plan_args: unknown;
     plan_type: string;
     scan_file: string;
     instrument: string;

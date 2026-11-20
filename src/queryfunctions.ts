@@ -140,6 +140,20 @@ export const getRunsInVisit = async (
   return response.data;
 };
 
+export const findByBlueapiTaskId = async (beamline: string, blueapi_task: string, visit: string): Promise<TiledSearchResponse> => {
+  const code = visit.split("-")[0];
+
+  const url = `${tiled}/search/${beamline}/${code}/${visit}/?filter[eq][condition][key]=start.blueapi_task_id&filter[eq][condition][value]=%22${blueapi_task}%22`;
+
+  const response = await axios.get<TiledSearchResponse>(url)
+
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve metadata");
+  }
+  return response.data;
+
+}
+
 export const getData = async (
   beamline: string,
   visit: string,

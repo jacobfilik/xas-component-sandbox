@@ -26,6 +26,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import { WorkflowsProvider } from "./workflows/WorkflowProvider";
 import SubmitWorkflowPage  from "./workflows/SubmitWorkflowPage";
+import DemoPage from "./uwgdemo/DemoPage";
 
 const workflowsClient = new ApolloClient({
   link: new HttpLink({ uri: "/graph/graphql", credentials: "include" }),
@@ -113,6 +114,14 @@ function App() {
                     element={
                       <RequireAuth>
                         <SubmitWorkflowPage />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="demo"
+                    element={
+                      <RequireAuth>
+                        <DemoPage />
                       </RequireAuth>
                     }
                   />
