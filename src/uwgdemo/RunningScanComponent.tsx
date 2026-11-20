@@ -30,10 +30,19 @@ function isRequiredPlanArgs(value: unknown): RequiredPlanArgs | null {
 function InnerScanComponent(props: {
   blueApiTaskID: string;
   setTiledScanInfo: (info: TiledScanInfo) => void;
+  beamline: string;
+  session: string;
 }) {
   const query = useQuery({
-    queryKey: ["blueapi", "devices"],
-    queryFn: () => findByBlueapiTaskId("P51", props.blueApiTaskID, "cm44254-1"),
+    queryKey: [
+      "tiled",
+      "search",
+      props.beamline,
+      props.blueApiTaskID,
+      props.session,
+    ],
+    queryFn: () =>
+      findByBlueapiTaskId(props.beamline, props.blueApiTaskID, props.session),
     enabled: props.blueApiTaskID != null,
     refetchInterval: (query) => {
       if (query.state.data && query.state.data.data.length == 1) return false;
@@ -78,6 +87,8 @@ function InnerScanComponent(props: {
 export default function RunningScanComponent(props: {
   blueApiTaskID: string | null;
   setTiledScanInfo: (info: TiledScanInfo) => void;
+  beamline: string;
+  session: string;
 }) {
   return (
     <Paper sx={{ height: "100%" }}>
@@ -85,6 +96,8 @@ export default function RunningScanComponent(props: {
         <Typography variant="h6">Scan Information</Typography>
         {props.blueApiTaskID && (
           <InnerScanComponent
+            beamline={props.beamline}
+            session={props.session}
             blueApiTaskID={props.blueApiTaskID}
             setTiledScanInfo={props.setTiledScanInfo}
           />

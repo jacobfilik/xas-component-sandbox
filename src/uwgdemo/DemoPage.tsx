@@ -53,6 +53,13 @@ export default function DemoPage() {
             }
           />
           <RunningScanComponent
+            beamline={beamline}
+            session={
+              currentVisit.visit.proposalCode +
+              currentVisit.visit.proposalNumber +
+              "-" +
+              currentVisit.visit.number
+            }
             blueApiTaskID={blueApiTaskId}
             setTiledScanInfo={setTiledScanInfo}
           />
