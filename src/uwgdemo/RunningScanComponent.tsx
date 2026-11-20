@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import type { TiledScanInfo } from "./DemoPage";
 
 interface RequiredPlanArgs {
-  start: number;
-  stop: number;
-  step: number;
+  start: string;
+  stop: string;
+  step: string;
 }
 
 function isRequiredPlanArgs(value: unknown): RequiredPlanArgs | null {
@@ -15,11 +15,11 @@ function isRequiredPlanArgs(value: unknown): RequiredPlanArgs | null {
     !!value &&
     typeof value === "object" &&
     "start" in value &&
-    typeof (value as RequiredPlanArgs).start === "number" &&
+    typeof (value as RequiredPlanArgs).start === "string" &&
     "stop" in value &&
-    typeof (value as RequiredPlanArgs).stop === "number" &&
+    typeof (value as RequiredPlanArgs).stop === "string" &&
     "step" in value &&
-    typeof (value as RequiredPlanArgs).stop === "number"
+    typeof (value as RequiredPlanArgs).stop === "string"
   ) {
     return value as RequiredPlanArgs;
   }
@@ -60,12 +60,18 @@ function InnerScanComponent(props: {
       const planArgs = isRequiredPlanArgs(rawPlanArgs);
 
       if (planArgs) {
-        setTiledScanInfo({
-          start: planArgs.start,
-          stop: planArgs.stop,
-          step: planArgs.step,
-          tiledID: data[0].id,
-        });
+        const start = parseFloat(planArgs.start);
+        const stop = parseFloat(planArgs.stop);
+        const step = parseFloat(planArgs.step);
+
+        if (!isNaN(start) && !isNaN(stop) && !isNaN(step)) {
+          setTiledScanInfo({
+            start: start,
+            stop: stop,
+            step: step,
+            tiledID: data[0].id,
+          });
+        }
       }
     }
   }, [data, setTiledScanInfo]);
