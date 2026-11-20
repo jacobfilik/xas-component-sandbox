@@ -43,7 +43,15 @@ export default function DemoPage() {
       >
         <Stack height="100%" flex={1} spacing="10px">
           <VisitTextField />
-          <DemoScanComponent setBlueApiTaskId={setBlueApiTaskId} />
+          <DemoScanComponent
+            setBlueApiTaskId={setBlueApiTaskId}
+            session={
+              currentVisit.visit.proposalCode +
+              currentVisit.visit.proposalNumber +
+              "-" +
+              currentVisit.visit.number
+            }
+          />
           <RunningScanComponent
             blueApiTaskID={blueApiTaskId}
             setTiledScanInfo={setTiledScanInfo}
