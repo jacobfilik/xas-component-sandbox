@@ -54,7 +54,7 @@ function InnerScanComponent(props: {
   const data = query.data?.data;
 
   useEffect(() => {
-    if (data != undefined) {
+    if (data != undefined && data.length != 0) {
       const rawPlanArgs = data[0].attributes.metadata.start.plan_args;
 
       const planArgs = isRequiredPlanArgs(rawPlanArgs);
