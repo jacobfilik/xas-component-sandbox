@@ -7,7 +7,7 @@ import type { TiledScanInfo } from "./DemoPage";
 interface RequiredPlanArgs {
   start: string;
   stop: string;
-  step: string;
+  stepsize: string;
 }
 
 function isRequiredPlanArgs(value: unknown): RequiredPlanArgs | null {
@@ -18,8 +18,8 @@ function isRequiredPlanArgs(value: unknown): RequiredPlanArgs | null {
     typeof (value as RequiredPlanArgs).start === "string" &&
     "stop" in value &&
     typeof (value as RequiredPlanArgs).stop === "string" &&
-    "step" in value &&
-    typeof (value as RequiredPlanArgs).stop === "string"
+    "stepsize" in value &&
+    typeof (value as RequiredPlanArgs).stepsize === "string"
   ) {
     return value as RequiredPlanArgs;
   }
@@ -62,7 +62,7 @@ function InnerScanComponent(props: {
       if (planArgs) {
         const start = parseFloat(planArgs.start);
         const stop = parseFloat(planArgs.stop);
-        const step = parseFloat(planArgs.step);
+        const step = parseFloat(planArgs.stepsize);
 
         if (!isNaN(start) && !isNaN(stop) && !isNaN(step)) {
           setTiledScanInfo({

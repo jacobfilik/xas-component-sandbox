@@ -23,7 +23,7 @@
               "detectors": ["panda1"],
               "start": "0",
               "stop": "999",
-              "step": "1"
+              "stepsize": "1"
             },
             "plan_name": "seq_table_uniform_scan",
             "plan_type": "generator",
