@@ -8,13 +8,18 @@ import {
   type Domain,
   HeatmapMesh,
   ScaleType,
+  DomainWidget,
+  COLOR_SCALE_TYPES,
+  ColorBar,
+  getDomain,
+  getVisDomain,
 } from "@h5web/lib";
 import "@h5web/lib/styles.css";
 
 import Paper from "@mui/material/Paper";
 import { MdGridOn } from "react-icons/md";
 
-import { useTheme, type Theme } from "@mui/material";
+import { Stack, useTheme, type Theme } from "@mui/material";
 import { useState } from "react";
 
 import { type NdArray } from "ndarray";
@@ -30,7 +35,9 @@ export function DataChartImage(props: {
   //   CurveType
   // ) as Array<CurveType>;
 
-  const [useGrid, setUseGrid] = useState(true);
+  // const [useGrid, setUseGrid] = useState(true);
+  const [customDomain, setCustomDomain] = useState<Domain>([0, 1]);
+  const visDomain = getVisDomain(customDomain, props.crange);
   // const [curveOption, setCurveOption] = useState(curveOptions[0]);
 
   const theme: Theme = useTheme();
@@ -72,24 +79,23 @@ export function DataChartImage(props: {
     >
       <Box style={toolbarstyle}>
         <Toolbar>
-          {/* <DomainWidget
-  customDomain={[
-    null,
-    null
-  ]}
-  dataDomain={c_domain}
-  onCustomDomainChange={function lX(){}}
-  scaleType={COLOR_SCALE_TYPES[0]}
-/> */}
-          <ToggleBtn
+          <DomainWidget
+            customDomain={[null, null]}
+            dataDomain={props.crange}
+            onCustomDomainChange={(d) => {
+              setCustomDomain([d[0] ? d[0] : 0, d[1] ? d[1] : 1]);
+            }}
+            scaleType={COLOR_SCALE_TYPES[0]}
+          />
+          {/* <ToggleBtn
             label="Grid"
             value={useGrid}
             Icon={MdGridOn}
             onToggle={() => setUseGrid(!useGrid)}
-          ></ToggleBtn>
+          ></ToggleBtn> */}
         </Toolbar>
       </Box>
-      <Box style={plotstyle} flex={1} display="flex">
+      <Box style={plotstyle} flex={1} display="flex" minHeight="10px">
         <VisCanvas
           abscissaConfig={{
             showGrid: false,
@@ -118,7 +124,7 @@ export function DataChartImage(props: {
           {props.data && (
             <HeatmapMesh
               values={props.data}
-              domain={props.crange}
+              domain={visDomain}
               scaleType={ScaleType.Linear}
               colorMap="Viridis"
               invertColorMap={false}
@@ -126,6 +132,12 @@ export function DataChartImage(props: {
             />
           )}
         </VisCanvas>
+        <ColorBar
+          colorMap="Viridis"
+          domain={props.crange}
+          scaleType={COLOR_SCALE_TYPES[0]}
+          invertColorMap={false}
+        ></ColorBar>
       </Box>
     </Paper>
   );

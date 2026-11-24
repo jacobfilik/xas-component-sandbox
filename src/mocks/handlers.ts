@@ -1,6 +1,7 @@
 import { delay, http, HttpResponse } from "msw";
 import type {
   DeviceResponse,
+  TaskListItem,
   TaskListResponse,
   TaskResponse,
   TiledResponse,
@@ -9,6 +10,10 @@ import type {
 import testdata from "../test_data.json";
 
 import testsearch from "../test_search_response.json";
+import { escapeFragment } from "ajv/dist/compile/util";
+
+let dataCalls = 0;
+let searchCalls = 0;
 
 const mockPlans = {
   plans: [
@@ -275,7 +280,28 @@ export const handlers = [
   http.get(
     "/tiled/search/p51/cm44254/cm44254-1/?filter[eq][condition][key]=start.blueapi_task_id&filter[eq][condition][value]=%22mock_task_id%22",
     () => {
-      return HttpResponse.json(mockPaginatedResponse);
+      console.log(`SEARCH ${searchCalls}`);
+      if (searchCalls == 0) {
+        const mpr = { ...mockPaginatedResponse, data: [] };
+        searchCalls++;
+        return HttpResponse.json(mpr);
+      }
+
+      if (searchCalls < 7) {
+        const mpr = {
+          ...mockPaginatedResponse,
+          data: [mockPaginatedResponse.data[0]],
+        };
+        searchCalls++;
+        return HttpResponse.json(mpr);
+      }
+
+      const mpr = {
+        ...mockPaginatedResponse,
+        data: [mockPaginatedResponse.data[1]],
+      };
+      // searchCalls = 0;
+      return HttpResponse.json(mpr);
     },
   ),
 
@@ -304,9 +330,15 @@ export const handlers = [
   http.get("tiled/array/full/p51/cm44254/cm44254-1/:id/primary/:name", () => {
     // const url = new URL(request.url);
 
+    if (dataCalls < 100) {
+      dataCalls++;
+    } else {
+      dataCalls = 1;
+    }
+
     return HttpResponse.json(
       Array.from(
-        { length: 1000500 },
+        { length: dataCalls * 500 },
         (_value, index) => index + Math.random() * index,
       ),
     );

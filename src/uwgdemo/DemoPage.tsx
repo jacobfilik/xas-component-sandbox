@@ -8,6 +8,9 @@ import DemoDataViewer from "./DemoDataViewer";
 import { WorkflowContext } from "../workflows/WorkflowProvider";
 import { VisitTextField } from "../workflows/components/ChangeVisitComponent";
 
+const BEAMLINE = "p51";
+const YEAR = "2026";
+
 const dataInfo: DataInfo = {
   datasetContainerName: "primary",
   datasetName: "fmc_in-val1_dataset",
@@ -27,6 +30,14 @@ export default function DemoPage() {
   const [tiledScanInfo, setTiledScanInfo] = useState<TiledScanInfo | null>(
     null,
   );
+
+  const [planRunning, setPlanRunning] = useState(false);
+  const [completedPlanInfo, setCompletedPlanInfo] = useState<string | null>(
+    null,
+  );
+  const [submittedWorkflowPlan, setSubmittedWorkflowPlan] = useState<
+    string | null
+  >(null);
 
   const beamline = "p51";
 
@@ -53,6 +64,9 @@ export default function DemoPage() {
             }
           />
           <RunningScanComponent
+            setCompletedPlanInfo={setCompletedPlanInfo}
+            planRunning={planRunning}
+            setPlanRunning={setPlanRunning}
             beamline={beamline}
             session={
               currentVisit.visit.proposalCode +
@@ -67,6 +81,7 @@ export default function DemoPage() {
         <Stack margin="10px" flex={2}>
           <Paper sx={{ height: "100%" }}>
             <DemoDataViewer
+              planRunning={planRunning}
               beamline={beamline}
               dataInfo={dataInfo}
               tiledScanInfo={tiledScanInfo}
@@ -80,7 +95,14 @@ export default function DemoPage() {
           </Paper>
         </Stack>
         <Stack flex={1}>
-          <DemoAnalysis />
+          <DemoAnalysis
+            beamline={BEAMLINE}
+            year={YEAR}
+            scanid={completedPlanInfo}
+            visit={currentVisit.visit}
+            submittedWorkflowPlan={submittedWorkflowPlan}
+            setSubmittedWorkflowPlan={setSubmittedWorkflowPlan}
+          />
         </Stack>
       </Stack>
     </Stack>

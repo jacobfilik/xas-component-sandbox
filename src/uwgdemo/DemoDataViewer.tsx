@@ -20,6 +20,7 @@ function arrayMax(arr: number[]) {
 }
 
 function InnerDemoDataViewer(props: {
+  planRunning: boolean;
   beamline: string;
   visit: string;
   tiledScanInfo: TiledScanInfo;
@@ -44,12 +45,14 @@ function InnerDemoDataViewer(props: {
         props.dataInfo.datasetContainerName,
         props.dataInfo.internal,
       ),
-    refetchInterval: 2000,
+    refetchInterval: props.planRunning ? 2000 : false,
   });
 
   if (query.data == undefined) {
     return <DataView />;
   }
+
+  console.log(`DATA RUNNING ${props.planRunning}`);
 
   const min = arrayMin(query.data);
   const max = arrayMax(query.data);
@@ -61,14 +64,18 @@ function InnerDemoDataViewer(props: {
   const reshaped = reshapeSnake(query.data, numPointsRow);
 
   return (
-    <Stack margin="10px" minHeight="10px" spacing="20px" flex>
-      <DataChartImage
-        data={reshaped}
-        xrange={[0, reshaped.shape[1]]}
-        yrange={[0, reshaped.shape[0]]}
-        crange={[min, max]}
-      />
-      <DataChartSlice data={reshaped} xrange={[0, reshaped.shape[1]]} />
+    <Stack margin="10px" minHeight="10px" spacing="20px" flex height="95%">
+      <Stack flex={2} minHeight="10px">
+        <DataChartImage
+          data={reshaped}
+          xrange={[0, reshaped.shape[1]]}
+          yrange={[0, reshaped.shape[0]]}
+          crange={[min, max]}
+        />
+      </Stack>
+      <Stack flex={1} minHeight="10px">
+        <DataChartSlice data={reshaped} xrange={[0, reshaped.shape[1]]} />
+      </Stack>
       {/* <DataChart data={Array.from({ length: 10 }, (_value,index) => index)}/> */}
     </Stack>
   );
@@ -76,19 +83,24 @@ function InnerDemoDataViewer(props: {
 
 function DataView() {
   return (
-    <Stack margin="10px" minHeight="10px" spacing="20px" flex>
-      <DataChartImage
-        data={null}
-        xrange={[0, 1000]}
-        yrange={[0, 100]}
-        crange={[0, 1]}
-      />
-      <DataChartSlice data={null} xrange={[0, 1000]} />
+    <Stack margin="10px" minHeight="10px" spacing="20px" flex height="95%">
+      <Stack flex={2} minHeight="10px">
+        <DataChartImage
+          data={null}
+          xrange={[0, 1000]}
+          yrange={[0, 100]}
+          crange={[0, 1]}
+        />
+      </Stack>
+      <Stack flex={1} minHeight="10px">
+        <DataChartSlice data={null} xrange={[0, 1000]} />
+      </Stack>
     </Stack>
   );
 }
 
 export default function DemoDataViewer(props: {
+  planRunning: boolean;
   beamline: string;
   visit: string;
   tiledScanInfo: TiledScanInfo | null;
@@ -100,6 +112,7 @@ export default function DemoDataViewer(props: {
 
   return (
     <InnerDemoDataViewer
+      planRunning={props.planRunning}
       beamline={props.beamline}
       visit={props.visit}
       tiledScanInfo={props.tiledScanInfo}

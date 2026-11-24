@@ -10,7 +10,7 @@ export function reshapeSnake(
 
   const partial = atest.length % rowSize;
 
-  console.log(`data length: ${data.length} ${rowSize} ${partial}`);
+  // console.log(`data length: ${data.length} ${rowSize} ${partial}`);
 
   if (partial != 0) {
     const npad = rowSize - partial;
@@ -19,7 +19,7 @@ export function reshapeSnake(
     atest = atest.concat(padding);
   }
 
-  console.log(`data length: ${atest.length} ${rowSize} ${partial}`);
+  // console.log(`data length: ${atest.length} ${rowSize} ${partial}`);
   // const output = new Float32Array(num_rows*rowSize)
 
   const startTime = performance.now();
@@ -41,7 +41,7 @@ export function reshapeSnake(
 
   const endTime = performance.now();
 
-  console.log(`Call to reshape took ${endTime - startTime} milliseconds`);
+  // console.log(`Call to reshape took ${endTime - startTime} milliseconds`);
   const new_y = ndarray(output, [num_rows, rowSize]);
   return new_y;
 }

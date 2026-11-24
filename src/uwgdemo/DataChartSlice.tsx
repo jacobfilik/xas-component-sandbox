@@ -16,7 +16,6 @@ import { MdGridOn } from "react-icons/md";
 import {
   darken,
   lighten,
-  Typography,
   useColorScheme,
   useTheme,
   type Theme,
@@ -55,7 +54,6 @@ export function DataChartSlice(props: {
 
   let ydata = Array.from({ length: 100 }, (_value, index) => index);
   const plotColors: string[] = [];
-  console.log(theme.palette.mode);
 
   const modFunction = colorScheme === "dark" ? darken : lighten;
 
@@ -159,9 +157,6 @@ export function DataChartSlice(props: {
         fontFamily: (theme: Theme) => theme.typography.fontFamily,
       }}
     >
-      <Typography>
-        {props.data ? "Data size: " + ydata.length : "No data"}
-      </Typography>
       <Box style={toolbarstyle}>
         <Toolbar>
           <ToggleBtn
@@ -172,7 +167,7 @@ export function DataChartSlice(props: {
           ></ToggleBtn>
         </Toolbar>
       </Box>
-      <Box style={plotstyle} flex={1} display="flex">
+      <Box style={plotstyle} flex={1} display="flex" minHeight="10px">
         <VisCanvas
           abscissaConfig={{
             showGrid: useGrid,

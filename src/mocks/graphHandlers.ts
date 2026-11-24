@@ -3,9 +3,14 @@ import type { ScienceGroup, WorkflowTemplate } from "../__generated__/graphql";
 
 import workflowdata from "../workflows/mocks/WorkflowQueryMock.json";
 import templatedata from "../workflows/mocks/WorkflowTemplateQueryMock.json";
-import { emptyWorkflowTemplate } from "../workflows/defaults";
+import {
+  completedWorkflowProgress,
+  emptyWorkflowProgress,
+  emptyWorkflowTemplate,
+} from "../workflows/defaults";
 import { getVisitString } from "../queryfunctions";
 const graphEndpoint = graphql.link("/graph/graphql");
+let progressCounter = 0;
 
 export const graphHandlers = [
   graphEndpoint.query("WorkflowQuery", ({ variables }) => {
@@ -30,6 +35,18 @@ export const graphHandlers = [
       const response = templatedata.filter((val) => val.filter == "empty");
       return HttpResponse.json({ data: response[0].data });
     }
+  }),
+
+  graphEndpoint.query("WorkflowProgress", () => {
+    let response = emptyWorkflowProgress;
+    if (progressCounter > 5) {
+      response = completedWorkflowProgress;
+      progressCounter = 0;
+    } else {
+      progressCounter++;
+    }
+
+    return HttpResponse.json({ data: response });
   }),
 
   graphEndpoint.query("WorkflowTemplateViewQuery", ({ variables }) => {
