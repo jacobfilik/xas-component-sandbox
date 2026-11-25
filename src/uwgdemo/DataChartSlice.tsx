@@ -7,6 +7,8 @@ import {
   ResetZoomButton,
   DataCurve,
   type Domain,
+  AXIS_SCALE_TYPES,
+  ScaleSelector,
 } from "@h5web/lib";
 import "@h5web/lib/styles.css";
 
@@ -46,6 +48,10 @@ export function DataChartSlice(props: {
   // ) as Array<CurveType>;
   const { colorScheme } = useColorScheme();
   const [useGrid, setUseGrid] = useState(true);
+  const [scaleType, setScaleType] = useState(AXIS_SCALE_TYPES[0]);
+  const [abscissaScaleType, setAbscissaScaleType] = useState(
+    AXIS_SCALE_TYPES[0],
+  );
   // const [curveOption, setCurveOption] = useState(curveOptions[0]);
 
   const theme: Theme = useTheme();
@@ -159,6 +165,19 @@ export function DataChartSlice(props: {
     >
       <Box style={toolbarstyle}>
         <Toolbar>
+          <ScaleSelector
+            label="X"
+            value={abscissaScaleType}
+            onScaleChange={setAbscissaScaleType}
+            options={AXIS_SCALE_TYPES}
+          />
+          <ScaleSelector
+            label="Y"
+            value={scaleType}
+            onScaleChange={setScaleType}
+            options={AXIS_SCALE_TYPES}
+          />
+
           <ToggleBtn
             label="Grid"
             value={useGrid}
@@ -172,10 +191,12 @@ export function DataChartSlice(props: {
           abscissaConfig={{
             showGrid: useGrid,
             visDomain: props.xrange,
+            scaleType: abscissaScaleType,
           }}
           ordinateConfig={{
             showGrid: useGrid,
             visDomain: isFinite(max) && isFinite(min) ? [min, max] : [0, 1],
+            scaleType: scaleType,
           }}
         >
           <DefaultInteractions />

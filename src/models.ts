@@ -239,3 +239,10 @@ export interface WorkflowTemplateProps {
   onSubmit: (parameters: object) => void;
   parameterMessage?: React.JSX.Element;
 }
+
+export interface AnalysisWorkflowResult {
+  x: number[];
+  avg: number[];
+  std: number[];
+  snr: number[];
+}

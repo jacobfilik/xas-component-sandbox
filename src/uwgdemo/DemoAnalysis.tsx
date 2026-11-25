@@ -33,12 +33,20 @@ export default function DemoAnalysis(props: {
 
   useEffect(() => {
     if (scanid != submittedWorkflowPlan && scanid != null) {
+      const data_dir =
+        visit.proposalCode + visit.proposalNumber + "-" + visit.number;
       setSubmittedWorkflowPlan(scanid);
       submitMutation({
         variables: {
           visit: visit,
           templateName: templateName,
-          parameters: { beamline: beamline, year: year, scanid: scanid },
+          parameters: {
+            beamline: beamline,
+            year: year,
+            scan_no: scanid,
+            data_dir: data_dir,
+            tiled_id: "test",
+          },
         },
       }).then((data) => {
         if (data.data) {

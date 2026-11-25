@@ -22,6 +22,8 @@ export const WORKFLOW_TEMPLATE_QUERY: TypedDocumentNode<
             name
             artifacts {
               name
+              url
+              mimeType
             }
           }
         }

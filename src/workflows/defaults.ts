@@ -76,16 +76,72 @@ export const emptyWorkflowProgress: WorkflowProgress = {
   },
 };
 
+// export const completedWorkflowProgress: WorkflowProgress = {
+//   workflowById: {
+//     id: "342523",
+//     __typename: "Workflow",
+//     name: "test",
+//     status: {
+//       __typename: "WorkflowSucceededStatus",
+//       message: "completed!",
+//       startTime: "0",
+//       tasks: [{ __typename: "Task", artifacts: [], name: "Super TASK" }],
+//     },
+//   },
+// };
+
 export const completedWorkflowProgress: WorkflowProgress = {
   workflowById: {
-    id: "342523",
     __typename: "Workflow",
-    name: "test",
+    id: "cm44254-4:panda-repetitions-p9jqq:12d800c2fsgrsgfsfsgfs",
+    name: "panda-repetitions-gfsdf",
     status: {
       __typename: "WorkflowSucceededStatus",
-      message: "completed!",
-      startTime: "0",
-      tasks: [{ __typename: "Task", artifacts: [], name: "Super TASK" }],
+      message: null,
+      startTime: "2026-11-25T09:52:34+00:00",
+      tasks: [
+        {
+          __typename: "Task",
+          name: "run-analysis",
+          artifacts: [
+            {
+              __typename: "Artifact",
+              name: "notebook.html",
+              url: "https://gfsdgfsfsG",
+              mimeType: "text/html",
+            },
+            {
+              __typename: "Artifact",
+              name: "plot.tgz",
+              url: "https://fdsafsad",
+              mimeType: "application/x-compressed",
+            },
+            {
+              __typename: "Artifact",
+              name: "plot_pca.png",
+              url: "https://dasdfad",
+              mimeType: "image/png",
+            },
+            {
+              __typename: "Artifact",
+              name: "report.json",
+              url: "www.testfiles/newtestfile.json",
+              mimeType: "application/json",
+            },
+            {
+              __typename: "Artifact",
+              name: "main.log",
+              url: "https://afdas",
+              mimeType: "text/plain",
+            },
+          ],
+        },
+        {
+          __typename: "Task",
+          name: "panda-repetitions-fdsa",
+          artifacts: [],
+        },
+      ],
     },
   },
 };

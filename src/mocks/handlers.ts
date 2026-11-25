@@ -343,4 +343,15 @@ export const handlers = [
       ),
     );
   }),
+
+  http.get("www.testfiles/newtestfile.json", () => {
+    // const url = new URL(request.url);
+
+    return HttpResponse.json({
+      avg: Array.from({ length: 500 }, () => Math.random()),
+      std: Array.from({ length: 500 }, () => Math.random()),
+      x: Array.from({ length: 500 }, (_value, index) => index),
+      snr: Array.from({ length: 500 }, (_value, index) => index),
+    });
+  }),
 ];

@@ -17,8 +17,14 @@ function DemoAnalysisInnerResults(props: {
   useEffect(() => {
     if (data && data.workflowById && data.workflowById.status) {
       if ("WorkflowSucceededStatus" == data.workflowById.status.__typename) {
-        if (data.workflowById.status.tasks.length == 1) {
-          setWorkflowResults(data.workflowById.status.tasks[0].name);
+        if (data.workflowById.status.tasks.length == 2) {
+          for (const t of data.workflowById.status.tasks) {
+            for (const a of t.artifacts) {
+              if (a.name == "report.json" && typeof a.url === "string") {
+                setWorkflowResults(a.url);
+              }
+            }
+          }
         }
       }
     }

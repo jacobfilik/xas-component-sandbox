@@ -7,19 +7,22 @@ import {
   ResetZoomButton,
   type Domain,
   HeatmapMesh,
-  ScaleType,
   DomainWidget,
   COLOR_SCALE_TYPES,
   ColorBar,
-  getDomain,
   getVisDomain,
+  type CustomDomain,
+  ColorMapSelector,
+  ScaleSelector,
 } from "@h5web/lib";
 import "@h5web/lib/styles.css";
 
-import Paper from "@mui/material/Paper";
-import { MdGridOn } from "react-icons/md";
+import type { ColorMap } from "@h5web/lib";
 
-import { Stack, useTheme, type Theme } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import { MdAspectRatio, MdGridOn } from "react-icons/md";
+
+import { useTheme, type Theme } from "@mui/material";
 import { useState } from "react";
 
 import { type NdArray } from "ndarray";
@@ -35,9 +38,13 @@ export function DataChartImage(props: {
   //   CurveType
   // ) as Array<CurveType>;
 
-  // const [useGrid, setUseGrid] = useState(true);
-  const [customDomain, setCustomDomain] = useState<Domain>([0, 1]);
+  const [useGrid, setUseGrid] = useState(true);
+  const [customDomain, setCustomDomain] = useState<CustomDomain>([null, null]);
   const visDomain = getVisDomain(customDomain, props.crange);
+  const [invertColorMap, setInvertColorMap] = useState(false);
+  const [colorMap, setColorMap] = useState<ColorMap>("Viridis");
+  const [colorScaleType, setColorScaleType] = useState(COLOR_SCALE_TYPES[0]);
+  const [keepRatio, setKeepRatio] = useState(false);
   // const [curveOption, setCurveOption] = useState(curveOptions[0]);
 
   const theme: Theme = useTheme();
@@ -80,32 +87,51 @@ export function DataChartImage(props: {
       <Box style={toolbarstyle}>
         <Toolbar>
           <DomainWidget
-            customDomain={[null, null]}
+            customDomain={customDomain}
             dataDomain={props.crange}
             onCustomDomainChange={(d) => {
-              setCustomDomain([d[0] ? d[0] : 0, d[1] ? d[1] : 1]);
+              console.log(d);
+              setCustomDomain(d);
             }}
-            scaleType={COLOR_SCALE_TYPES[0]}
+            scaleType={colorScaleType}
           />
-          {/* <ToggleBtn
+          <ColorMapSelector
+            value={colorMap}
+            invert={false}
+            onInversionChange={() => setInvertColorMap(!invertColorMap)}
+            onValueChange={(cm) => setColorMap(cm)}
+          ></ColorMapSelector>
+          <ScaleSelector
+            value={colorScaleType}
+            onScaleChange={setColorScaleType}
+            options={COLOR_SCALE_TYPES}
+          />
+          <ToggleBtn
+            label="Keep ratio"
+            value={keepRatio}
+            Icon={MdAspectRatio}
+            onToggle={() => setKeepRatio(!keepRatio)}
+          ></ToggleBtn>
+          <ToggleBtn
             label="Grid"
             value={useGrid}
             Icon={MdGridOn}
             onToggle={() => setUseGrid(!useGrid)}
-          ></ToggleBtn> */}
+          ></ToggleBtn>
         </Toolbar>
       </Box>
       <Box style={plotstyle} flex={1} display="flex" minHeight="10px">
         <VisCanvas
           abscissaConfig={{
-            showGrid: false,
+            showGrid: useGrid,
             visDomain: props.xrange,
           }}
           ordinateConfig={{
-            showGrid: false,
+            showGrid: useGrid,
             visDomain: props.yrange,
             flip: true,
           }}
+          aspect={keepRatio ? "equal" : "auto"}
         >
           <ResetZoomButton />
           <DefaultInteractions />
@@ -125,18 +151,18 @@ export function DataChartImage(props: {
             <HeatmapMesh
               values={props.data}
               domain={visDomain}
-              scaleType={ScaleType.Linear}
-              colorMap="Viridis"
-              invertColorMap={false}
+              scaleType={colorScaleType}
+              colorMap={colorMap}
+              invertColorMap={invertColorMap}
               scale={[1, -1, 1]}
             />
           )}
         </VisCanvas>
         <ColorBar
-          colorMap="Viridis"
+          colorMap={colorMap}
           domain={props.crange}
-          scaleType={COLOR_SCALE_TYPES[0]}
-          invertColorMap={false}
+          scaleType={colorScaleType}
+          invertColorMap={invertColorMap}
         ></ColorBar>
       </Box>
     </Paper>
