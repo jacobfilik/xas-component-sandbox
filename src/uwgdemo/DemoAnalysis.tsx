@@ -36,6 +36,7 @@ export default function DemoAnalysis(props: {
       const data_dir =
         visit.proposalCode + visit.proposalNumber + "-" + visit.number;
       setSubmittedWorkflowPlan(scanid);
+      setWorkflowResults(null);
       submitMutation({
         variables: {
           visit: visit,
@@ -63,6 +64,7 @@ export default function DemoAnalysis(props: {
     submitMutation,
     setSubmittedWorkflowPlan,
     setWorkflowID,
+    setWorkflowResults,
   ]);
 
   return (
@@ -74,9 +76,13 @@ export default function DemoAnalysis(props: {
             scanid={props.submittedWorkflowPlan}
             workflowID={workflowID}
             setWorkflowResults={setWorkflowResults}
+            workflowResults={workflowResults}
+            visitString={
+              visit.proposalCode + visit.proposalNumber + "-" + visit.number
+            }
           ></DemoAnalysisDetails>
         </Stack>
-        <Stack flex={8}>
+        <Stack flex={7}>
           <DemoAnalysisResults workflowResults={workflowResults} />
         </Stack>
       </Stack>

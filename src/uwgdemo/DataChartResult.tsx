@@ -61,8 +61,6 @@ export function DataChartResult(props: {
         })
       : null;
 
-  console.log(upper);
-
   const theme: Theme = useTheme();
 
   const toolbarstyle = {
@@ -97,9 +95,14 @@ export function DataChartResult(props: {
     );
   };
 
-  const domain: Domain | undefined = props.ydata
-    ? getDomain(props.ydata)
-    : [0, 1];
+  const domain_l: Domain | undefined = lower ? getDomain(lower) : [0, 1];
+
+  const domain_u: Domain | undefined = upper ? getDomain(upper) : [0, 1];
+
+  const domain: Domain = [
+    domain_l ? domain_l[0] : 0,
+    domain_u ? domain_u[1] : 1,
+  ];
   const domainx: Domain | undefined = props.xdata
     ? getDomain(props.xdata)
     : [0, 1];
@@ -144,11 +147,13 @@ export function DataChartResult(props: {
             showGrid: useGrid,
             visDomain: domainx ? domainx : [0, 1],
             scaleType: abscissaScaleType,
+            label: "Position / μm",
           }}
           ordinateConfig={{
             showGrid: useGrid,
             visDomain: domain ? domain : [0, 1],
             scaleType: scaleType,
+            label: "Intensity",
           }}
         >
           <DefaultInteractions />

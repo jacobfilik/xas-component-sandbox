@@ -2,14 +2,19 @@ import { Card, CardContent, Stack, Typography } from "@mui/material";
 import { WORKFLOW_TEMPLATE_QUERY } from "../workflows/WorkflowsData/GetWorkflow";
 import { useQuery } from "@apollo/client/react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
+const url = "https://workflows.diamond.ac.uk/workflows/";
 
 function DemoAnalysisInnerResults(props: {
   id: string;
   setWorkflowResults: (result: string) => void;
+  workflowResults: string | null;
+  visitString: string;
 }) {
   const { data } = useQuery(WORKFLOW_TEMPLATE_QUERY, {
     variables: { id: props.id },
-    pollInterval: 2000,
+    pollInterval: props.workflowResults ? 0 : 2000,
   });
 
   const setWorkflowResults = props.setWorkflowResults;
@@ -32,10 +37,17 @@ function DemoAnalysisInnerResults(props: {
 
   return (
     <Stack>
-      {data && (
-        <Typography>
-          {data.workflowById?.name} {data.workflowById?.status?.__typename}
-        </Typography>
+      {data && data.workflowById && (
+        <Stack>
+          <Typography>{data.workflowById.status?.__typename}</Typography>
+          <Link
+            to={url + props.visitString + "/" + data.workflowById.id}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {data.workflowById.id}
+          </Link>
+        </Stack>
       )}
     </Stack>
   );
@@ -45,6 +57,8 @@ export default function DemoAnalysisDetails(props: {
   scanid: string | null;
   workflowID: string | null;
   setWorkflowResults: (result: string) => void;
+  workflowResults: string | null;
+  visitString: string;
 }) {
   return (
     <Card sx={{ height: "100%" }}>
@@ -55,8 +69,10 @@ export default function DemoAnalysisDetails(props: {
         )}
         {props.workflowID && (
           <DemoAnalysisInnerResults
+            workflowResults={props.workflowResults}
             id={props.workflowID}
             setWorkflowResults={props.setWorkflowResults}
+            visitString={props.visitString}
           />
         )}
       </CardContent>

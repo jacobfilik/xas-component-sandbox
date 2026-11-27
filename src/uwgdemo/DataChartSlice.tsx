@@ -66,8 +66,9 @@ export function DataChartSlice(props: {
   let min = Number.POSITIVE_INFINITY;
   let max = Number.NEGATIVE_INFINITY;
 
-  for (let i = 0; i < MAX_PLOT; i++) {
-    plotColors.push(modFunction(theme.palette.primary.main, i / 5));
+  plotColors.push(theme.palette.primary.main);
+  for (let i = 0; i < MAX_PLOT - 1; i++) {
+    plotColors.push(modFunction(theme.palette.primary.main, 0.6 + i / 10));
   }
 
   if (props.data != null) {
@@ -116,6 +117,9 @@ export function DataChartSlice(props: {
     data_slices.reverse();
     plotColors.reverse();
   }
+
+  const offset = 5 - data_slices.length;
+  console.log(offset);
 
   const toolbarstyle = {
     "--h5w-toolbar--bgColor": theme.palette.action.hover,
@@ -192,11 +196,13 @@ export function DataChartSlice(props: {
             showGrid: useGrid,
             visDomain: props.xrange,
             scaleType: abscissaScaleType,
+            label: "Position / μm",
           }}
           ordinateConfig={{
             showGrid: useGrid,
             visDomain: isFinite(max) && isFinite(min) ? [min, max] : [0, 1],
             scaleType: scaleType,
+            label: "Intensity",
           }}
         >
           <DefaultInteractions />
@@ -208,7 +214,7 @@ export function DataChartSlice(props: {
               <DataCurve
                 key={i}
                 abscissas={ydata}
-                color={plotColors[i]}
+                color={plotColors[i + offset]}
                 ordinates={s}
                 visible={true}
               />

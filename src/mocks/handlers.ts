@@ -287,7 +287,7 @@ export const handlers = [
         return HttpResponse.json(mpr);
       }
 
-      if (searchCalls < 7) {
+      if (searchCalls < 10) {
         const mpr = {
           ...mockPaginatedResponse,
           data: [mockPaginatedResponse.data[0]],

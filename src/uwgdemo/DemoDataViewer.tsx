@@ -48,7 +48,7 @@ function InnerDemoDataViewer(props: {
     refetchInterval: props.planRunning ? 2000 : false,
   });
 
-  if (query.data == undefined) {
+  if (!query.data || query.data.length == 0) {
     return <DataView />;
   }
 
@@ -68,13 +68,13 @@ function InnerDemoDataViewer(props: {
       <Stack flex={2} minHeight="10px">
         <DataChartImage
           data={reshaped}
-          xrange={[0, reshaped.shape[1]]}
+          xrange={[start, stop]}
           yrange={[0, reshaped.shape[0]]}
           crange={[min, max]}
         />
       </Stack>
       <Stack flex={1} minHeight="10px">
-        <DataChartSlice data={reshaped} xrange={[0, reshaped.shape[1]]} />
+        <DataChartSlice data={reshaped} xrange={[start, stop]} />
       </Stack>
       {/* <DataChart data={Array.from({ length: 10 }, (_value,index) => index)}/> */}
     </Stack>

@@ -1,4 +1,4 @@
-import { Paper, Stack, Typography } from "@mui/material";
+import { Divider, Paper, Stack, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { findByBlueapiTaskId } from "../queryfunctions";
 import { useEffect } from "react";
@@ -120,23 +120,41 @@ function InnerScanComponent(props: {
 
   if (!data || data.length == 0) {
     return (
-      <Stack>
+      <Stack spacing="5px">
+        <Typography>Bluesky Task Id: {props.blueApiTaskID}</Typography>
+        <Typography>Scan ID:</Typography>
         <Typography fontStyle="italic">
-          Bluesky Task Id {props.blueApiTaskID} submitted
+          Status: {props.planRunning ? "running" : "completed"}
         </Typography>
+        <Divider></Divider>
       </Stack>
     );
   }
 
+  const planArgs = isRequiredPlanArgs(
+    data[0].attributes.metadata.start.plan_args,
+  );
+
   return (
-    <Stack>
-      <Typography fontStyle="italic">
-        Bluesky Task Id {props.blueApiTaskID}{" "}
-        {props.planRunning ? "running" : "completed"}
-      </Typography>
+    <Stack spacing="5px">
+      <Typography>Bluesky Task Id: {props.blueApiTaskID}</Typography>
       <Typography>
         Scan ID: {data[0].attributes.metadata.start.scan_id}
       </Typography>
+      <Typography fontStyle="italic">
+        Status: {props.planRunning ? "running" : "completed"}
+      </Typography>
+      <Divider></Divider>
+      <Typography>
+        Plan: {data[0].attributes.metadata.start.plan_name}
+      </Typography>
+      {planArgs && (
+        <Stack>
+          <Typography>Start: {planArgs.start}</Typography>
+          <Typography>Stop: {planArgs.stop}</Typography>
+          <Typography>Step: {planArgs.stepsize}</Typography>
+        </Stack>
+      )}
     </Stack>
   );
 }
@@ -153,7 +171,9 @@ export default function RunningScanComponent(props: {
   return (
     <Paper sx={{ height: "100%" }}>
       <Stack>
-        <Typography variant="h6">Scan Information</Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Scan Information
+        </Typography>
         {props.blueApiTaskID && (
           <InnerScanComponent
             setCompletedPlanInfo={props.setCompletedPlanInfo}

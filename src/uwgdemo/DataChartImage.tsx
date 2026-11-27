@@ -125,11 +125,13 @@ export function DataChartImage(props: {
           abscissaConfig={{
             showGrid: useGrid,
             visDomain: props.xrange,
+            label: "Position / μm",
           }}
           ordinateConfig={{
             showGrid: useGrid,
             visDomain: props.yrange,
             flip: true,
+            label: "Spectrum index",
           }}
           aspect={keepRatio ? "equal" : "auto"}
         >

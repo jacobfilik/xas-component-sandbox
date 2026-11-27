@@ -126,11 +126,13 @@ export function DataChartSNR(props: { ydata: number[] | null }) {
             showGrid: useGrid,
             visDomain: domainx ? domainx : [0, 1],
             scaleType: abscissaScaleType,
+            label: "Spectrum Index",
           }}
           ordinateConfig={{
             showGrid: useGrid,
             visDomain: domain ? domain : [0, 1],
             scaleType: scaleType,
+            label: "Signal-to-Noise",
           }}
         >
           <DefaultInteractions />
