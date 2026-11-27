@@ -1,7 +1,6 @@
 import { delay, http, HttpResponse } from "msw";
 import type {
   DeviceResponse,
-  TaskListItem,
   TaskListResponse,
   TaskResponse,
   TiledResponse,
@@ -10,7 +9,6 @@ import type {
 import testdata from "../test_data.json";
 
 import testsearch from "../test_search_response.json";
-import { escapeFragment } from "ajv/dist/compile/util";
 
 let dataCalls = 0;
 let searchCalls = 0;

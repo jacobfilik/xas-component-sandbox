@@ -22,7 +22,7 @@ export function reshapeSnake(
   // console.log(`data length: ${atest.length} ${rowSize} ${partial}`);
   // const output = new Float32Array(num_rows*rowSize)
 
-  const startTime = performance.now();
+  // const startTime = performance.now();
 
   for (let i = 0; i < num_rows; i = i + 1) {
     const start = i * rowSize;
@@ -39,7 +39,7 @@ export function reshapeSnake(
 
   const output = new Float32Array(atest);
 
-  const endTime = performance.now();
+  // const endTime = performance.now();
 
   // console.log(`Call to reshape took ${endTime - startTime} milliseconds`);
   const new_y = ndarray(output, [num_rows, rowSize]);

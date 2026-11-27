@@ -47,17 +47,20 @@ export function DataChartResult(props: {
   );
   // const [curveOption, setCurveOption] = useState(curveOptions[0]);
 
+  const ydata = props.ydata;
+  const std = props.std;
+
   const lower =
-    props.ydata && props.std
-      ? props.ydata.map((val, idx) => {
-          return val - props.std[idx];
+    ydata && std
+      ? ydata.map((val, idx) => {
+          return val - std[idx];
         })
       : null;
 
   const upper =
-    props.ydata && props.std
-      ? props.ydata.map((val, idx) => {
-          return val + props.std[idx];
+    ydata && std
+      ? ydata.map((val, idx) => {
+          return val + std[idx];
         })
       : null;
 
