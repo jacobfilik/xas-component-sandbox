@@ -74,7 +74,7 @@ function InnerDemoDataViewer(props: {
         />
       </Stack>
       <Stack flex={1} minHeight="10px">
-        <DataChartSlice data={reshaped} xrange={[start, stop]} />
+        <DataChartSlice data={reshaped} xrange={[0, reshaped.shape[1]]} />
       </Stack>
       {/* <DataChart data={Array.from({ length: 10 }, (_value,index) => index)}/> */}
     </Stack>
