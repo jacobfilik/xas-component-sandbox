@@ -125,7 +125,7 @@ export function DataChartImage(props: {
           abscissaConfig={{
             showGrid: useGrid,
             visDomain: props.xrange,
-            label: "Position / μm",
+            label: "Position / mm",
           }}
           ordinateConfig={{
             showGrid: useGrid,

@@ -147,7 +147,7 @@ export function DataChartResult(props: {
             showGrid: useGrid,
             visDomain: domainx ? domainx : [0, 1],
             scaleType: abscissaScaleType,
-            label: "Position / μm",
+            label: "Position / mm",
           }}
           ordinateConfig={{
             showGrid: useGrid,

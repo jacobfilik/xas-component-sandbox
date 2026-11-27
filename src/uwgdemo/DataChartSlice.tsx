@@ -196,7 +196,7 @@ export function DataChartSlice(props: {
             showGrid: useGrid,
             visDomain: props.xrange,
             scaleType: abscissaScaleType,
-            label: "Position / μm",
+            label: "Position / mm",
           }}
           ordinateConfig={{
             showGrid: useGrid,
