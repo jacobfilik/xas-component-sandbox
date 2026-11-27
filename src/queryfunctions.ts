@@ -1,5 +1,6 @@
 import type { AxiosResponse } from "axios";
 import type {
+  AnalysisWorkflowResult,
   DeviceResponse,
   PlansResponse,
   TaskListItem,
@@ -8,6 +9,7 @@ import type {
   TiledSearchResponse,
 } from "./models";
 import axios from "axios";
+import type { VisitInput } from "./__generated__/graphql";
 
 const blueapi = "/blueapi";
 const plans = "/plans";
@@ -139,6 +141,23 @@ export const getRunsInVisit = async (
   return response.data;
 };
 
+export const findByBlueapiTaskId = async (
+  beamline: string,
+  blueapi_task: string,
+  visit: string,
+): Promise<TiledSearchResponse> => {
+  const code = visit.split("-")[0];
+
+  const url = `${tiled}/search/${beamline}/${code}/${visit}/?filter[eq][condition][key]=start.blueapi_task_id&filter[eq][condition][value]=%22${blueapi_task}%22`;
+
+  const response = await axios.get<TiledSearchResponse>(url);
+
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve metadata");
+  }
+  return response.data;
+};
+
 export const getData = async (
   beamline: string,
   visit: string,
@@ -158,6 +177,36 @@ export const getData = async (
   url = url + "/" + name + "?format=application/json";
 
   const response = await axios.get<number[]>(url);
+  if (response.status != 200) {
+    throw new Error("Failed to retrieve data");
+  }
+  return response.data;
+};
+
+export const debounce = <T extends unknown[]>(
+  fn: (...args: T) => void,
+  delay: number,
+) => {
+  let timeoutID: ReturnType<typeof setTimeout>;
+
+  return (...args: T) => {
+    clearTimeout(timeoutID);
+    timeoutID = setTimeout(() => fn(...args), delay);
+  };
+};
+
+export function getVisitString(visit: { visit: VisitInput } | VisitInput) {
+  if ("visit" in visit) {
+    return `${visit.visit.proposalCode}${visit.visit.proposalNumber}-${visit.visit.number}`;
+  } else {
+    return `${visit.proposalCode}${visit.proposalNumber}-${visit.number}`;
+  }
+}
+
+export const getAnalysisWorkflowResult = async (
+  url: string,
+): Promise<AnalysisWorkflowResult> => {
+  const response = await axios.get<AnalysisWorkflowResult>(url);
   if (response.status != 200) {
     throw new Error("Failed to retrieve data");
   }

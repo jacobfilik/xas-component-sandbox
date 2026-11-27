@@ -7,22 +7,26 @@ import {
 } from "@mui/material";
 import type { TiledEntryInfo, TiledSearchData } from "./models";
 
+
 export default function RunViewList(props: {
   data: TiledSearchData[];
   setId: (id: TiledEntryInfo) => void;
 }) {
+
+  //meta.data_keys[dataInfo.datasetName].source;
+
   return (
     <Stack spacing={"5px"} flex={1} overflow="auto">
       {props.data.map((td) => {
         return (
           <Card key={td.id} sx={{ overflow: "visible" }}>
             <CardActionArea
-              onClick={() =>
+              onClick={() => {
                 props.setId({
                   id: td.id,
                   running: td.attributes.metadata.stop == undefined,
-                })
-              }
+                });
+              }}
             >
               <CardContent>
                 <Typography>id: {td.id}</Typography>
@@ -34,7 +38,7 @@ export default function RunViewList(props: {
                 </Typography>
                 <Typography>
                   {new Date(
-                    td.attributes.metadata.start.time * 1000
+                    td.attributes.metadata.start.time * 1000,
                   ).toISOString()}
                 </Typography>
               </CardContent>

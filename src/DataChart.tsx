@@ -91,6 +91,7 @@ export function DataChart(props: { data: number[] | null }) {
       sx={{
         height: "100%",
         display: "flex",
+        minHeight:"10px",
         flexDirection: "column",
         backgroundColor: (theme: Theme) => theme.palette.background.default,
         fontFamily: (theme: Theme) => theme.typography.fontFamily,

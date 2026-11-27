@@ -1,3 +1,9 @@
+import type { ErrorLike } from "@apollo/client";
+import type { JsonSchema, UISchemaElement } from "@jsonforms/core";
+import type { WorkflowQuery } from "./workflows/WorkflowsData/__generated__/TaskFragments.generated";
+import type React from "react";
+import type { VisitInput } from "./__generated__/graphql";
+
 export interface Plan {
   name: string;
   description: string;
@@ -83,7 +89,22 @@ export interface TilePageCount {
 }
 
 export interface TiledSearchMetadata {
-  start: { plan_name: string; time: number; scan_id: number };
+  start: {
+    plan_name: string;
+    time: number;
+    scan_id: number;
+    versions: object;
+    plan_args: unknown;
+    plan_type: string;
+    scan_file: string;
+    instrument: string;
+
+    instrument_session: string;
+
+    data_session_directory: string;
+
+    detector_file_template: string;
+  };
   stop?: unknown;
 }
 
@@ -176,4 +197,52 @@ export interface Configuration {
   data: Record<string, number | string>;
   data_keys: Record<string, DataKey>;
   timestamps: Record<string, number>;
+}
+
+export interface WorkflowQueryHandlerResponse {
+  error: ErrorLike | undefined;
+  loading: boolean;
+  data: WorkflowQuery | undefined;
+}
+export interface WorkflowContextType {
+  currentVisit: { visit: VisitInput };
+  setCurrentVisit: React.Dispatch<React.SetStateAction<{ visit: VisitInput }>>;
+  tiledEntry: TiledEntryInfo | null;
+  setTiledEntry: (val: TiledEntryInfo | null) => void;
+  workflowData: WorkflowQuery;
+  setWorkflowData: React.Dispatch<React.SetStateAction<WorkflowQuery>>;
+  templateFilter: string;
+  setTemplateFilter: React.Dispatch<React.SetStateAction<string>>;
+  workflowParams: JSONObject;
+  setWorkflowParams: React.Dispatch<React.SetStateAction<JSONObject>>;
+}
+
+export interface JSONObject {
+  [key: string]: JSONValue;
+}
+
+export type JSONValue =
+  | string
+  | number
+  | boolean
+  | null
+  | JSONObject
+  | JSONValue[];
+
+export interface WorkflowTemplateProps {
+  title: string;
+  maintainer: string;
+  description?: string;
+  repository?: string;
+  parametersSchema: JsonSchema;
+  parametersUISchema?: UISchemaElement;
+  onSubmit: (parameters: object) => void;
+  parameterMessage?: React.JSX.Element;
+}
+
+export interface AnalysisWorkflowResult {
+  x: number[];
+  avg: number[];
+  std: number[];
+  snr: number[];
 }

@@ -10,6 +10,9 @@ import testdata from "../test_data.json";
 
 import testsearch from "../test_search_response.json";
 
+let dataCalls = 0;
+let searchCalls = 0;
+
 const mockPlans = {
   plans: [
     {
@@ -240,13 +243,11 @@ export const handlers = [
     return HttpResponse.json(mockTasks.tasks[0]);
   }),
 
-  http.post("/blueapi/tasks", async ({ request }) => {
+  http.post("/blueapi/tasks", async () => {
     // Read the intercepted request body as JSON.
-    const requestObject = await request.json();
+    // const requestObject = await request.json();
 
     await delay(1000);
-
-    console.log(requestObject);
     const response: TaskResponse = { task_id: "mock_task_id" };
 
     return HttpResponse.json(response, { status: 201 });
@@ -262,8 +263,6 @@ export const handlers = [
 
     await delay(1000);
 
-    console.log(requestObject);
-
     return HttpResponse.json(requestObject);
   }),
 
@@ -273,26 +272,50 @@ export const handlers = [
   }),
 
   http.get("/tiled/search/p51/cm44254/cm44254-1/:id", () => {
-    console.log("ID SEARCH");
     return HttpResponse.json(mockTiledResponse);
   }),
 
-  http.get("tiled/search/p51/cm44254/cm44254-1", ({ request }) => {
-    const url = new URL(request.url);
+  http.get(
+    "/tiled/search/p51/cm44254/cm44254-1/?filter[eq][condition][key]=start.blueapi_task_id&filter[eq][condition][value]=%22mock_task_id%22",
+    () => {
+      console.log(`SEARCH ${searchCalls}`);
+      if (searchCalls == 0) {
+        const mpr = { ...mockPaginatedResponse, data: [] };
+        searchCalls++;
+        return HttpResponse.json(mpr);
+      }
 
-    const key = url.searchParams.get("filter[eq][condition][key]");
-    const value = url.searchParams.get("filter[eq][condition][vale]");
+      if (searchCalls < 10) {
+        const mpr = {
+          ...mockPaginatedResponse,
+          data: [mockPaginatedResponse.data[0]],
+        };
+        searchCalls++;
+        return HttpResponse.json(mpr);
+      }
 
-    console.log(key + " " + value);
+      const mpr = {
+        ...mockPaginatedResponse,
+        data: [mockPaginatedResponse.data[1]],
+      };
+      // searchCalls = 0;
+      return HttpResponse.json(mpr);
+    },
+  ),
+
+  http.get("tiled/search/p51/cm44254/cm44254-1", () => {
+    // const url = new URL(request.url);
+
+    // const key = url.searchParams.get("filter[eq][condition][key]");
+    // const value = url.searchParams.get("filter[eq][condition][vale]");
 
     return HttpResponse.json(mockPaginatedResponse);
   }),
 
   http.get(
     "tiled/array/full/p51/cm44254/cm44254-1/:id/primary/internal/:name",
-    ({ request }) => {
-      const url = new URL(request.url);
-      console.log(url);
+    () => {
+      // const url = new URL(request.url);
 
       return HttpResponse.json(
         Array.from({ length: 100 + Math.floor(Math.random() * 500) }, () =>
@@ -302,17 +325,31 @@ export const handlers = [
     },
   ),
 
-  http.get(
-    "tiled/array/full/p51/cm44254/cm44254-1/:id/primary/:name",
-    ({ request }) => {
-      const url = new URL(request.url);
-      console.log(url);
+  http.get("tiled/array/full/p51/cm44254/cm44254-1/:id/primary/:name", () => {
+    // const url = new URL(request.url);
 
-      return HttpResponse.json(
-        Array.from({ length: 100 + Math.floor(Math.random() * 500) }, () =>
-          Math.random(),
-        ),
-      );
-    },
-  ),
+    if (dataCalls < 100) {
+      dataCalls++;
+    } else {
+      dataCalls = 1;
+    }
+
+    return HttpResponse.json(
+      Array.from(
+        { length: dataCalls * 500 },
+        (_value, index) => index + Math.random() * index,
+      ),
+    );
+  }),
+
+  http.get("www.testfiles/newtestfile.json", () => {
+    // const url = new URL(request.url);
+
+    return HttpResponse.json({
+      avg: Array.from({ length: 500 }, () => Math.random()),
+      std: Array.from({ length: 500 }, () => Math.random()),
+      x: Array.from({ length: 500 }, (_value, index) => index),
+      snr: Array.from({ length: 500 }, (_value, index) => index),
+    });
+  }),
 ];

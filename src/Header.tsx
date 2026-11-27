@@ -57,6 +57,12 @@ export default function Header() {
         <NavLink to="/graphiQL" key="graphiql" linkComponent={Link}>
           Graphql IDE
         </NavLink>
+        <NavLink to="/submit-workflows" key="submit-wf" linkComponent={Link}>
+          Workflow Submitter
+        </NavLink>
+        <NavLink to="/demo" key="demo" linkComponent={Link}>
+          UWG Demo
+        </NavLink>
       </NavLinks>
     </Navbar>
   );

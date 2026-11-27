@@ -20,7 +20,10 @@
             },
             "plan_args": {
               "spec": "Fly(spec=ConstantDuration(constant_duration=0.2, spec=Product(outer=4, inner=Snake(spec=Linspace(axis=<ophyd_async.epics.motor.Motor object at 0x7fa557b5b550>, start=1.0, stop=10.0, num=10)), gap=True)))",
-              "detectors": ["panda1"]
+              "detectors": ["panda1"],
+              "start": "0",
+              "stop": "999",
+              "stepsize": "1"
             },
             "plan_name": "seq_table_uniform_scan",
             "plan_type": "generator",
